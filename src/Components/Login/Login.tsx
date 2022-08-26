@@ -1,16 +1,26 @@
+// Copyright Paylancers 💳 2022 
+// 17 U.S.C §§ 101-1511
+
+//importing relevant modules
 import React, { useEffect, useState } from "react";
 import "./login.css";
 import validateInfo from "../../validation/validation2";
 import { Link } from "react-router-dom";
 
+//JSX login
 const Login = () => {
+
+  // values of email and password initial state
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
+
+  // set initial error state and if there is submission
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // handle onChange 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setValues({
@@ -19,6 +29,7 @@ const Login = () => {
     });
   };
 
+  // handle on submit
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrors(validateInfo(values));
@@ -34,6 +45,7 @@ const Login = () => {
   }, [errors]);
   return (
     <div className="log">
+      
       <div className="log-1">
         <div className="log-12">
           <div>
@@ -104,6 +116,13 @@ const Login = () => {
                       <span>Login</span>
                     </button>
                   </div>
+                  <div className="f-4">
+                    <p className="conditionals"> or </p>
+                    <button className="login_google">
+                    LOGIN WITH GOOGLE
+                    </button>
+                  </div>
+              
                 </form>
               </div>
             </div>

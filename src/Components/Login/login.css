@@ -209,6 +209,20 @@ textarea {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+.f-4 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  text-transform: uppercase;
+  flex-direction: column;
+}
+/* conditionals */
+.f-4 .conditionals {
+  text-transform: uppercase;
+}
+
+
 @media only screen and (max-width: 768px) {
   .log-1 {
     display: none;
