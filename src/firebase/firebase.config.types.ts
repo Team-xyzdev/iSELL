@@ -2,10 +2,10 @@
 // 17 U.S.C §§ 101-1511
 
 export interface firebaseConfigTypes {
-    apiKey : string | undefined,
-    authDomain : string | undefined,
-    projectId : string | undefined,
-    storageBucket : string | undefined,
-    messagingSenderId : string |undefined,
-    appId : string |undefined,
+    apiKey : any,
+    authDomain : any ,
+    projectId : any,
+    storageBucket : any ,
+    messagingSenderId : any ,
+    appId : any,
 }

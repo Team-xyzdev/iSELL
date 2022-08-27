@@ -209,7 +209,12 @@ textarea {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+/* conditionals */
+
 .f-4 {
+  padding-top: 0px !important;
+  margin-top: 0px !important;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -217,10 +222,41 @@ textarea {
   text-transform: uppercase;
   flex-direction: column;
 }
-/* conditionals */
-.f-4 .conditionals {
+.f-4 
+.conditionals {
   text-transform: uppercase;
+  font-size: 17px;
+  margin-top: -19px;
+ padding: 10px;
 }
+
+.f-4
+.login__google{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height : 30px;
+  background-color: rgb(68, 68, 184);
+  border-radius: 10px;
+  cursor: pointer;
+
+}
+
+.f-4
+.login__google:active {
+  transform: translateY(-4px);
+}
+
+
+.f-4
+.login__google
+.google__span
+.google__logo {
+ width: 18px;
+ margin-top: 2px;
+}
+
 
 
 @media only screen and (max-width: 768px) {
