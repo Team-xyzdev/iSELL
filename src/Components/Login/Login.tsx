@@ -1,14 +1,32 @@
 // Copyright Paylancers 💳 2022 
 // 17 U.S.C §§ 101-1511
 
+// relevant firebase imports
+import { signInWithGooglePopup,
+} from "../../firebase/firebase.utils";
+
 //importing relevant modules
 import React, { useEffect, useState } from "react";
-import "./login.css";
 import validateInfo from "../../validation/validation2";
 import { Link } from "react-router-dom";
 
+//importing styles
+import "./login.css";
+
+//importing relevant assets
+const googleLogo = require("../../assets/google.png"); 
+
+
+
 //JSX login
 const Login = () => {
+
+  //sign in with google
+  const signInWithGoogle = async () => {
+    const { user } = await signInWithGooglePopup();
+    console.log(user);
+    // await createUserDocumentFromAuth(user);
+  };
 
   // values of email and password initial state
   const [values, setValues] = useState({
@@ -118,8 +136,9 @@ const Login = () => {
                   </div>
                   <div className="f-4">
                     <p className="conditionals"> or </p>
-                    <button className="login_google">
-                    LOGIN WITH GOOGLE
+                    <button className="login__google" onClick={signInWithGoogle}>
+                    <span className="google__text">LOGIN WITH GOOGLE </span> 
+                    <span className="google__span"> <img className='google__logo' alt='google logo' src={googleLogo} /> </span>
                     </button>
                   </div>
               
