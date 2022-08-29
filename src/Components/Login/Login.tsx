@@ -2,7 +2,9 @@
 // 17 U.S.C §§ 101-1511
 
 // relevant firebase imports
-import { signInWithGooglePopup,
+import { 
+  signInWithGooglePopup,
+  createUserDocumentFromAuth
 } from "../../firebase/firebase.utils";
 
 //importing relevant modules
@@ -25,7 +27,7 @@ const Login = () => {
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
     console.log(user);
-    // await createUserDocumentFromAuth(user);
+    await createUserDocumentFromAuth(user);
   };
 
   // values of email and password initial state
