@@ -38,40 +38,50 @@ googleProvider.setCustomParameters({
 
 export const auth = getAuth();
 
+// google popup
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
+
 // export const signInWithGoogleRedirect = () =>
 //   signInWithRedirect(auth, googleProvider);
-// export const db = getFirestore();
 
-// export const createUserDocumentFromAuth = async (
-//   userAuth,
-//   additionalInformation = {}
-// ) => {
-//   if (!userAuth) return;
+// firestore
+export const db = getFirestore();
 
-//   const userDocRef = doc(db, 'users', userAuth.uid);
+// create user document
+export const createUserDocumentFromAuth = async (
+  userAuth,
+  additionalInformation = {}
+) => {
+  if (!userAuth) return;
 
-//   const userSnapshot = await getDoc(userDocRef);
+  const userDocRef = doc(db, 'users', userAuth.uid);
 
-//   if (!userSnapshot.exists()) {
-//     const { displayName, email } = userAuth;
-//     const createdAt = new Date();
+  const userSnapshot = await getDoc(userDocRef);
 
-//     try {
-//       await setDoc(userDocRef, {
-//         displayName,
-//         email,
-//         createdAt,
-//         ...additionalInformation,
-//       });
-//     } catch (error : any) {
-//       console.log('error creating the user', error.message);
-//     }
-//   }
+  if (!userSnapshot.exists()) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+    const verification = false;
+     
+    try {
+      await setDoc(userDocRef, {
+        displayName,
+        email,
+        createdAt,
+        verification,
+        ...additionalInformation,
+      });
+    } catch (error : any) {
+      console.log('error creating the user', error.message);
+    }
+  }
+  console.log(userDocRef)
 
-//   return userDocRef;
-// };
+  return userDocRef;
+
+  
+};
 
 // export const createAuthUserWithEmailAndPassword = async (email : string, password : string) => {
 //   if (!email || !password) return;
