@@ -4,8 +4,10 @@
 // relevant firebase imports
 import { 
   signInWithGooglePopup,
-  createUserDocumentFromAuth
+  createUserDocumentFromAuth,
+  checkverification
 } from "../../firebase/firebase.utils";
+
 
 //importing relevant modules
 import React, { useEffect, useState } from "react";
@@ -26,8 +28,13 @@ const Login = () => {
   //sign in with google
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
-   const userDetails =  await createUserDocumentFromAuth(user);
-   console.log(userDetails?.userSnapshot);
+    await createUserDocumentFromAuth(user);
+    const verified = await checkverification(user.uid);
+
+    if(verified) {
+    return  window.location.pathname = '/'
+    }
+   return  window.location.pathname = '/setup'
   };
 
   // values of email and password initial state
