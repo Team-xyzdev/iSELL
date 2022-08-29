@@ -26,8 +26,8 @@ const Login = () => {
   //sign in with google
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
-    console.log(user);
-    await createUserDocumentFromAuth(user);
+   const userDetails =  await createUserDocumentFromAuth(user);
+   console.log(userDetails?.userSnapshot);
   };
 
   // values of email and password initial state
