@@ -5,7 +5,8 @@
 import { 
   signInWithGooglePopup,
   createUserDocumentFromAuth,
-  checkverification
+  checkverification,
+  signInAuthUserWithEmailAndPassword
 } from "../../firebase/firebase.utils";
 
 
@@ -43,6 +44,9 @@ const Login = () => {
     password: "",
   });
 
+  // getting the values 
+  const {email, password} = values
+;
   // set initial error state and if there is submission
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -57,10 +61,29 @@ const Login = () => {
   };
 
   // handle on submit
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrors(validateInfo(values));
     setIsSubmitting(true);
+  try {
+    const response = await signInAuthUserWithEmailAndPassword(
+      email,
+      password
+    );
+    console.log(response);
+  }
+  catch(error : any) {
+    switch (error.code) {
+      case 'auth/wrong-password':
+        alert('incorrect password for email');
+        break;
+      case 'auth/user-not-found':
+        alert('no user associated with this email');
+        break;
+      default:
+        console.log(error);
+    }
+  }
   };
 
   useEffect(() => {
