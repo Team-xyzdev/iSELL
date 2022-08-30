@@ -4,6 +4,7 @@
 //import relevant firebase module
 import {
   signInWithGooglePopup,
+  createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
   checkverification
 } from '../../firebase/firebase.utils';
@@ -27,6 +28,9 @@ const Register = () => {
     password: "",
     confirm_password : ""
   });
+
+  // getting values for each
+  const{username, email, password, confirm_password} = values;
 
   // initial states
   const [errors, setErrors] = useState({});
@@ -54,8 +58,25 @@ const Register = () => {
   };
 
   // handle form submit
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (password !== confirm_password) {
+      alert('passwords do not match');
+      return;
+    }
+// create user 
+   try {
+    const {user} :any["user"]= await createAuthUserWithEmailAndPassword(
+      email,
+      password
+    );
+
+    console.log(user, 'user');
+   }
+   catch(error) {
+
+   }
+
     setErrors(validateInfo(values));
     setIsSubmitting(true);
   };
@@ -64,7 +85,7 @@ const Register = () => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       // if no error is found
-      console.log(values);
+      console.log(values, 'values');
     }
     // eslint-disable-next-line
   }, [errors]);
@@ -140,6 +161,21 @@ const Register = () => {
                             placeholder="******"
                             name="password"
                             value={values.password}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="f-12">
+                      <label>Confirm Password</label>
+                      <div>
+                        <div className="f-121">
+                          <input
+                            id="password"
+                            type="password"
+                            placeholder="******"
+                            name="confirm_password"
+                            value={values.confirm_password}
                             onChange={handleChange}
                           />
                         </div>
