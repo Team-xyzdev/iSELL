@@ -22,9 +22,10 @@ const Register = () => {
 
   // setting initial values of inputs
   const [values, setValues] = useState({
-    username: "",
+    username : "",
     email: "",
     password: "",
+    confirm_password : ""
   });
 
   // initial states
@@ -67,7 +68,7 @@ const Register = () => {
     }
     // eslint-disable-next-line
   }, [errors]);
-  
+
   // JSX building block
   return (
     <div className="reg">
