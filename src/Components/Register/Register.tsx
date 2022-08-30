@@ -27,11 +27,12 @@ const Register = () => {
     password: "",
   });
 
+  // initial states
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-    //sign in with google
-    const signUpWithGoogle = async () => {
+    //sign up with google
+  const signUpWithGoogle = async () => {
       const { user } = await signInWithGooglePopup();
       await createUserDocumentFromAuth(user);
       const verified = await checkverification(user.uid);
@@ -42,6 +43,7 @@ const Register = () => {
      return  window.location.pathname = '/setup'
     };
 
+    // handle input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setValues({
@@ -50,12 +52,14 @@ const Register = () => {
     });
   };
 
+  // handle form submit
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrors(validateInfo(values));
     setIsSubmitting(true);
   };
 
+  // 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       // if no error is found
@@ -63,6 +67,8 @@ const Register = () => {
     }
     // eslint-disable-next-line
   }, [errors]);
+  
+  // JSX building block
   return (
     <div className="reg">
       <div className="reg-1">
