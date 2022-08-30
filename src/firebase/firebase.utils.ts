@@ -100,8 +100,8 @@ export const checkverification = async (uid: string) => {
 //   return await createUserWithEmailAndPassword(auth, email , password);
 // };
 
-// export const signInAuthUserWithEmailAndPassword = async (email : string, password : string) => {
-//   if (!email || !password) return;
+export const signInAuthUserWithEmailAndPassword = async (email : string, password : string) => {
+  if (!email || !password) return;
 
-//   return await signInWithEmailAndPassword(auth, email, password);
-// };
+  return await signInWithEmailAndPassword(auth, email, password);
+};

@@ -1,15 +1,46 @@
+// Copyright Paylancers 💳 2022 
+// 17 U.S.C §§ 101-1511
+
+//import relevant firebase module
+import {
+  signInWithGooglePopup,
+  createUserDocumentFromAuth,
+  checkverification
+} from '../../firebase/firebase.utils';
+
+//importing relevant files and modules
 import React, { useEffect, useState } from "react";
 import "./register.css";
 import validateInfo from "../../validation/validation";
 import { Link } from "react-router-dom";
+
+//google icon imported with ES5
+const googleLogo = require('../../assets/google.png');
+
+//JSX Component
 const Register = () => {
+
+  // setting initial values of inputs
   const [values, setValues] = useState({
     username: "",
     email: "",
     password: "",
   });
+
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+    //sign in with google
+    const signUpWithGoogle = async () => {
+      const { user } = await signInWithGooglePopup();
+      await createUserDocumentFromAuth(user);
+      const verified = await checkverification(user.uid);
+  
+      if(verified) {
+      return  window.location.pathname = '/'
+      }
+     return  window.location.pathname = '/setup'
+    };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -60,7 +91,7 @@ const Register = () => {
                 <p>Login</p>
               </Link>
 
-              <div>
+              <div style={{marginBottom: '15px'}}>
                 <h1>Create Account</h1>
                 <p>Let’s get you started! Create an account to begin</p>
                 <form onSubmit={handleSubmit}>
@@ -117,6 +148,13 @@ const Register = () => {
                   <div className="f-3">
                     <button type="submit">
                       <span>Create Account</span>
+                    </button>
+                  </div>
+                  <div className="f-4">
+                    <p className="conditionals"> or </p>
+                    <button className="login__google" onClick={signUpWithGoogle}>
+                    <span className="google__text">SIGN UP WITH GOOGLE </span> 
+                    <span className="google__span"> <img className='google__logo' alt='google logo' src={googleLogo} /> </span>
                     </button>
                   </div>
                 </form>
