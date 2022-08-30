@@ -103,7 +103,7 @@ button {
   color: #2a2a2a;
 }
 .reg-213 div {
-  padding-top: 1rem;
+  padding-top: 0rem;
   margin-top: 0.75rem;
   width: 100%;
   max-width: 32rem;
@@ -163,7 +163,7 @@ textarea {
   line-height: 120%;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  padding-top: 0.9rem;
+  padding-top: 0rem;
   padding-bottom: 0.9rem;
   width: 100%;
   border-radius: 2rem;
@@ -223,7 +223,7 @@ textarea {
     height: 100%;
   }
   .reg-213 div {
-    padding-top: 0.5rem;
+    padding-top: 0rem;
     width: 100%;
     max-width: 32rem;
   }

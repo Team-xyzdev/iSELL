@@ -42,8 +42,8 @@ export const auth = getAuth();
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
 
-// export const signInWithGoogleRedirect = () =>
-//   signInWithRedirect(auth, googleProvider);
+export const signInWithGoogleRedirect = () =>
+  signInWithRedirect(auth, googleProvider);
 
 // firestore
 export const db = getFirestore();
@@ -60,7 +60,7 @@ export const createUserDocumentFromAuth = async (
   const userSnapshot = await getDoc(userDocRef);
 
   if (!userSnapshot.exists()) {
-    const { displayName , email } : any= userAuth;
+    const { displayName , email } : any = userAuth;
     const createdAt: Date = new Date();
     const verification : boolean = false;
      
@@ -94,11 +94,11 @@ export const checkverification = async (uid: string) => {
 
 
 
-// export const createAuthUserWithEmailAndPassword = async (email : string, password : string) => {
-//   if (!email || !password) return;
+export const createAuthUserWithEmailAndPassword = async (email : string, password : string) => {
+  if (!email || !password) return;
 
-//   return await createUserWithEmailAndPassword(auth, email , password);
-// };
+  return await createUserWithEmailAndPassword(auth, email , password);
+};
 
 export const signInAuthUserWithEmailAndPassword = async (email : string, password : string) => {
   if (!email || !password) return;
