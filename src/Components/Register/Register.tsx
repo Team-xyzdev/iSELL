@@ -23,14 +23,14 @@ const Register = () => {
 
   // setting initial values of inputs
   const [values, setValues] = useState({
-    username : "",
+    displayName : "",
     email: "",
     password: "",
     confirm_password : ""
   });
 
   // getting values for each
-  const{username, email, password, confirm_password} = values;
+  const{displayName, email, password, confirm_password} = values;
 
   // initial states
   const [errors, setErrors] = useState({});
@@ -64,17 +64,30 @@ const Register = () => {
       alert('passwords do not match');
       return;
     }
-// create user 
+
    try {
+     // create firebase auth with email and password
     const {user} :any["user"]= await createAuthUserWithEmailAndPassword(
       email,
       password
     );
+   // create user
+   await createUserDocumentFromAuth(user, { displayName });
+   // check if verified
+   const verified = await checkverification(user.uid);
 
-    console.log(user, 'user');
+   if(verified) {
+    return  window.location.pathname = '/'
    }
-   catch(error) {
+   return  window.location.pathname = '/setup'
+ }
 
+   catch(error : any) {
+    if (error.code === 'auth/email-already-in-use') {
+      alert('Cannot create user, email already in use');
+    } else {
+      console.log('user creation encountered an error', error);
+    }
    }
 
     setErrors(validateInfo(values));
@@ -132,7 +145,7 @@ const Register = () => {
                           type="text"
                           name="username"
                           placeholder="Full Name"
-                          value={values.username}
+                          value={values.displayName}
                           onChange={handleChange}
                         />
                       </div>
@@ -171,7 +184,7 @@ const Register = () => {
                       <div>
                         <div className="f-121">
                           <input
-                            id="password"
+                            id="confirm_password"
                             type="password"
                             placeholder="******"
                             name="confirm_password"
