@@ -143,7 +143,7 @@ const Register = () => {
                         <input
                           id="fullName"
                           type="text"
-                          name="username"
+                          name="displayName"
                           placeholder="Full Name"
                           value={values.displayName}
                           onChange={handleChange}

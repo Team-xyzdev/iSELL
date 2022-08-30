@@ -66,11 +66,17 @@ const Login = () => {
     setErrors(validateInfo(values));
     setIsSubmitting(true);
   try {
-    const response = await signInAuthUserWithEmailAndPassword(
+    const {user} :any["user"] = await signInAuthUserWithEmailAndPassword(
       email,
       password
     );
-    console.log(response);
+    const verified = await checkverification(user.uid);
+
+    if(verified) {
+    return  window.location.pathname = '/'
+    }
+   return  window.location.pathname = '/setup'
+
   }
   catch(error : any) {
     switch (error.code) {
