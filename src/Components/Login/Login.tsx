@@ -128,7 +128,7 @@ const Login = () => {
                 <p>Create an account</p>
               </Link>
               <div>
-                <h1>Login to Paylancers</h1>
+                <h1>Login to iSELL</h1>
                 <p>Welcome back</p>
                 <form onSubmit={handleSubmit}>
                   <div className="f-1">

@@ -114,7 +114,7 @@ const Register = () => {
             </a>
             <div className="div-12">
               <h2 className="h2-12">
-                Welcome to <span> paylancer </span> create an account
+                Welcome to <span> iSELL </span> create an account
               </h2>
             </div>
           </div>
