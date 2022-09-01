@@ -36,6 +36,7 @@
        padding-top: 30px;
        display: flex;
        flex-direction: row;
+       padding-left: 20px;
 
     //    justify-content: space-between;
 
@@ -71,7 +72,7 @@
        }
          h2 {
             line-height: 66px;
-            font-size: 80px;
+            font-size: 76px;
              margin-top: 10px;
             font-weight: 700;
         }
@@ -83,11 +84,36 @@
             width: 10vw;
             border-radius: 10px;
         }
+        .sponsor {
+             display: flex;
+             margin-top: 50px;
+            p {
+                padding: 30px;
+            }
+            img {
+                width: 100px;
+                height: 30px;
+                padding-top: 43px;;
+            } 
+        }
 
 
      }
      .component__two {
-
+        display: flex;
+        flex-direction: column;
+       width: 50vw;
+       margin-left: 20px;
+        .coil {
+            width: 150px;
+        }
+        .AA {
+            width: 35vw;
+            border-radius: 10px;
+            margin-left: 74px;
+            margin-top: -67px;
+            
+        }
      }
    }
 }

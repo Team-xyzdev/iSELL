@@ -1,7 +1,15 @@
 import React from "react";
 import './home.scss';
 
+
+// import logos
 const iSELLlogo = require('../../assets/isell-logo.png');
+const rapydLogo = require('../../assets/rapyd-logo.png')
+const product1 = require('../../assets/product-1.png');
+const product2 = require('../../assets/product2.png');
+const cartLogo = require('../../assets/Shape.png');
+const coilLogo = require('../../assets/coil.png');
+const youngAAIMG = require('../../assets/young-picture.png');
 
 const Home = () => {
     return (
@@ -23,12 +31,13 @@ const Home = () => {
               }}> iSELL leverages on the world’s fastest and most secure payment portal to give you the best seling experience you can get.</p>
               <button> Become a Vendor</button>
               <div className="sponsor">
-                  <p> </p>
-                  <img />
+                  <p> Secure Payment by</p>
+                  <img src={rapydLogo} alt='rapyd logo'/>
               </div>
             </div>
             <div className="component__two">
-
+              <img className="coil" src={coilLogo} alt="coil logo" />
+              <img className="AA" src={youngAAIMG} alt="young AA"/>
             </div>
         </div>
      </div>
