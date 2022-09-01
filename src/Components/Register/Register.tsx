@@ -110,7 +110,7 @@ const Register = () => {
         <div className="reg-12">
           <div>
             <a className="a-12" href="www.google.com">
-              <p>Paylancer</p>
+              <p>iSELL</p>
             </a>
             <div className="div-12">
               <h2 className="h2-12">
