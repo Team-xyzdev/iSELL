@@ -38,6 +38,18 @@ const Home = () => {
             <div className="component__two">
               <img className="coil" src={coilLogo} alt="coil logo" />
               <img className="AA" src={youngAAIMG} alt="young AA"/>
+            <div className="products">
+              <div className="product-1">
+                <img src={product1} alt="product-1" />
+                 <div className="product__subsection"> 
+                  <img className="" src={cartLogo} alt="cart logo"/>
+                  <button>Buy Now <i className="uil uil-angle-right"></i></button>
+                 </div>
+              </div>
+              <div className="product-2">
+
+              </div>
+              </div>
             </div>
         </div>
      </div>
