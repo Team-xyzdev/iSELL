@@ -106,11 +106,11 @@ const Login = () => {
         <div className="log-12">
           <div>
             <a className="a-12" href="www.google.com">
-              <p>Paylancer</p>
+              <p>iSELL</p>
             </a>
             <div className="div-123">
               <h2 className="h2-123">
-                Welcome to <span> paylancer </span> create an account
+                Welcome to <span> iSELL </span> create an account
               </h2>
             </div>
           </div>
