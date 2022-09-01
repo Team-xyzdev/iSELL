@@ -12,10 +12,10 @@ import "./App.css";
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Register from "./components/Register/Register";
-import Home from "./pages/home/Home";
-import Login from "./components/Login/Login";
-import Setup from "./components/Setup/Setup";
+import LandingPage from "./pages/landing/LandingPage";
+import LoginPage from './pages/login/LoginPage';
+import SetUpPage from './pages/setup/SetupPage';
+import RegisterPage from './pages/register/RegisterPage';
 
 //importing setCurrentUser from  redux reducer
 import { setCurrentUser } from './store/user/user.reducer';
@@ -38,10 +38,10 @@ useEffect(() => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/setup" element={<Setup />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/setup" element={<SetUpPage />} />
       </Routes>
     </Router>
   );

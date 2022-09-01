@@ -1,8 +1,14 @@
+// Copyright iSELL 💳 2022 
+// 17 U.S.C §§ 101-1511
+
+//importing relevant modules 
 import React from "react";
 import "./setup.css";
 import { Link } from "react-router-dom";
 
+//JSX component
 const Setup = () => {
+  // building block
   return (
     <div className="set">
       <div className="set-1">
