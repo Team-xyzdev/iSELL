@@ -8,7 +8,6 @@ import {
 } from './firebase/firebase.utils'
 
 //importing relevant modules + files
-import "./App.css";
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -23,6 +22,8 @@ import { setCurrentUser } from './store/user/user.reducer';
 
 function App() {
  const dispatch = useDispatch()
+
+ // setting login authentication
 useEffect(() => {
   const unsubscribe = onAuthStateChangedListener((user) => {
     console.log(user);
@@ -33,6 +34,7 @@ useEffect(() => {
   });
 
   return unsubscribe
+   // eslint-disable-next-line
 }, [])
 
   return (
