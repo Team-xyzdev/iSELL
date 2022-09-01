@@ -1,0 +1,36 @@
+.homepage {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px 0 20px;
+
+  .navbar {
+      padding-left: 30px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: solid 1px  #A1A1AA;
+      padding: 0 10px 0px 10px;
+      img {
+          width: 60px;
+          height: 29px;
+          margin-top: 10px;
+      }
+      .sign_in_and_login{
+          display: flex;
+          flex-direction: row;
+
+         p{
+             cursor: pointer;
+             padding: 0 10px 0 5px;
+         } 
+         button:last-child{
+             cursor: pointer;
+             background-color: #18181B;
+             color: #FFFFFF;
+            //  padding: 5px;
+            margin: 5px;
+             border-radius: 10px;
+         }
+      }
+  }
+}

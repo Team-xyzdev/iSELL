@@ -5,11 +5,13 @@
 import * as  React from "react";
 // import { Link } from "react-router-dom";
 
+//import landing page component
+import Home from "../../components/home/home.component";
 // JSX  component
 const LandingPage = () => {
   return (
     <div>
-
+      <Home />
     </div>
   )
 };
