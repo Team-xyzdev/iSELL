@@ -2,24 +2,37 @@
 // 17 U.S.C §§ 101-1511
 
 //importing relevant modules 
-import React from "react";
+import { useState,useRef } from "react";
 import "./setup.css";
 import { Link } from "react-router-dom";
 
 //JSX component
 const Setup = () => {
   // building block
+  const imagePicker: any= useRef(null)
+  const addHeaderImage = (e :any) => {
+    const reader = new FileReader();
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
+
+    reader.onload = (readerEvent :any) => {
+      setImageLogo(readerEvent.target.result);
+    };
+  };
+
+  const [imageLogo, setImageLogo] = useState("")
   return (
     <div className="set">
       <div className="set-1">
         <div className="set-12">
           <div>
             <a className="a-12" href="www.google.com">
-              <p>Paylancer</p>
+              <p>iSELL</p>
             </a>
             <div className="div-12">
               <h2 className="h2-12">
-                Welcome to <span> paylancer </span> create an account
+                Welcome to <span> iSELL </span> create an account
               </h2>
             </div>
           </div>
@@ -38,7 +51,7 @@ const Setup = () => {
               </Link>
 
               <div className="set-2133">
-                <h1>Tell us about yout Business</h1>
+                <h1>Tell us about your Business</h1>
                 <p>
                   please provide basic goals about your business to get started
                 </p>
@@ -51,7 +64,7 @@ const Setup = () => {
                           id="fullName"
                           type="text"
                           name="username"
-                          placeholder="e.g Paylancer"
+                          placeholder="e.g iSELL"
                         />
                       </div>
                     </div>
@@ -67,7 +80,7 @@ const Setup = () => {
                         />
                       </div>
                     </div>
-                    <div className="f-12">
+                    {/* <div className="f-12">
                       <div>
                         <div className="f-1211">
                           <div>
@@ -94,8 +107,33 @@ const Setup = () => {
                           </div>
                         </div>
                       </div>
+                    </div> */}
+                    <div className="upload_sect_img">
+                      <div className="upload_hd_img">
+                        {imageLogo ? (
+                          <img src={imageLogo} alt="" />
+                        ) : (
+                          <i className="uil uil-image" />
+                        )}
+                      </div>
+                  
+
+                    <input
+                      ref={imagePicker}
+                      hidden
+                      onChange={addHeaderImage}
+                      type="file"
+                      accept=".jpg, .jpeg, .png"
+                    />
+                         <div
+                      className="upload_add_img"
+                      onClick={() => imagePicker.current.click()}
+                    >
+                       <p>Upload your Logo</p>
+                 </div>
                     </div>
-                  </div>
+                   </div>
+
                   <div className="f-3">
                     <button type="submit">
                       <span>Save and continue</span>

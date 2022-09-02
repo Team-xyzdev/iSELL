@@ -217,6 +217,51 @@ textarea {
   right: 9rem;
   line-height: 1rem;
 }
+
+.upload_sect_img {
+  margin: 15px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.upload_hd_img {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+  background: var(--back-1);
+  border: 1px solid var(--back-1);
+}
+.upload_hd_img img {
+  width: 100%;
+}
+
+.upload_add_img {
+  flex: 1;
+  display: flex;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 14px;
+  border-radius: 8px;
+  padding: 15px 20px;
+  letter-spacing: 1px;
+  color: var(--white);
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  background: whitesmoke;
+  cursor: pointer;
+}
+.upload_add_img p {
+  opacity: 0.7;
+  color: black;
+}
+
 .f-2 {
   margin-left: auto;
   margin-right: auto;
