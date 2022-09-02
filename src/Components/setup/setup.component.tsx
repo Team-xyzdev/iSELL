@@ -5,6 +5,7 @@
 import { useState,useRef } from "react";
 import "./setup.css";
 import { Link } from "react-router-dom";
+import { UilImage } from '@iconscout/react-unicons'
 
 //JSX component
 const Setup = () => {
@@ -113,7 +114,7 @@ const Setup = () => {
                         {imageLogo ? (
                           <img src={imageLogo} alt="" />
                         ) : (
-                          <i className="uil uil-image" />
+                          <UilImage className="image__default"/>
                         )}
                       </div>
                   
