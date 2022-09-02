@@ -234,8 +234,13 @@ textarea {
   justify-content: center;
   align-items: center;
   margin-right: 30px;
-  background: var(--back-1);
-  border: 1px solid var(--back-1);
+  background: whitesmoke;
+  border: 1px solid whitesmoke;
+}
+.upload_sect_img
+.upload_hd_img
+.image__default {
+  background-color: whitesmoke;
 }
 .upload_hd_img img {
   width: 100%;
