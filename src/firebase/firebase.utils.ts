@@ -17,6 +17,10 @@ import {
 
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
+//storage ref
+import {getStorage} from 'firebase/storage'
+
+
 // Firebase configuration
 export const firebaseConfig:firebaseConfigTypes = {
     apiKey: process.env.REACT_APP_apiKey,
@@ -28,7 +32,7 @@ export const firebaseConfig:firebaseConfigTypes = {
 }
 
 // initialize the app
- initializeApp(firebaseConfig);
+const app =  initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -109,3 +113,6 @@ export const signInAuthUserWithEmailAndPassword = async (email : string, passwor
 
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
+
+  // storage 
+ export const storage = getStorage(app);

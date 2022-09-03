@@ -7,9 +7,30 @@ import "./setup.css";
 import { Link } from "react-router-dom";
 import { UilImage } from '@iconscout/react-unicons'
 
+// import firebase modules
+import { storage } from "../../firebase/firebase.utils";
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
+
 //JSX component
 const Setup = () => {
-  // building block
+  const [imageLogo, setImageLogo] = useState("")
+  const [imageUrl, setImageUrl] = useState("");
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const file= imagePicker.current.files[0]
+    console.log(file);
+    const storageRef = ref(storage, `files/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+    
+    uploadTask.on("state_changed",
+    () => {
+      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        setImageUrl(downloadURL)
+      });
+  })
+}
+
   const imagePicker: any= useRef(null)
   const addHeaderImage = (e :any) => {
     const reader = new FileReader();
@@ -22,7 +43,7 @@ const Setup = () => {
     };
   };
 
-  const [imageLogo, setImageLogo] = useState("")
+ 
   return (
     <div className="set">
       <div className="set-1">
@@ -56,7 +77,7 @@ const Setup = () => {
                 <p>
                   please provide basic goals about your business to get started
                 </p>
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div className="f-1">
                     <div className="f-11">
                       <label>Business Name</label>
@@ -126,12 +147,14 @@ const Setup = () => {
                       type="file"
                       accept=".jpg, .jpeg, .png"
                     />
-                         <div
+                    <div
                       className="upload_add_img"
                       onClick={() => imagePicker.current.click()}
                     >
                        <p>Upload your Logo</p>
+                     
                  </div>
+                 <p>{imageUrl}</p>
                     </div>
                    </div>
 
