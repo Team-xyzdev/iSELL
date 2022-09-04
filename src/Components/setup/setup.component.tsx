@@ -3,16 +3,23 @@
 
 //importing relevant modules 
 import { useState,useRef } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 import "./setup.css";
 import { Link } from "react-router-dom";
 import { UilImage } from '@iconscout/react-unicons'
 
 // import firebase modules
-import { storage } from "../../firebase/firebase.utils";
+import { storage, addSetupDetails } from "../../firebase/firebase.utils";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 
 //JSX component
 const Setup = () => {
+
+  // get user uid from state
+const getUserUid: string | null= useSelector(
+       (state: RootState) => state.currentUser.currentUser)
+
 
   // initial value state
   const [values, setValues] = useState({
@@ -23,7 +30,7 @@ const Setup = () => {
   })
 
   // values
-  const {businessName, description, businessLogoUrl, imageLogo} = values;
+  const { businessLogoUrl, imageLogo} = values;
 
   // handle input change
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,11 +42,11 @@ const Setup = () => {
     };
   
     // handle form submit
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    const file= imagePicker.current.files[0]
+    const file= await imagePicker.current.files[0]
     console.log(file);
-    const storageRef = ref(storage, `files/${file.name}`);
+    const storageRef =  ref(storage, `files/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
     
     uploadTask.on("state_changed",
@@ -50,7 +57,11 @@ const Setup = () => {
           businessLogoUrl : downloadURL
         })
       });
-  })
+    })
+
+    // submit business details 
+ await addSetupDetails(getUserUid, values);
+    
 
 }
 

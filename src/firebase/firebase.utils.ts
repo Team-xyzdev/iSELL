@@ -15,7 +15,7 @@ import {
     onAuthStateChanged
   } from 'firebase/auth';
 
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, setDoc, DocumentData, DocumentReference, DocumentSnapshot } from 'firebase/firestore';
 
 //storage ref
 import {getStorage} from 'firebase/storage'
@@ -60,14 +60,21 @@ export const createUserDocumentFromAuth = async (
 ) => {
   if (!userAuth) return;
 
-  const userDocRef = doc(db, 'users', userAuth.uid);
+  const userDocRef 
+   : DocumentReference<DocumentData>= doc(db, 'users', userAuth.uid);
 
-  const userSnapshot = await getDoc(userDocRef);
+  const userSnapshot 
+   : DocumentSnapshot<DocumentData> = await getDoc(userDocRef);
 
   if (!userSnapshot.exists()) {
     const { displayName , email } : any = userAuth;
     const createdAt: Date = new Date();
     const verification : boolean = false;
+    const businessDetails : Object = {
+      business_name : "",
+      business_description : "",
+      business_url : ""
+    }
      
     try {
       await setDoc(userDocRef, {
@@ -75,6 +82,7 @@ export const createUserDocumentFromAuth = async (
         email,
         createdAt,
         verification,
+        businessDetails,
         ...additionalInformation,
       });
     } catch (error : any) {
@@ -111,8 +119,38 @@ export const signInAuthUserWithEmailAndPassword = async (email : string, passwor
   return await signInWithEmailAndPassword(auth, email, password);
 };
 
-export const onAuthStateChangedListener = (callback) =>
+export const onAuthStateChangedListener = (callback : any) =>
   onAuthStateChanged(auth, callback);
 
   // storage 
  export const storage = getStorage(app);
+
+ // adding set up business details to firestore and update verification
+export const addSetupDetails = async (uid, values) => {
+  const getDocRef = doc(db, 'users', uid);
+
+  const userSnapshot =  await getDoc(getDocRef);
+  const {businessName, 
+    description, 
+    businessLogoUrl} = values
+
+    
+
+  if(!userSnapshot.data()?.verification) {
+        console.log(values, 'values')
+    try {
+      await setDoc(getDocRef, {
+      verification : true,
+       businessDetails : {
+         business_name : businessName,
+         business_description : description,
+         business_url : businessLogoUrl
+       }
+      }, {merge : true})
+    }
+    catch(error : any){
+     console.log(error);
+    }
+  }
+  console.log(userSnapshot.data());
+}
