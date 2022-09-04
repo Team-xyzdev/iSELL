@@ -22,16 +22,19 @@ import { setCurrentUser } from './store/user/user.reducer';
 
 function App() {
  const dispatch = useDispatch()
+  
 
  // setting login authentication
 useEffect(() => {
-  const unsubscribe = onAuthStateChangedListener((user) => {
-    console.log(user);
+ 
+  const unsubscribe = onAuthStateChangedListener((user : Array<any>) => {
     if (user) {
       createUserDocumentFromAuth(user);
     }
-    dispatch(setCurrentUser(user));
+    dispatch(setCurrentUser(user["uid"]));
   });
+
+ 
 
   return unsubscribe
    // eslint-disable-next-line
