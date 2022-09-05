@@ -97,7 +97,7 @@ export const createUserDocumentFromAuth = async (
 };
 
 // check business verification
-export const checkverification = async (uid: string) => {
+export const checkverification = async (uid: any ) => {
   const userDocRef = doc(db, 'users', uid);
 
   const userSnapshot = await getDoc(userDocRef)
@@ -106,13 +106,14 @@ export const checkverification = async (uid: string) => {
 }
 
 
-
+// 
 export const createAuthUserWithEmailAndPassword = async (email : string, password : string) => {
   if (!email || !password) return;
 
   return await createUserWithEmailAndPassword(auth, email , password);
 };
 
+// sign in with email and password
 export const signInAuthUserWithEmailAndPassword = async (email : string, password : string) => {
   if (!email || !password) return;
 
