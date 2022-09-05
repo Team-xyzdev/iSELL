@@ -10,7 +10,9 @@ import { Link } from "react-router-dom";
 import { UilImage } from '@iconscout/react-unicons'
 
 // import firebase modules
-import { storage, addSetupDetails } from "../../firebase/firebase.utils";
+import { storage, 
+      addSetupDetails,
+      checkverification } from "../../firebase/firebase.utils";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 
 //JSX component
@@ -30,7 +32,7 @@ const getUserUid: string | null= useSelector(
   })
 
   // values
-  const { businessLogoUrl, imageLogo} = values;
+  const {imageLogo} = values;
 
   // handle input change
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,24 +46,13 @@ const getUserUid: string | null= useSelector(
     // handle form submit
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    const file= await imagePicker.current.files[0]
-    console.log(file);
-    const storageRef =  ref(storage, `files/${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
-    
-    uploadTask.on("state_changed",
-    () => {
-      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-        setValues({
-          ...values,
-          businessLogoUrl : downloadURL
-        })
-      });
-    })
-
     // submit business details 
  await addSetupDetails(getUserUid, values);
-    
+ const verified = await checkverification(getUserUid)
+ if(verified) {
+  return  window.location.pathname = '/'
+  }
+ return  window.location.pathname = '/setup'
 
 }
 
@@ -69,7 +60,7 @@ const getUserUid: string | null= useSelector(
   const imagePicker:React.MutableRefObject<null | any>= useRef(null)
 
   // showing images
-  const addHeaderImage = (e :any) => {
+  const addHeaderImage = async (e :any) => {
     const reader = new FileReader();
     if (e.target.files[0]) {
       reader.readAsDataURL(e.target.files[0]);
@@ -81,6 +72,26 @@ const getUserUid: string | null= useSelector(
         imageLogo : readerEvent.target.result
       })
     };
+ try {
+  const file= await imagePicker.current.files[0]
+  console.log(file);
+  const storageRef =  ref(storage, `files/${file.name}`);
+  const uploadTask = uploadBytesResumable(storageRef, file);
+  
+  uploadTask.on("state_changed",
+  () => {
+    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+      setValues({
+        ...values,
+        businessLogoUrl : downloadURL
+      })
+
+    });
+  })
+ }
+ catch(eror) {
+   console.log(eror)
+ }
   };
 
  // building block
@@ -170,7 +181,6 @@ const getUserUid: string | null= useSelector(
                  </div>
                  
                     </div>
-                     <p>{businessLogoUrl}</p>
                    </div>
 
                   <div className="f-3">
