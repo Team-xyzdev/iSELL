@@ -59,6 +59,30 @@ const getUserUid: string | null= useSelector(
 // image input ref
   const imagePicker:React.MutableRefObject<null | any>= useRef(null)
 
+// upload image 
+  const uploadImage = async() => {
+   try {
+      const file= await imagePicker.current.files[0]
+      if (!file) return
+      console.log(file);
+      const storageRef =  ref(storage, `files/${file.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, file);
+      
+      uploadTask.on("state_changed",
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setValues({
+            ...values,
+            businessLogoUrl : downloadURL
+          })
+    
+        });
+      })
+     }
+     catch(eror) {
+       console.log(eror)
+     }
+  }
   // showing images
   const addHeaderImage = async (e :any) => {
     const reader = new FileReader();
@@ -72,26 +96,7 @@ const getUserUid: string | null= useSelector(
         imageLogo : readerEvent.target.result
       })
     };
- try {
-  const file= await imagePicker.current.files[0]
-  console.log(file);
-  const storageRef =  ref(storage, `files/${file.name}`);
-  const uploadTask = uploadBytesResumable(storageRef, file);
-  
-  uploadTask.on("state_changed",
-  () => {
-    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-      setValues({
-        ...values,
-        businessLogoUrl : downloadURL
-      })
 
-    });
-  })
- }
- catch(eror) {
-   console.log(eror)
- }
   };
 
  // building block
@@ -169,6 +174,7 @@ const getUserUid: string | null= useSelector(
                       ref={imagePicker}
                       hidden
                       onChange={addHeaderImage}
+                      onClick={uploadImage}
                       type="file"
                       accept=".jpg, .jpeg, .png"
                     />

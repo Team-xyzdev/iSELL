@@ -10,23 +10,26 @@ import {
 } from '../../firebase/firebase.utils';
 
 //importing relevant files and modules
+import { useDispatch } from 'react-redux';
 import React, { useEffect, useState } from "react";
 import "./register.css";
 import validateInfo from "../../validation/validation";
 import { Link } from "react-router-dom";
+import { setCurrentUser } from '../../store/user/user.reducer';
 
 //google icon imported with ES5
 const googleLogo = require('../../assets/google.png');
 
 //JSX Component
 const Register = () => {
+  const dispatch = useDispatch();
 
   // setting initial values of inputs
   const [values, setValues] = useState({
-    displayName : "",
+    displayName: "",
     email: "",
     password: "",
-    confirm_password : ""
+    confirm_password: ""
   });
 
   // getting values for each
@@ -41,10 +44,11 @@ const Register = () => {
       const { user } = await signInWithGooglePopup();
       await createUserDocumentFromAuth(user);
       const verified = await checkverification(user.uid);
-  
+      dispatch(setCurrentUser(user.uid))
       if(verified) {
       return  window.location.pathname = '/'
       }
+
      return  window.location.pathname = '/setup'
     };
 
@@ -60,6 +64,7 @@ const Register = () => {
   // handle form submit
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (password !== confirm_password) {
       alert('passwords do not match');
       return;
@@ -71,6 +76,7 @@ const Register = () => {
       email,
       password
     );
+    dispatch(setCurrentUser(user.uid))
    // create user
    await createUserDocumentFromAuth(user, { displayName });
    // check if verified
