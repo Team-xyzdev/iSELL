@@ -1,0 +1,126 @@
+.splash {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+
+ //    justify-content: space-between;
+
+  .component__one {
+      width: 50vw;
+    display: flex;
+    flex-direction: column;
+     .wave__component {
+      width: 250px;
+      padding: 10px;
+      border-radius: 10px;
+      color: #FFFFFF;
+      background: linear-gradient(90deg, #44BCFF -0.55%, #44B0FF 22.86%, #FF44EC 48.36%, #FF44EC 73.33%, #FF675E 99.34%);
+     .wave {
+             animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+             animation-duration: 2.5s;        /* Change to speed up or slow down */
+             animation-iteration-count: infinite;  /* Never stop waving :) */
+             transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+             display: inline-block;
+           
+           
+           @keyframes wave-animation {
+               0% { transform: rotate( 0.0deg) }
+              10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+              20% { transform: rotate(-8.0deg) }
+              30% { transform: rotate(14.0deg) }
+              40% { transform: rotate(-4.0deg) }
+              50% { transform: rotate(10.0deg) }
+              60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+             100% { transform: rotate( 0.0deg) }
+           }
+         }
+    }
+      h2 {
+         line-height: 66px;
+         font-size: 76px;
+          margin-top: 10px;
+         font-weight: 700;
+     }
+     button {
+         margin-top: 20px;
+         display: flex;
+         cursor: pointer;
+         padding: 10px;
+         width: 10vw;
+         border-radius: 10px;
+     }
+     .sponsor {
+          display: flex;
+          margin-top: 50px;
+         p {
+             padding: 30px;
+         }
+         img {
+             width: 100px;
+             height: 30px;
+             padding-top: 43px;;
+         } 
+     }
+
+
+  }
+  .component__two {
+     display: flex;
+     flex-direction: column;
+    width: 50vw;
+    margin-left: 20px;
+     .coil {
+         width: 150px;
+     }
+     .AA {
+         width: 35vw;
+         border-radius: 10px;
+         margin-left: 74px;
+         margin-top: -67px;
+         
+     }
+     .products{
+         z-index: 1;
+         position: absolute;
+         display: flex;
+         flex-direction: row;
+         .product-1{
+             position: relative;
+             margin-left: 10px;
+             top: 350px;
+             display: flex;
+             flex-direction: column;
+             padding: 10px;
+             width: 150px;
+             border-radius: 10px;
+             background-color: #FFFFFF;
+             box-shadow: 193px 193px 109px rgba(0, 0, 0, 0.01), 109px 109px 92px rgba(0, 0, 0, 0.05), 48px 48px 68px rgba(0, 0, 0, 0.09), 12px 12px 38px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+          .product__subsection{
+             display: flex;
+             flex-direction: row;
+             justify-content: space-between;
+             padding: 5px;
+
+             img {
+             border: solid 1px #D0D5DD;
+             width: 20px;
+             height: 20px;
+             padding: 10px;   
+             border-radius: 5px;     
+             }
+             button {
+                 color: #FFFFFF;
+                  
+                 border-radius: 5px;
+                 cursor: pointer;
+                 padding: 5px;
+                 // margin: 0 15px 0 15px;
+             }
+          }
+           
+         }
+     }
+  
+  }
+}
