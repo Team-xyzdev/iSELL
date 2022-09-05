@@ -11,12 +11,15 @@ import {
 
 
 //importing relevant modules
+import { useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
 import validateInfo from "../../validation/validation2";
 import { Link } from "react-router-dom";
+import { setCurrentUser } from "../../store/user/user.reducer";
 
 //importing styles
 import "./login.css";
+
 
 //importing relevant assets
 const googleLogo = require("../../assets/google.png"); 
@@ -25,13 +28,13 @@ const googleLogo = require("../../assets/google.png");
 
 //JSX login
 const Login = () => {
-
+   const dispatch = useDispatch()
   //sign in with google
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
     await createUserDocumentFromAuth(user);
     const verified = await checkverification(user.uid);
-
+    dispatch(setCurrentUser(user.uid))
     if(verified) {
     return  window.location.pathname = '/'
     }
@@ -71,6 +74,7 @@ const Login = () => {
       password
     );
     const verified = await checkverification(user.uid);
+    setCurrentUser(user.uid);
 
     if(verified) {
     return  window.location.pathname = '/'
