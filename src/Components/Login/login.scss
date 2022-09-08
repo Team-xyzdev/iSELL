@@ -182,15 +182,15 @@
 		width: 50vw;
 		height: 100vh;
 		background: url('../../assets/young-picture.png');
-		// background-repeat: no-repeat;
-		// background-size: cover;
+		background-repeat: no-repeat;
+		background-size: cover;
 		@media screen and (max-width : 1000px) {
 			display: none;
 		}
      .layer {
 	  background: linear-gradient(90deg, #44BCFF -0.55%, #44B0FF 22.86%, #FF44EC 48.36%, #FF44EC 73.33%, #FF675E 99.34%);
 	  opacity: 0.9;
-	  filter: blur(116.333px);
+	  filter: blur(70.333px);
 	  transform: matrix(1, 0, 0, 1, 0, 0); 
       position: absolute;
 	  height: 208.42px;
