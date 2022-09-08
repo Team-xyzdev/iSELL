@@ -117,6 +117,7 @@ const addHeaderImage = async (e :any) => {
        <div className="layer"></div>
       </div>
       <div className="setup__component2">
+        
          <div className="form__tag">
            <h2>Set up Your Business Account</h2>
            <form onSubmit={handleSubmit}>
@@ -179,6 +180,9 @@ const addHeaderImage = async (e :any) => {
              <button type="submit">Set Up</button>
            </form>
          </div>
+      </div>
+      <div className="logout">
+      <button className="button__logout"> Log Out</button>
       </div>
     </div>
 
