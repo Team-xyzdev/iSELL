@@ -73,7 +73,8 @@ export const createUserDocumentFromAuth = async (
     const businessDetails : Object = {
       business_name : "",
       business_description : "",
-      business_url : ""
+      business_url : "",
+      business_type : ""
     }
      
     try {
@@ -133,7 +134,7 @@ export const addSetupDetails = async (uid, values) => {
   const userSnapshot =  await getDoc(getDocRef);
   const {businessName, 
     description, 
-    businessLogoUrl} = values
+    businessLogoUrl, businessType} = values
 
     
 
@@ -145,7 +146,8 @@ export const addSetupDetails = async (uid, values) => {
        businessDetails : {
          business_name : businessName,
          business_description : description,
-         business_url : businessLogoUrl
+         business_url : businessLogoUrl,
+         business_type : businessType
        }
       }, {merge : true})
     }
