@@ -11,7 +11,7 @@ iSELL is a merchant payment web application leveraging rapyd APIs
 npm install
 ```
 
-- or
+or
 
 ```
 yarn add
@@ -23,7 +23,7 @@ yarn add
 npm start
 ```
 
-- or
+ or
 
 ```
 yarn start
