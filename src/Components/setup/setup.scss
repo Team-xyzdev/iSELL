@@ -1,9 +1,11 @@
+// Copyright iSELL 💳 2022 
+// 17 U.S.C §§ 101-1511
+
 .setup {
     display: flex;
     flex-direction: row;
 	background-color: #fff;
-	// justify-content: space-between;
-
+    
    .setup__component1 {
     position: relative;
     border-radius: 10px;
@@ -16,17 +18,6 @@
     @media screen and (max-width : 1000px)  {
         display: none;
     }
-//  .layer {
-//   background: linear-gradient(90deg, #44BCFF -0.55%, #44B0FF 22.86%, #FF44EC 48.36%, #FF44EC 73.33%, #FF675E 99.34%);
-//   opacity: 0.9;
-//   filter: blur(190.333px);
-//   transform: matrix(1, 0, 0, 1, 0, 0); 
-//   position: absolute;
-//   height: 208.42px;
-//   left: 0px;
-//   top: 490.97px;
-//   width: 50vw;
-// }
    } 
    .setup__component2 {
        display: flex;
@@ -90,7 +81,7 @@
        .type {
         display: flex;
         position: absolute;
-        margin-top: 10px;
+        margin-top: 8px;
         color: #A1A1AA;
         margin-left: 10px;
         width: 15px;
@@ -99,7 +90,7 @@
         background: #FAFAFA;
         border: 1px solid #D4D4D8;
         border-radius: 5px;
-        padding-left: 35px;
+        padding-left: 32px;
         width: 338px;
         height: 40px;
         outline: none;
@@ -112,13 +103,66 @@
         option:first-child{
             color: grey;
         }
-        // &:invalid {
-        //     color: blue
-        // }
-        // .disabled__type {
-        //     color: #FAFAFA
-        // }
        }
+     }
+     .upload_sect_img {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         padding-top: 15px;
+       .upload_hd_img {
+           display: flex;
+           width: 50px;
+           height: 50px;
+           overflow: hidden;
+           display: flex;
+           font-size: 20px;
+           justify-content: center;
+           align-items: center;
+           margin-right: 30px;
+           background: whitesmoke;
+           border: 1px solid whitesmoke;
+           border-radius: 5px;
+
+          .image__default {
+              color: grey;
+          } 
+
+          img {
+              width: 100%;
+          } 
+           
+       } 
+    .upload_add_img {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        text-transform: uppercase;
+        background:linear-gradient(90deg,  #ebc588  -0.55%,  #d9b882 22.86%,  #d9b882 48.36%, #dfb97a 73.33%, #dfb97a 99.34%);
+        font-weight: 550;
+        padding: 0px 10px;
+        color: black;
+        border-radius: 5px;
+        // margin-right: 22px;
+    }
+     }
+     button {
+        display: flex;
+        cursor: pointer;
+        background: #18181B;
+        height: 40px;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        padding: 7px;
+        border-radius: 10px;
+        font-weight: bold;
+        outline: none;
+        color: #fff;
+        -webkit-appearance: button;
+        border: none;
+        margin-top: 17px;
      }
 
     }
