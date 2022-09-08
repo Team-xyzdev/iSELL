@@ -173,7 +173,7 @@ const addHeaderImage = async (e :any) => {
                 className="upload_add_img"
                 onClick={() => imagePicker.current.click()}
                  >
-              <p>Upload your Logo</p>    
+              <p className="upload__p">Upload your Logo</p>    
                   </div>  
              </div>
              <button type="submit">Set Up</button>
