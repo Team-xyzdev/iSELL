@@ -6,6 +6,7 @@ import { useState,useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import "./setup.scss";
+import { Link } from "react-router-dom";
 import { UilImage, UilBellSchool, UilCommentAltMessage, UilBookmark} from '@iconscout/react-unicons'
 import { businessTypeOption } from "./setup.business-type";
 
@@ -13,6 +14,7 @@ import { businessTypeOption } from "./setup.business-type";
 // import firebase modules
 import { storage, 
       addSetupDetails,
+      signOutUser,
       checkverification } from "../../firebase/firebase.utils";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 
@@ -23,6 +25,10 @@ const Setup = () => {
 const getUserUid: string | null= useSelector(
        (state: RootState) => state.currentUser.currentUser)
 
+// signout user
+// const signOut = () => {
+
+// }
 
   // initial value state
 const [values, setValues] = useState({
@@ -181,8 +187,10 @@ const addHeaderImage = async (e :any) => {
            </form>
          </div>
       </div>
-      <div className="logout">
+      <div className="logout" onClick={signOutUser}>
+       <Link to='/login'> 
       <button className="button__logout"> Log Out</button>
+      </Link>
       </div>
     </div>
 
