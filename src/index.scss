@@ -1,3 +1,8 @@
+@import url(https://db.onlinewebfonts.com/c/bc3d686231203de67d111be6bec8ecf7?family=TT+Firs+Neue);
+@import url(https://db.onlinewebfonts.com/c/4679956de12dd2d8fc06ed0333e1d21b?family=Proxima+Soft);
+@import url(https://db.onlinewebfonts.com/c/cef009888ec0e6c3fdbb27db91a57b8f?family=Proxima+Nova+A);
+@import url(https://db.onlinewebfonts.com/c/315d8cbb2bb3e24f257a56bf3af89fec?family=TT+Firs);
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,6 +16,24 @@ body {
   }
 }
 
+h1, h2 {
+  font-family: TT Firs Neue ;
+}
+
+p {
+  font-family: TT Firs;
+}
+button {
+  font-family: TT Firs;
+  text-transform: uppercase;
+}
+
+input {
+  font-family: TT Firs;
+}
+select, option {
+  font-family: TT Firs;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
