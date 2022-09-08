@@ -1,7 +1,7 @@
-.login {
+.register {
 	display: flex;
-	background-color: #ffff;
 	flex-direction: row;
+	background-color: #fff;
 	justify-content: space-between;
 
 	@media screen and (max-width: 1000px) {
@@ -9,32 +9,56 @@
 		justify-content: center;
 	}
 
-	.login__component1 {
-		display: flex;
-		flex-direction: column;
-        padding: 50px;
+	.register__component1 {
+      display: flex;
+	  flex-direction: column;
+	  padding: 50px;
 
-		@media screen and (max-width: 1000px) {
-		 padding-left: 0px;
-		 padding-right: 0px;
+	  @media screen and (max-width: 1000px) {
+		padding-left: 0px;
+		padding-right: 0px;
+      }
+     img {
+		 display: flex;
+		 padding: 20px;
+		 width : 50px;
 
-		}
-	  img {
-		  width : 50px;
-		  padding: 20px;
-
-	@media screen and (max-width: 1000px) {
+		 @media screen and (max-width: 1000px) {
 		    padding: 0px;
 			position: absolute;
 			left: 30px;
-		}
-	  }
-	  .log__body {
-		padding-top: 75px; 
-		display: flex;
-		flex-direction: column;
+		}	 
+	 }
+	 .form__tag {
+		 display: flex;
+		 flex-direction: column;
+		 padding-top: 25px;
 
-		.email__address {
+         .full__name {
+			display: flex;
+			flex-direction: row;
+			padding-bottom: 15px;
+
+		  .user {
+			display: flex;
+			position: absolute;
+			margin-top: 10px;
+			color: #A1A1AA;
+			margin-left: 10px;
+			width: 15px;
+		  }
+		  input {
+			background: #FAFAFA;
+			border: 1px solid #D4D4D8;
+			border-radius: 5px;
+			padding-left: 35px;
+			width: 300px;
+			height: 40px;
+			outline: none;
+		  }
+
+		 }
+		 .email__address {
 			display: flex;
 			flex-direction: row;
 			
@@ -90,32 +114,6 @@
 
 		}
 		}
-		.forgot__password {
-			display: flex;
-			flex-direction: row;
-            justify-content: space-between;
-		  .remember__me {
-			  display: flex;
-			 input {
-			  margin-top: 15px;
-              cursor: pointer;
-			  width: 18px;
-              height: 18px;
-			 }
-			  
-			  p{
-				  padding-left: 8px;
-				  font-size: 13px;
-				  margin-top: 17px;
-			  }
-		  }
-		  p {
-			  color :  #18181B;
-			  cursor: pointer;
-			  font-size: 13px;
-			  margin-top: 17px;
-		  }
-		}
 		button {
 			display: flex;
 			cursor: pointer;
@@ -130,7 +128,7 @@
 			border: none;
 			margin-top: 17px;
 		}
-        .sign__in__google {
+		.sign__in__google {
 			display: flex;
 			flex-direction: column;
 		  .conditionals {
@@ -166,23 +164,24 @@
 		  }
 		}
 		.signup__route {
-		   padding-top: 50px;
-		  font-size: 14px;	
-		  .signup__link {
-			  cursor: pointer;
-			  padding-left: 5px;
-			  font-weight: 550;
-		  }
-		}
-	  }
+			padding-top: 50px;
+		   font-size: 14px;	
+		   .signup__link {
+			   cursor: pointer;
+			   padding-left: 5px;
+			   font-weight: 550;
+		   }
+		 }
+	 }
+
 	}
-	.login__component2 {
+	.register__component2 {
 		position: relative;
 		display: flex;
 		width: 50vw;
 		height: 100vh;
-		background: url('../../assets/young-picture.png');
-		// background-repeat: no-repeat;
+		background: url('../../assets/asian.png');
+		background-repeat: repeat;
 		// background-size: cover;
 		@media screen and (max-width : 1000px) {
 			display: none;
@@ -198,6 +197,6 @@
 	  top: 490.97px;
 	  width: 50vw;
     }
-
 	}
+
 }

@@ -141,21 +141,21 @@ const Login = () => {
              <button type="submit">
                Sign In
              </button>
-             <div className="sign__in__google" onClick={signInWithGoogle}>
+             
+           </form>
+           <div className="sign__in__google" onClick={signInWithGoogle}>
                 <p className="conditionals"> or </p>
                 <button className="login__google">
                     <span className="google__text">Sign In with Google</span> 
                     <img className='google__logo' alt='google logo' src={googleLogo} /> 
                 </button>
                   </div>
-           </form>
           <p className="signup__route">Don't have an account? 
              <Link to='/register' 
                style={{
                  outline: "none",
                  textDecoration: "none"
-
-               }}>
+                 }}>
               <span className="signup__link">Sign up now</span> </Link>
             </p>
          </div>
