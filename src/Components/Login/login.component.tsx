@@ -119,6 +119,7 @@ const Login = () => {
                 <input
                 onChange={handleChange} 
                 name="email"
+                value={values.email}
                 type='text' 
                   placeholder="Email address"/>
                 </div>
@@ -127,6 +128,7 @@ const Login = () => {
                 <input 
                 onChange={handleChange}
                  type='password'
+                 value={values.password}
                  name="password"
                  placeholder="Password" />    
                 <UilEye className="show__hide" />

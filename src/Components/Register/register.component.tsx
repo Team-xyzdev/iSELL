@@ -127,6 +127,7 @@ const Register = () => {
                  <input 
                  placeholder="Full Name"
                  type='text'
+                 value={values.displayName}
                  name='displayName'
                  onChange={handleChange} />
                </div>
@@ -136,12 +137,14 @@ const Register = () => {
                   onChange={handleChange} 
                   name="email"
                   type='text' 
+                  value={values.email}
                   placeholder="Email address"/>
                 </div>
                 <div className="password__tag">
                  <UilLock className="password__lock"/>
                  <input 
                   onChange={handleChange}
+                  value={values.password}
                   type='password'
                   name="password"
                   placeholder="Password" />    
@@ -151,6 +154,7 @@ const Register = () => {
                 <UilLock className="password__lock"/>
                 <input 
                 onChange={handleChange}
+                value={values.confirm_password}
                  type='password'
                  name="confirm_password"
                  placeholder="Confirm Password" />    

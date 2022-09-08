@@ -1,0 +1,126 @@
+.setup {
+    display: flex;
+    flex-direction: row;
+	background-color: #fff;
+	// justify-content: space-between;
+
+   .setup__component1 {
+    position: relative;
+    border-radius: 10px;
+    display: flex;
+    width: 50vw;
+    height: 100vh;
+    background: url('../../assets/setup.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media screen and (max-width : 1000px)  {
+        display: none;
+    }
+//  .layer {
+//   background: linear-gradient(90deg, #44BCFF -0.55%, #44B0FF 22.86%, #FF44EC 48.36%, #FF44EC 73.33%, #FF675E 99.34%);
+//   opacity: 0.9;
+//   filter: blur(190.333px);
+//   transform: matrix(1, 0, 0, 1, 0, 0); 
+//   position: absolute;
+//   height: 208.42px;
+//   left: 0px;
+//   top: 490.97px;
+//   width: 50vw;
+// }
+   } 
+   .setup__component2 {
+       display: flex;
+       flex-direction: column;
+       padding: 75px;
+    .form__tag {
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+
+     .business__name {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 15px;
+
+       .bus__name {
+        display: flex;
+        position: absolute;
+        margin-top: 10px;
+        color: #A1A1AA;
+        margin-left: 10px;
+        width: 15px;
+       }
+       input {
+        background: #FAFAFA;
+        border: 1px solid #D4D4D8;
+        border-radius: 5px;
+        padding-left: 35px;
+        width: 300px;
+        height: 40px;
+        outline: none;
+      }
+
+     }
+     .business__description {
+        display: flex;
+        flex-direction: row;
+      .description {
+        display: flex;
+        position: absolute;
+        margin-top: 10px;
+        color: #A1A1AA;
+        margin-left: 10px;
+        width: 15px;
+      }
+      input {
+        background: #FAFAFA;
+        border: 1px solid #D4D4D8;
+        border-radius: 5px;
+        padding-left: 35px;
+        width: 300px;
+        height: 40px;
+        outline: none;
+      }
+     }
+     .business__type {
+         display: flex;
+         flex-direction: row;
+         padding-top: 10px;
+
+       .type {
+        display: flex;
+        position: absolute;
+        margin-top: 10px;
+        color: #A1A1AA;
+        margin-left: 10px;
+        width: 15px;
+       }  
+       select {
+        background: #FAFAFA;
+        border: 1px solid #D4D4D8;
+        border-radius: 5px;
+        padding-left: 35px;
+        width: 338px;
+        height: 40px;
+        outline: none;
+        -webkit-appearance: menulist-button;
+        //  color: grey;
+
+        option { 
+            color: black ; 
+        }
+        option:first-child{
+            color: grey;
+        }
+        // &:invalid {
+        //     color: blue
+        // }
+        // .disabled__type {
+        //     color: #FAFAFA
+        // }
+       }
+     }
+
+    }
+   }
+}
