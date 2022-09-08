@@ -1,3 +1,6 @@
+// Copyright iSELL 💳 2022 
+// 17 U.S.C §§ 101-1511
+
 .register {
 	display: flex;
 	flex-direction: row;
@@ -120,6 +123,10 @@
 			background: #18181B;
 			width: 100%;
 			justify-content: center;
+			font-weight:  bold;
+			height: 40px;
+			align-items: center;
+			align-content: center;
 			padding: 7px;
 			border-radius: 10px;
 			outline: none;

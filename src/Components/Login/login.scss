@@ -1,3 +1,6 @@
+// Copyright iSELL 💳 2022 
+// 17 U.S.C §§ 101-1511
+
 .login {
 	display: flex;
 	background-color: #ffff;
@@ -124,11 +127,15 @@
 			justify-content: center;
 			padding: 7px;
 			border-radius: 10px;
+			font-weight: bold;
 			outline: none;
 			color: #fff;
 			-webkit-appearance: button;
 			border: none;
 			margin-top: 17px;
+			height: 40px;
+			align-items: center;
+			align-content: center;
 		}
         .sign__in__google {
 			display: flex;
