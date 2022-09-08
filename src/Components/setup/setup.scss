@@ -6,6 +6,11 @@
     flex-direction: row;
 	background-color: #fff;
 
+    @media screen and (max-width: 1000px) {
+		text-align: center;
+		justify-content: center;
+	}
+
    .setup__component1 {
     position: relative;
     border-radius: 10px;
@@ -23,6 +28,11 @@
        display: flex;
        flex-direction: column;
        padding: 75px;
+       @media screen and (max-width : 1000px)  {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
     .form__tag {
         display: flex;
         flex-direction: column;
