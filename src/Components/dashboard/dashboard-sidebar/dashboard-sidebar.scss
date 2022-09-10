@@ -29,6 +29,69 @@
           text-transform: capitalize;
       }
      }
+     .sidebarsub__component{
+         display: flex;
+         flex-direction: column;
+         padding: 10px 5px 10px 5px;
+         width: 200px;
+       .home__dashboard {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 50%;
+        cursor: pointer;
+         .home__dash {
+            //  margin-top: 5px;
+             width: 18px;
+             color: #18181B;
+         }
+        .dashboard__paragraph {
+            font-size: 14px;
+            // margin-right: 73px;
+            margin-top: 3px;
+            color: #18181B;
+        }
+
+       }
+       .analytics__dashboard {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        // text-align: right;
+        // margin-top: 15px;
+
+        .analytics {
+            font-size: 11px;
+            letter-spacing: 1px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #A1A1AA;
+            padding-left: 5px;
+
+        }
+
+       .signals__dashboard {
+           display: flex;
+           flex-direction: row;
+           justify-content: space-between;
+           width: 65%;
+        //    padding: 10px 5px 10px 5px;
+           cursor: pointer;
+
+           .signal {
+            width: 16px;
+            // margin-right: 10px;
+           }
+           .sales{
+            font-size: 14px;
+            margin-top: 3px;
+
+           }
+      
+       } 
+     }
+
+     }
      
    } 
 }
