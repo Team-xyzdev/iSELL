@@ -1,0 +1,34 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    border-right: solid 1px #E4E4E7;;
+    width: 200px;
+
+   .sidebar__component1 {
+       padding-top: 10px;
+     .product__button {
+       margin: 0px 5px 0px 5px;
+       display: flex;
+       cursor: pointer;
+       background: #18181B;
+       justify-content: center;
+       padding: 5px;
+       border-radius: 10px;
+       font-weight: bold;
+       outline: none;
+       color: #fff;
+       width: 90%;
+       -webkit-appearance: button;
+       border: none;
+       margin-top: 17px;
+       height: 40px;
+       align-items: center;
+       align-content: center;
+      span {
+          margin-top: -1px;
+          text-transform: capitalize;
+      }
+     }
+     
+   } 
+}
