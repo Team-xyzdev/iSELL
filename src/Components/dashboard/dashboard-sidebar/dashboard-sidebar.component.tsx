@@ -3,7 +3,7 @@
 
 //import relevant modules
 import React from "react";
-import {UilPlus, UilEstate} from '@iconscout/react-unicons';
+import {UilPlus, UilEstate ,  UilSignalAlt3 } from '@iconscout/react-unicons';
 import './dashboard-sidebar.scss';
 
 //JSX Component
@@ -15,6 +15,20 @@ const DashboardSidebar = () => {
             <UilPlus className="uil__plus"/>
             <span> Create A Product</span>
           </button>
+          <div className="sidebarsub__component">
+            <div className="home__dashboard">
+                <UilEstate className="home__dash"/>
+                <p className="dashboard__paragraph">Dashboard</p>
+            </div>  
+            <div className="analytics__dashboard">
+              <p className="analytics">Analytics</p>
+              <div className="signals__dashboard">
+               <UilSignalAlt3 className="signal"/> 
+               <p className="sales">Sales</p>
+              </div>
+            
+            </div>
+          </div>
          </div>   
      
         </div>
