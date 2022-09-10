@@ -3,8 +3,8 @@
 @import url(https://db.onlinewebfonts.com/c/cef009888ec0e6c3fdbb27db91a57b8f?family=Proxima+Nova+A);
 @import url(https://db.onlinewebfonts.com/c/315d8cbb2bb3e24f257a56bf3af89fec?family=TT+Firs);
 
-body {
-  overflow: hidden;
+body, html{
+  overflow-x: hidden;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -16,7 +16,9 @@ body {
     all : unset;
   }
 }
-
+App {
+  overflow-x: hidden;
+}
 h1, h2 {
   font-family: TT Firs Neue ,'Courier New';
 }

@@ -15,6 +15,7 @@ import LandingPage from "./pages/landing/LandingPage";
 import LoginPage from './pages/login/LoginPage';
 import SetUpPage from './pages/setup/SetupPage';
 import RegisterPage from './pages/register/RegisterPage';
+import DashboardPage from './pages/dashboard/DashboardPage';
 
 //importing setCurrentUser from  redux reducer
 import { setCurrentUser } from './store/user/user.reducer';
@@ -50,6 +51,7 @@ useEffect(() => {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/setup" element={<SetUpPage />} />
+        <Route path="/dashboard" element={<DashboardPage/>} />
       </Routes>
     </Router>
   );
