@@ -5,7 +5,7 @@
 import React from "react";
 import {UilPlus, UilEstate , 
      UilSignalAlt3 , UilUserArrows,
-     UilFolder} from '@iconscout/react-unicons';
+     UilFolder, UilSignout} from '@iconscout/react-unicons';
 import './dashboard-sidebar.scss';
 
 //JSX Component
@@ -46,7 +46,10 @@ const DashboardSidebar = () => {
             </div>
           </div>
          </div>   
-     
+         <div className="sidebar__component2">
+             <UilSignout className="logout"/>
+             <p>Logout</p>
+         </div>
         </div>
     );
 }
