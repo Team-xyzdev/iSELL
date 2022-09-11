@@ -9,6 +9,8 @@ import './dashboard.scss';
 import DashboardNavbar from "./dashboard-navbar/dashboard-navbar.component";
 import DashboardSidebar from "./dashboard-sidebar/dashboard-sidebar.component";
 import DashboardProducts from "./dashboard-products/dashboard-products.component";
+import DashboardSales from "./dashboard-sales/dashboard-sales.component";
+import { Route, Routes} from "react-router-dom";
 
 
 const Dashboard = () => {
@@ -17,8 +19,15 @@ const Dashboard = () => {
         <DashboardNavbar />
         <div className="dashboard__main">
             <DashboardSidebar/>
-            <DashboardProducts/>
+           <Routes>
+             <Route path="/" element={<DashboardProducts/>} />
+             <Route path="/sales" element={<DashboardSales/>}/>
+            </Routes>
+          
+     
+   
         </div>
+        
       </div>
     );
 }
