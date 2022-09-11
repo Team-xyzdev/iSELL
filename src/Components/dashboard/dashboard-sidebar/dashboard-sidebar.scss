@@ -1,11 +1,16 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    border-right: solid 1px #E4E4E7;;
+    border-right: solid 1px #E4E4E7;
+    height: 90vh;
     width: 200px;
+    align-content: space-between;
+    // justify-content: space-between;
+    
 
    .sidebar__component1 {
        padding-top: 10px;
+
      .product__button {
        margin: 0px 5px 0px 5px;
        display: flex;
@@ -29,6 +34,7 @@
           text-transform: capitalize;
       }
      }
+
      .sidebarsub__component{
          display: flex;
          flex-direction: column;
@@ -156,4 +162,23 @@
      }
      
    } 
+   .sidebar__component2 {
+       margin-top: 180px;
+       display: flex;
+       width: 39%;
+       flex-direction: row;
+       justify-content: space-between;
+       cursor: pointer;
+       .logout {
+        width: 16px;
+        margin-left: 3px;
+       }
+       & p {
+        color: black;
+        text-transform: capitalize;
+       font-size: 14px;
+       margin-top: 3px;
+       }
+   }
+   
 }
