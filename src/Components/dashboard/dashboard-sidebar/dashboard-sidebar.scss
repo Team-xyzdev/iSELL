@@ -89,7 +89,39 @@
            }
       
        } 
+       }
+       .support__dashboard{
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+     .support {
+        font-size: 11px;
+        letter-spacing: 1px;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: #A1A1AA;
+        padding-left: 5px;
      }
+     .customers__dashboard {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        // width: 65%;
+     //    padding: 10px 5px 10px 5px;
+        cursor: pointer;
+
+        .customers {
+            width: 16px;
+         }
+         .customer {
+            font-size: 14px;
+            margin-top: 3px;
+    
+         }
+     }
+
+
+      }
 
      }
      
