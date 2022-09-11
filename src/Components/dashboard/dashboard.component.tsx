@@ -8,6 +8,7 @@ import './dashboard.scss';
 //import sections of the dashboard
 import DashboardNavbar from "./dashboard-navbar/dashboard-navbar.component";
 import DashboardSidebar from "./dashboard-sidebar/dashboard-sidebar.component";
+import DashboardProducts from "./dashboard-products/dashboard-products.component";
 
 
 const Dashboard = () => {
@@ -16,6 +17,7 @@ const Dashboard = () => {
         <DashboardNavbar />
         <div className="dashboard__main">
             <DashboardSidebar/>
+            <DashboardProducts/>
         </div>
       </div>
     );
