@@ -3,7 +3,9 @@
 
 //import relevant modules
 import React from "react";
-import {UilPlus, UilEstate ,  UilSignalAlt3 , UilUserArrows} from '@iconscout/react-unicons';
+import {UilPlus, UilEstate , 
+     UilSignalAlt3 , UilUserArrows,
+     UilFolder} from '@iconscout/react-unicons';
 import './dashboard-sidebar.scss';
 
 //JSX Component
@@ -25,8 +27,7 @@ const DashboardSidebar = () => {
               <div className="signals__dashboard">
                <UilSignalAlt3 className="signal"/> 
                <p className="sales">Sales</p>
-              </div>
-            
+              </div>      
             </div>
             <div className="support__dashboard">
                 <p className="support">Support</p>
@@ -35,6 +36,13 @@ const DashboardSidebar = () => {
                 <p className="customer">Customers</p>
                 </div> 
                
+            </div>
+            <div className="shop__dashboard">
+                <p>Shop</p>
+                <div>
+                 <UilFolder className="products"/>
+                 <p>Products</p>
+                </div>
             </div>
           </div>
          </div>   
