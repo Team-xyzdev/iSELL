@@ -1,0 +1,29 @@
+.product-footer {
+  width: 100%;
+  height: 20vh;
+  .div-1 {
+    display: flex;
+    justify-content: space-between;
+    border: solid;
+    align-items: center;
+    border-left: none;
+    border-right: none;
+    border-color: rgba(0, 0, 0, 0.12);
+    padding: 10px;
+    border-width: 1px;
+    .isell {
+      padding: 10px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      height: 30px;
+      width: 70px;
+    }
+  }
+  .copy-text {
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
