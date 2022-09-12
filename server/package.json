@@ -1,0 +1,38 @@
+{
+  "name": "isell-backend",
+  "version": "1.0.0",
+  "description": "This is the server side of isell merchant",
+  "main": "index.js",
+  "scripts": {
+    "type": "module",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "start": "node ./dist/server.js",
+    "dist": "tsc -p .",
+    "dev": "nodemon ./server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Samuellyworld/paylancers.git"
+  },
+  "author": "Samuel Aspirin & Kingsley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Samuellyworld/paylancers/issues"
+  },
+  "homepage": "https://github.com/Samuellyworld/paylancers#readme",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.7.16",
+    "dotenv": "^16.0.2",
+    "nodemon": "^2.0.19",
+    "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0"
+  }
+}
