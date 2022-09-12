@@ -1,0 +1,52 @@
+.dashboard__upload {
+    display: flex;
+    flex-direction: column;
+
+  .dashboard-products {
+      display: flex;
+      padding-top: 100px;
+      flex-direction: column;
+      width: 80vw;
+      text-align: center;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+    & img {
+        width : 132px;
+        height: 98px;
+    }
+    & h2 {
+        font-size: 16px;
+        margin-bottom: 1px;
+    }
+    & p {
+        font-size: 14px;
+        line-height: 20px;
+        color : #667085;
+        margin: auto;
+    }
+    & button {
+        margin: 0px 5px 0px 5px;
+        display: flex;
+        cursor: pointer;
+        background: #18181B;
+        justify-content: center;
+        padding: 5px;
+        border-radius: 10px;
+        font-weight: bold;
+        outline: none;
+        color: #fff;
+        width: 20%;
+        -webkit-appearance: button;
+        border: none;
+        margin-top: 17px;
+        height: 40px;
+        align-items: center;
+        align-content: center;
+       span {
+           margin-top: -1px;
+           text-transform: capitalize;
+       }
+    }
+  }
+}

@@ -3,10 +3,18 @@ iSELL is a merchant payment web application leveraging rapyd APIs
 
 # RUN ON LOCAL DEVELOPMENT
 
-- install dependencies
+
+
+- install dependencies 
 
 ```
 npm install
+```
+
+or
+
+```
+yarn add
 ```
 
 - start scripts
@@ -14,6 +22,16 @@ npm install
 ```
 npm start
 ```
+
+ or
+
+```
+yarn start
+```
+
+
+
+
 
 
 # MIT License

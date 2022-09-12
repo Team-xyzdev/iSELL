@@ -9,20 +9,23 @@ import {
   signInAuthUserWithEmailAndPassword
 } from "../../firebase/firebase.utils";
 
-
 //importing relevant modules
 import { useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
 import validateInfo from "../../validation/validation2";
 import { Link } from "react-router-dom";
 import { setCurrentUser } from "../../store/user/user.reducer";
+import { UilEnvelope,
+    UilLock , UilEye, UilEyeSlash } from '@iconscout/react-unicons'
 
 //importing styles
-import "./login.css";
+import "./login.scss";
 
 
 //importing relevant assets
 const googleLogo = require("../../assets/google.png"); 
+const backgroundImage  = require('../../assets/young-picture.png');
+const isellLogo = require('../../assets/isell-logo.png');
 
 
 
@@ -73,6 +76,7 @@ const Login = () => {
       email,
       password
     );
+    if(!user) return
     const verified = await checkverification(user.uid);
     setCurrentUser(user.uid);
 
@@ -104,91 +108,62 @@ const Login = () => {
     // eslint-disable-next-line
   }, [errors]);
   return (
-    <div className="log">
-      
-      <div className="log-1">
-        <div className="log-12">
-          <div>
-            <a className="a-12" href="www.google.com">
-              <p>iSELL</p>
-            </a>
-            <div className="div-123">
-              <h2 className="h2-123">
-                Welcome to <span> iSELL </span> create an account
-              </h2>
-            </div>
-          </div>
-          <div></div>
-        </div>
-        <div className="log-13">
-          <div></div>
-        </div>
+    <div className="login">
+      <div className="login__component1">
+         <img src={isellLogo} alt="isell logo" />
+         <div className="log__body">
+           <h2> Welcome back to iSELL</h2>
+           <form onSubmit={handleSubmit}>
+             <div className="email__address"> 
+                <UilEnvelope className="envelope"/>
+                <input
+                onChange={handleChange} 
+                name="email"
+                value={values.email}
+                type='text' 
+                  placeholder="Email address"/>
+                </div>
+              <div className="password__tag">
+                <UilLock className="password__lock"/>
+                <input 
+                onChange={handleChange}
+                 type='password'
+                 value={values.password}
+                 name="password"
+                 placeholder="Password" />    
+                <UilEye className="show__hide" />
+             </div>
+             <div className="forgot__password">
+               <div className="remember__me">
+                <input type="checkbox" />
+                <p>Remember me</p>
+               </div>
+               <p>Forgot Password?</p>
+             </div>
+             <button type="submit">
+               Sign In
+             </button>
+             
+           </form>
+           <div className="sign__in__google" onClick={signInWithGoogle}>
+                <p className="conditionals"> or </p>
+                <button className="login__google">
+                    <span className="google__text">Sign In with Google</span> 
+                    <img className='google__logo' alt='google logo' src={googleLogo} /> 
+                </button>
+                  </div>
+          <p className="signup__route">Don't have an account? 
+             <Link to='/register' 
+               style={{
+                 outline: "none",
+                 textDecoration: "none"
+                 }}>
+              <span className="signup__link">Sign up now</span> </Link>
+            </p>
+         </div>
       </div>
-      <div className="log-2">
-        <div className="log-21">
-          <div>
-            <div className="log-213">
-              <Link to="/register" className="a-tag">
-                <p>Create an account</p>
-              </Link>
-              <div>
-                <h1>Login to iSELL</h1>
-                <p>Welcome back</p>
-                <form onSubmit={handleSubmit}>
-                  <div className="f-1">
-                    <div className="f-11">
-                      <label>Email Address</label>
-                      <div>
-                        <input
-                          id="email"
-                          type="email"
-                          name="email"
-                          placeholder="email address"
-                          value={values.email}
-                          onChange={handleChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="f-12">
-                      <label>Password</label>
-                      <div>
-                        <div className="f-121">
-                          <input
-                            id="password"
-                            type="password"
-                            placeholder="******"
-                            name="password"
-                            value={values.password}
-                            onChange={handleChange}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="f-2">
-                    <p>
-                      By creating an account, you agree to our Terms &
-                      Conditions and Privacy Policy
-                    </p>
-                  </div>
-                  <div className="f-3">
-                    <button type="submit">
-                      <span>Login</span>
-                    </button>
-                  </div>
-                  <div className="f-4">
-                    <p className="conditionals"> or </p>
-                    <button className="login__google" onClick={signInWithGoogle}>
-                    <span className="google__text">LOGIN WITH GOOGLE </span> 
-                    <span className="google__span"> <img className='google__logo' alt='google logo' src={googleLogo} /> </span>
-                    </button>
-                  </div>
-              
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="login__component2">
+        <div className="layer"></div>
       </div>
     </div>
   );

@@ -1,0 +1,10 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+
+  .dashboard__main {
+      display: flex;
+      flex-direction: row;;
+  }
+}

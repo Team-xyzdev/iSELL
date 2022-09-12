@@ -12,13 +12,18 @@ import {
 //importing relevant files and modules
 import { useDispatch } from 'react-redux';
 import React, { useEffect, useState } from "react";
-import "./register.css";
+import "./register.scss";
 import validateInfo from "../../validation/validation";
 import { Link } from "react-router-dom";
 import { setCurrentUser } from '../../store/user/user.reducer';
+import { UilUser, 
+      UilEnvelope,  UilLock, UilEye
+  } from '@iconscout/react-unicons'
 
 //google icon imported with ES5
 const googleLogo = require('../../assets/google.png');
+const isellLogo = require('../../assets/isell-logo.png');
+const signupBg = require('../../assets/asian.png');
 
 //JSX Component
 const Register = () => {
@@ -111,121 +116,76 @@ const Register = () => {
 
   // JSX building block
   return (
-    <div className="reg">
-      <div className="reg-1">
-        <div className="reg-12">
-          <div>
-            <a className="a-12" href="www.google.com">
-              <p>iSELL</p>
-            </a>
-            <div className="div-12">
-              <h2 className="h2-12">
-                Welcome to <span> iSELL </span> create an account
-              </h2>
-            </div>
-          </div>
-          <div></div>
-        </div>
-        <div className="reg-13">
-          <div></div>
-        </div>
-      </div>
-      <div className="reg-2">
-        <div className="reg-21">
-          <div>
-            <div className="reg-213">
-              <Link to="/login" className="a-tag">
-                <p>Login</p>
-              </Link>
-
-              <div style={{marginBottom: '15px'}}>
-                <h1>Create Account</h1>
-                <p>Let’s get you started! Create an account to begin</p>
-                <form onSubmit={handleSubmit}>
-                  <div className="f-1">
-                    <div className="f-11">
-                      <label>Full Name</label>
-                      <div>
-                        <input
-                          id="fullName"
-                          type="text"
-                          name="displayName"
-                          placeholder="Full Name"
-                          value={values.displayName}
-                          onChange={handleChange}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="f-11">
-                      <label>Email Address</label>
-                      <div>
-                        <input
-                          id="email"
-                          type="email"
-                          name="email"
-                          placeholder="email address"
-                          value={values.email}
-                          onChange={handleChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="f-12">
-                      <label>Password</label>
-                      <div>
-                        <div className="f-121">
-                          <input
-                            id="password"
-                            type="password"
-                            placeholder="******"
-                            name="password"
-                            value={values.password}
-                            onChange={handleChange}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="f-12">
-                      <label>Confirm Password</label>
-                      <div>
-                        <div className="f-121">
-                          <input
-                            id="confirm_password"
-                            type="password"
-                            placeholder="******"
-                            name="confirm_password"
-                            value={values.confirm_password}
-                            onChange={handleChange}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="f-2">
-                    <p>
-                      By creating an account, you agree to our Terms &
-                      Conditions and Privacy Policy
-                    </p>
-                  </div>
-                  <div className="f-3">
-                    <button type="submit">
-                      <span>Create Account</span>
-                    </button>
-                  </div>
-                  <div className="f-4">
-                    <p className="conditionals"> or </p>
-                    <button className="login__google" onClick={signUpWithGoogle}>
-                    <span className="google__text">SIGN UP WITH GOOGLE </span> 
-                    <span className="google__span"> <img className='google__logo' alt='google logo' src={googleLogo} /> </span>
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+     <div className='register'>
+       <div className='register__component1'>
+          <img src={isellLogo} alt="isell logo" />
+           <div className="form__tag">
+             <h2> Welcome to iSELL</h2>
+             <form onSubmit={handleSubmit}>
+               <div className='full__name'>
+                 <UilUser className="user"/>
+                 <input 
+                 placeholder="Full Name"
+                 type='text'
+                 value={values.displayName}
+                 name='displayName'
+                 onChange={handleChange} />
+               </div>
+               <div className="email__address"> 
+                <UilEnvelope className="envelope"/>
+                <input
+                  onChange={handleChange} 
+                  name="email"
+                  type='text' 
+                  value={values.email}
+                  placeholder="Email address"/>
+                </div>
+                <div className="password__tag">
+                 <UilLock className="password__lock"/>
+                 <input 
+                  onChange={handleChange}
+                  value={values.password}
+                  type='password'
+                  name="password"
+                  placeholder="Password" />    
+                <UilEye className="show__hide" />
+             </div>
+             <div className="password__tag">
+                <UilLock className="password__lock"/>
+                <input 
+                onChange={handleChange}
+                value={values.confirm_password}
+                 type='password'
+                 name="confirm_password"
+                 placeholder="Confirm Password" />    
+                <UilEye className="show__hide" />
+             </div>
+             <button type="submit">
+               Sign Up
+             </button>
+              
+             </form>
+             <div className="sign__in__google">
+                <p className="conditionals"> or </p>
+                <button className="login__google" onClick={signUpWithGoogle}>
+                    <span className="google__text">Sign Up with Google</span> 
+                    <img className='google__logo' alt='google logo' src={googleLogo} /> 
+                </button>
+             </div>
+             <p className="signup__route">Already have an account? 
+             <Link to='/login' 
+               style={{
+                 outline: "none",
+                 textDecoration: "none"
+                 }}>
+              <span className="signup__link">Sign in now</span> </Link>
+            </p>
+           </div>
+       </div>
+       <div className='register__component2'>
+        <div className="layer"></div>
+       </div>
+     </div>
   );
 };
 

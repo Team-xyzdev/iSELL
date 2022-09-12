@@ -8,6 +8,7 @@ import { initializeApp } from 'firebase/app';
 import {
     getAuth,
     signInWithRedirect,
+    signOut,
     signInWithPopup,
     GoogleAuthProvider,
     createUserWithEmailAndPassword,
@@ -73,7 +74,8 @@ export const createUserDocumentFromAuth = async (
     const businessDetails : Object = {
       business_name : "",
       business_description : "",
-      business_url : ""
+      business_url : "",
+      business_type : ""
     }
      
     try {
@@ -120,6 +122,9 @@ export const signInAuthUserWithEmailAndPassword = async (email : string, passwor
   return await signInWithEmailAndPassword(auth, email, password);
 };
 
+//signout
+export const signOutUser = async () => await signOut(auth);
+
 export const onAuthStateChangedListener = (callback : any) =>
   onAuthStateChanged(auth, callback);
 
@@ -133,7 +138,7 @@ export const addSetupDetails = async (uid, values) => {
   const userSnapshot =  await getDoc(getDocRef);
   const {businessName, 
     description, 
-    businessLogoUrl} = values
+    businessLogoUrl, businessType} = values
 
     
 
@@ -145,7 +150,8 @@ export const addSetupDetails = async (uid, values) => {
        businessDetails : {
          business_name : businessName,
          business_description : description,
-         business_url : businessLogoUrl
+         business_url : businessLogoUrl,
+         business_type : businessType
        }
       }, {merge : true})
     }

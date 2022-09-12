@@ -1,13 +1,45 @@
-body {
+@import url(https://db.onlinewebfonts.com/c/bc3d686231203de67d111be6bec8ecf7?family=TT+Firs+Neue);
+@import url(https://db.onlinewebfonts.com/c/4679956de12dd2d8fc06ed0333e1d21b?family=Proxima+Soft);
+@import url(https://db.onlinewebfonts.com/c/cef009888ec0e6c3fdbb27db91a57b8f?family=Proxima+Nova+A);
+@import url(https://db.onlinewebfonts.com/c/315d8cbb2bb3e24f257a56bf3af89fec?family=TT+Firs);
+
+body, html{
+  overflow-x: hidden;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  a {
+    all : unset;
+  }
+}
+App {
+  overflow-x: hidden;
+}
+h1, h2 {
+  font-family: TT Firs Neue ,'Courier New';
 }
 
+p {
+  font-family: TT Firs, 'Courier New';
+}
+button {
+  font-family: TT Firs, 'Courier New';
+  text-transform: uppercase;
+}
+
+input {
+  font-family: TT Firs, 'Courier New';
+}
+select, option {
+  font-family: TT Firs, 'Courier New';
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+

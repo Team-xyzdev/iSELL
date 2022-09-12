@@ -1,0 +1,184 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    border-right: solid 1px #E4E4E7;
+    height: 90vh;
+    width: 200px;
+    align-content: space-between;
+    // justify-content: space-between;
+    
+
+   .sidebar__component1 {
+       padding-top: 10px;
+
+     .product__button {
+       margin: 0px 5px 0px 5px;
+       display: flex;
+       cursor: pointer;
+       background: #18181B;
+       justify-content: center;
+       padding: 5px;
+       border-radius: 10px;
+       font-weight: bold;
+       outline: none;
+       color: #fff;
+       width: 90%;
+       -webkit-appearance: button;
+       border: none;
+       margin-top: 17px;
+       height: 40px;
+       align-items: center;
+       align-content: center;
+      span {
+          margin-top: -1px;
+          text-transform: capitalize;
+      }
+     }
+
+     .sidebarsub__component{
+         display: flex;
+         flex-direction: column;
+         padding: 10px 5px 10px 5px;
+         width: 200px;
+       .home__dashboard {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 50%;
+        cursor: pointer;
+         .home__dash {
+            //  margin-top: 5px;
+             width: 18px;
+             color: #18181B;
+         }
+        .dashboard__paragraph {
+            font-size: 14px;
+            // margin-right: 73px;
+            margin-top: 3px;
+            color: #18181B;
+        }
+
+       }
+       .analytics__dashboard {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        // text-align: right;
+        // margin-top: 15px;
+
+        .analytics {
+            font-size: 11px;
+            letter-spacing: 1px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #A1A1AA;
+            padding-left: 5px;
+
+        }
+
+       .signals__dashboard {
+           display: flex;
+           flex-direction: row;
+           justify-content: space-between;
+           width: 65%;
+        //    padding: 10px 5px 10px 5px;
+           cursor: pointer;
+
+           .signal {
+            width: 16px;
+            // margin-right: 10px;
+           }
+           .sales{
+            font-size: 14px;
+            margin-top: 3px;
+
+           }
+      
+       } 
+       }
+       .support__dashboard{
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+      .support {
+        font-size: 11px;
+        letter-spacing: 1px;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: #A1A1AA;
+        padding-left: 5px;
+     }
+     .customers__dashboard {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        // width: 65%;
+     //    padding: 10px 5px 10px 5px;
+        cursor: pointer;
+
+        .customers {
+            width: 16px;
+         }
+         .customer {
+            font-size: 14px;
+            margin-top: 3px;
+    
+         }
+     }
+
+
+      }
+      .shop__dashboard {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        & p {
+            font-size: 11px;
+            letter-spacing: 1px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #A1A1AA;
+            padding-left: 5px;
+
+
+        }
+        & div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            cursor: pointer;
+           .products {
+            width: 16px;
+           } 
+           & p{
+            color: black;
+             text-transform: capitalize;
+            font-size: 14px;
+            margin-top: 3px;
+           }
+        }
+      }
+
+     }
+     
+   } 
+   .sidebar__component2 {
+       margin-top: 180px;
+       display: flex;
+       width: 39%;
+       flex-direction: row;
+       justify-content: space-between;
+       cursor: pointer;
+       .logout {
+        width: 16px;
+        margin-left: 3px;
+       }
+       & p {
+        color: black;
+        text-transform: capitalize;
+       font-size: 14px;
+       margin-top: 3px;
+       }
+   }
+   
+}

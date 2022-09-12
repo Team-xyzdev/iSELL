@@ -12,9 +12,11 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/landing/LandingPage";
+
 import LoginPage from "./pages/login/LoginPage";
 import SetUpPage from "./pages/setup/SetupPage";
 import RegisterPage from "./pages/register/RegisterPage";
+import DashboardPage from "./pages/dashboard/DashboardPage";
 
 //importing setCurrentUser from  redux reducer
 import { setCurrentUser } from "./store/user/user.reducer";
@@ -47,6 +49,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/setup" element={<SetUpPage />} />
         <Route path="/product" element={<Product />} />
+        <Route path="/dashboard/*" element={<DashboardPage />} />
       </Routes>
     </Router>
   );
