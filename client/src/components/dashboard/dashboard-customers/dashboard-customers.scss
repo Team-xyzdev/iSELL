@@ -1,0 +1,102 @@
+.dashboard-customers {
+  padding: 30px;
+  width: 100%;
+  color: #71717a;
+  .head-div {
+    width: 100%;
+    height: 13vh;
+    display: flex;
+    justify-content: baseline;
+    padding: 2px;
+    .div-1 {
+      .title {
+        font-family: "Plus Jakarta Sans";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 21px;
+        /* identical to box height, or 152% */
+
+        /* gray/900 */
+
+        color: #18181b;
+      }
+      .description {
+        font-family: "Plus Jakarta Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 22px;
+        /* identical to box height, or 169% */
+
+        /* gray/500 */
+
+        color: #71717a;
+      }
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-self: end;
+    }
+    .div-2 {
+      display: flex;
+      align-items: end;
+      .container-1 {
+        border: 1px solid;
+        cursor: pointer;
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-right: 5px;
+        border-radius: 8px;
+        display: flex;
+        font-size: small;
+        .svg-export {
+          font-size: 10px;
+          margin-right: 4px;
+        }
+      }
+      .container-2 {
+        border: 1px solid;
+        cursor: pointer;
+        padding-left: 5px;
+        padding-right: 5px;
+        border-radius: 8px;
+        .text-sort {
+          font-size: small;
+          margin-right: 4px;
+        }
+        .svg-sort {
+          font-size: 12px;
+        }
+        display: flex;
+        font-size: small;
+        margin-left: 5px;
+        align-items: end;
+      }
+    }
+  }
+  .div-type {
+    border: 1px solid;
+    display: flex;
+    margin-top: 10px;
+    border-top: none;
+    border-left: none;
+    padding: 10px;
+    border-right: none;
+    border-color: rgba($color: #000000, $alpha: 0.2);
+    .customer {
+      width: 25%;
+    }
+    .email {
+      width: 25%;
+    }
+    .phone {
+      width: 25%;
+    }
+    .date {
+      width: 25%;
+    }
+    .country {
+      width: 25%;
+    }
+  }
+}
