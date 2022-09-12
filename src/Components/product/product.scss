@@ -1,0 +1,17 @@
+.product {
+  background-color: #ff44ec;
+  width: 300px;
+  height: 200px;
+  .user-header {
+    background: linear-gradient(
+      90deg,
+      #44bcff -0.55%,
+      #44b0ff 22.86%,
+      #ff44ec 48.36%,
+      #ff44ec 73.33%,
+      #ff675e 99.34%
+    );
+    opacity: 0.6;
+    border-radius: 10px;
+  }
+}

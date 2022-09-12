@@ -1,0 +1,48 @@
+.footer {
+  width: 100%;
+  height: 100vh;
+  .title {
+    font-family: "Plus Jakarta Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 56px;
+    /* or 108% */
+
+    text-align: center;
+  }
+  .div-1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    button {
+      padding: 11px;
+      border-radius: 3px;
+    }
+  }
+  .div-2 {
+    margin-top: 20vh;
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border: solid;
+    border-color: rgba(0, 0, 0, 0.3);
+    border-width: 1px;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    .isell {
+      width: 50px;
+      height: 20px;
+    }
+    .isell-text {
+      flex: 1;
+      text-align: end;
+    }
+  }
+  .copyright {
+    text-align: center;
+    margin-top: 15vh;
+  }
+}

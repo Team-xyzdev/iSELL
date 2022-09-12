@@ -1,0 +1,90 @@
+.hero-section {
+  width: 90%;
+  margin: auto;
+  height: 100vh;
+  .text-1 {
+    height: 56px;
+
+    font-family: "Plus Jakarta Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 45px;
+    /* identical to box height, or 124% */
+
+    text-align: center;
+
+    /* Base/02 */
+
+    color: #090914;
+  }
+  .text-2 {
+    margin-top: -30px;
+    text-align: center;
+  }
+  .hero-0 {
+    display: flex;
+    height: 40vh;
+    padding: 50px;
+    justify-content: space-around;
+    align-items: center;
+    .hero-1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 330px;
+      margin: 10px;
+      .hero-header {
+        font-size: 18px;
+        font-weight: 500;
+      }
+      .hero-description {
+        width: 80%;
+        font-size: 14px;
+      }
+    }
+    .hero-2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 380px;
+      margin: 10px;
+      border-style: solid;
+      border-width: 1px;
+      border-top: none;
+      border-bottom: none;
+      border-color: rgba(0, 0, 0, 0.3);
+      .hero-header {
+        font-size: 18px;
+        font-weight: 500;
+      }
+      .hero-description {
+        width: 80%;
+        font-size: 14px;
+      }
+    }
+    .hero-3 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 330px;
+      margin: 10px;
+      .hero-header {
+        font-size: 18px;
+        font-weight: 500;
+      }
+      .hero-description {
+        width: 80%;
+        font-size: 14px;
+      }
+    }
+  }
+  .btn-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    button {
+      padding: 8px;
+      border-radius: 3px;
+    }
+  }
+}

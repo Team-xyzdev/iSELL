@@ -1,0 +1,36 @@
+.product-item {
+  width: 100%;
+  .product {
+    width: 100%;
+    height: 180px;
+    padding-top: 10px;
+    .user-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      color: white;
+      width: 98%;
+      margin: auto;
+      background: linear-gradient(
+        90deg,
+        #44bcff -0.55%,
+        #44b0ff 22.86%,
+        #ff44ec 48.36%,
+        #ff44ec 73.33%,
+        #ff675e 99.34%
+      );
+      border-radius: 8px;
+      img {
+        width: 50px;
+      }
+      .product-title {
+        font-family: "Plus Jakarta Sans";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 34px;
+      }
+    }
+  }
+}
