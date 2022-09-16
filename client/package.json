@@ -12,6 +12,7 @@
     "@types/node": "^18.7.11",
     "axios": "^0.27.2",
     "firebase": "9.6.6",
+    "i18n-iso-countries": "^7.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",

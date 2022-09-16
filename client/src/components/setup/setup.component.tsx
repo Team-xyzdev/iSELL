@@ -9,6 +9,9 @@ import "./setup.scss";
 import { Link } from "react-router-dom";
 import { UilImage, UilBellSchool, UilCommentAltMessage, UilBookmark} from '@iconscout/react-unicons'
 import { businessTypeOption } from "./setup.business-type";
+import countries from 'i18n-iso-countries';
+import enLocale from 'i18n-iso-countries/langs/en.json';
+import itLocale from 'i18n-iso-countries/langs/it.json';
 
 
 // import firebase modules
@@ -18,8 +21,25 @@ import { storage,
       checkverification } from "../../firebase/firebase.utils";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 
+// logo
+const countryFlag = require('../../assets/country-icon.png');
+
 //JSX component
 const Setup = () => {
+
+  // countries languages
+  countries.registerLocale(enLocale);
+  countries.registerLocale(itLocale);
+
+   // Returns an object not a list
+   const countryObj = countries.getNames("en", { select: "official" });
+
+   const countryArr = Object.entries(countryObj).map(([key, value]) => {
+     return {
+       label: value,
+       value: key
+     };
+   });
 
   // get user uid from state
 const getUserUid: string | null= useSelector(
@@ -36,11 +56,12 @@ const [values, setValues] = useState({
      description : "",
      businessLogoUrl : "",
      imageLogo : "",
-     businessType : "default"
+     businessType : "default",
+     selectedCountry : "default",
   })
 
   // values
-const {imageLogo, businessType} = values;
+const {imageLogo, businessType, selectedCountry} = values;
 
   // handle input change
     const handleChange:any = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,13 +76,14 @@ const {imageLogo, businessType} = values;
 const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     // submit business details 
+    console.log(selectedCountry)
     await uploadImage()
     await addSetupDetails(getUserUid, values);
     const verified = await checkverification(getUserUid)
-   if(verified) {
-    return  window.location.pathname = '/'
-    }
-  return  window.location.pathname = '/setup'
+  //  if(verified) {
+  //   return  window.location.pathname = '/'
+  //   }
+  // return  window.location.pathname = '/setup'
 }
 
 // image input ref
@@ -160,6 +182,25 @@ const addHeaderImage = async (e :any) => {
                    <option key={i} value={option} >{option}</option>
                  ))}
                </select>
+             </div>
+             <div className="business__country">
+              <img src={countryFlag} className="country" />
+              <select 
+               defaultValue={values.selectedCountry}
+               onChange={handleChange}
+               name="selectedCountry"
+               style={{
+                color: selectedCountry==="default" ? "grey" : "black"
+              }}
+                 required>
+                 <option disabled value="default">Business Country</option>
+                  {!!countryArr?.length &&
+                  countryArr.map(({ label, value }) => (
+                <option key={value} value={value}>
+                  {label}
+               </option>
+          ))}
+              </select>
              </div>
              <div className="upload_sect_img">
               <div className="upload_hd_img">
