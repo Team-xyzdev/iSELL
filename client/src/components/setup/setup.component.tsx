@@ -9,6 +9,7 @@ import "./setup.scss";
 import { Link } from "react-router-dom";
 import { UilImage, UilBellSchool, UilCommentAltMessage, UilBookmark} from '@iconscout/react-unicons'
 import { businessTypeOption } from "./setup.business-type";
+import { createVendorWallet } from "../../rapyd-hooks/create-vendor.wallet";
 import countries from 'i18n-iso-countries';
 import enLocale from 'i18n-iso-countries/langs/en.json';
 import itLocale from 'i18n-iso-countries/langs/it.json';
@@ -18,8 +19,10 @@ import itLocale from 'i18n-iso-countries/langs/it.json';
 import { storage, 
       addSetupDetails,
       signOutUser,
+      getDataFromUID,
       checkverification } from "../../firebase/firebase.utils";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
+import { DocumentData } from "firebase/firestore";
 
 // logo
 const countryFlag = require('../../assets/country-icon.png');
@@ -44,6 +47,7 @@ const Setup = () => {
   // get user uid from state
 const getUserUid: string | null= useSelector(
        (state: RootState) => state.currentUser.currentUser)
+      console.log(getUserUid)
 
 // signout user
 // const signOut = () => {
@@ -58,13 +62,15 @@ const [values, setValues] = useState({
      imageLogo : "",
      businessType : "default",
      selectedCountry : "default",
+     business_wallet : "",
+     createdAt : new Date().toISOString().split('T')[0]
   })
 
   // values
 const {imageLogo, businessType, selectedCountry} = values;
 
   // handle input change
-    const handleChange:any = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange:any = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
       setValues({
         ...values,
@@ -72,14 +78,32 @@ const {imageLogo, businessType, selectedCountry} = values;
       });
     };
   
+  const getDetailsFromDB = async () => {
+    if(!getUserUid) return
+    return await getDataFromUID(getUserUid);
+    
+  }
+
+  // const getBusinessWallet = async () => {
+  //   return await createVendorWallet(values);
+  // }
+  
     // handle form submit
 const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
+   const user : DocumentData | any = await getDetailsFromDB();
+
+    console.log(values, 'submit')
+    // await uploadImage();
     // submit business details 
-    console.log(selectedCountry)
-    await uploadImage()
-    await addSetupDetails(getUserUid, values);
-    const verified = await checkverification(getUserUid)
+    await createVendorWallet(values, user);
+    // setValues({
+    //   ...values,
+    //   business_wallet : wallet,
+    // });
+
+  //   await addSetupDetails(getUserUid, values);
+  //   const verified = await checkverification(getUserUid)
   //  if(verified) {
   //   return  window.location.pathname = '/'
   //   }

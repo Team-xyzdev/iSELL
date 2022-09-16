@@ -13,6 +13,7 @@ const uploadImg = require('../../../assets/upload.png');
 const DashboardProducts = () => {
     return(
      <div className="dashboard__upload">
+  
       <div className="dashboard-products">
         <img src={uploadImg} alt="upload icon" />
         <h2> Start by uploading a product</h2>
@@ -23,6 +24,7 @@ const DashboardProducts = () => {
                 <span> Create A Product</span>
          </button>
       </div>   
+
      </div>
     );
 }
