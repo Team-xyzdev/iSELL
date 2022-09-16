@@ -97,7 +97,13 @@ export const createUserDocumentFromAuth = async (
 
   
 };
+export const getDataFromUID = async (uid) => {
+  const userDocRef = doc(db, 'users', uid);
 
+  const userSnapshot = await getDoc(userDocRef)
+
+  return userSnapshot.data()
+}
 // check business verification
 export const checkverification = async (uid: any ) => {
   const userDocRef = doc(db, 'users', uid);

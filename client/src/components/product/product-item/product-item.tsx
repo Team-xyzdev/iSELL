@@ -1,12 +1,13 @@
 import React from "react";
 import "./product-item.scss";
-const Item = ({ itemType, imageUrl, name, price }) => {
-  interface Items {
-    itemType: string;
-    imageUrl: string;
-    name: string;
-    price: string;
-  }
+interface Items {
+  itemType: string;
+  imageUrl: string;
+  name: string;
+  price: string;
+}
+const Item = ({ itemType, imageUrl, name, price }: Items) => {
+
   return (
     <div className="item">
       <div className="div-1">

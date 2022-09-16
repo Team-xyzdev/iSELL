@@ -109,8 +109,9 @@ const ProductDisplay = () => {
   return (
     <div className="display">
       {/* dummy array being mapped */}
-      {product.map((item) => (
+      {product.map((item, i) => (
         <Item
+          key={i}
           itemType={item.type}
           name={item.productName}
           imageUrl={item.imageUrl}
