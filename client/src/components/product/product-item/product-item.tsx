@@ -1,5 +1,6 @@
 import React from "react";
 import "./product-item.scss";
+
 interface Items {
   itemType: string;
   imageUrl: string;

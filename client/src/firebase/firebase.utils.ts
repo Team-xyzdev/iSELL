@@ -75,8 +75,10 @@ export const createUserDocumentFromAuth = async (
       business_name : "",
       business_description : "",
       business_url : "",
-      business_type : ""
+      business_type : "",
+      business_wallet : ""
     }
+    
      
     try {
       await setDoc(userDocRef, {
@@ -97,6 +99,7 @@ export const createUserDocumentFromAuth = async (
 
   
 };
+// get each user data
 export const getDataFromUID = async (uid) => {
   const userDocRef = doc(db, 'users', uid);
 
@@ -104,6 +107,7 @@ export const getDataFromUID = async (uid) => {
 
   return userSnapshot.data()
 }
+
 // check business verification
 export const checkverification = async (uid: any ) => {
   const userDocRef = doc(db, 'users', uid);
@@ -114,7 +118,7 @@ export const checkverification = async (uid: any ) => {
 }
 
 
-// 
+// create user auth with email and password
 export const createAuthUserWithEmailAndPassword = async (email : string, password : string) => {
   if (!email || !password) return;
 
@@ -157,7 +161,8 @@ export const addSetupDetails = async (uid, values) => {
          business_name : businessName,
          business_description : description,
          business_url : businessLogoUrl,
-         business_type : businessType
+         business_type : businessType,
+         
        }
       }, {merge : true})
     }
