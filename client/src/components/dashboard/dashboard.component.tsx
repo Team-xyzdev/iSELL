@@ -11,7 +11,7 @@ import DashboardSidebar from "./dashboard-sidebar/dashboard-sidebar.component";
 import DashboardProducts from "./dashboard-products/dashboard-products.component";
 import DashboardSales from "./dashboard-sales/dashboard-sales.component";
 import { Route, Routes } from "react-router-dom";
-import DashboardCustomers from "./dashboard-customers/dashboard-customers";
+// import DashboardCustomers from "./dashboard-customers/dashboard-customers";
 
 const Dashboard = () => {
   return (
@@ -22,7 +22,7 @@ const Dashboard = () => {
         <Routes>
           <Route path="/" element={<DashboardProducts />} />
           <Route path="/sales" element={<DashboardSales />} />
-          <Route path="/customers" element={<DashboardCustomers />} />
+          {/* <Route path="/customers" element={<DashboardCustomers />} /> */}
         </Routes>
       </div>
     </div>

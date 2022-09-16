@@ -28,6 +28,7 @@ function App() {
   // setting login authentication
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user: Array<any>) => {
+      console.log(user);
       if (!user) return;
       console.log(user);
 

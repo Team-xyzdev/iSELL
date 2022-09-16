@@ -25,9 +25,9 @@ const DashboardCustomers = () => {
                 <path
                   d="M8.63932 6.66667V10.6667M8.63932 10.6667L6.63932 8.66667M8.63932 10.6667L10.6393 8.66667M11.9727 14H5.30599C4.56961 14 3.97266 13.403 3.97266 12.6667V3.33333C3.97266 2.59695 4.56961 2 5.30599 2H9.02985C9.20666 2 9.37623 2.07024 9.50125 2.19526L13.1107 5.80474C13.2358 5.92976 13.306 6.09933 13.306 6.27614V12.6667C13.306 13.403 12.709 14 11.9727 14Z"
                   stroke="#18181B"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </p>
@@ -46,9 +46,9 @@ const DashboardCustomers = () => {
                 <path
                   d="M9.72331 1.25L5.63997 5.33333L1.55664 1.25"
                   stroke="#18181B"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </p>
