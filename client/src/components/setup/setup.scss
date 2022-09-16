@@ -68,7 +68,7 @@
       .description {
         display: flex;
         position: absolute;
-        margin-top: 10px;
+        margin-top: 15px;
         color: #A1A1AA;
         margin-left: 10px;
         width: 15px;
@@ -86,7 +86,7 @@
      .business__type {
          display: flex;
          flex-direction: row;
-         padding-top: 10px;
+         padding-top: 15px;
 
        .type {
         display: flex;
@@ -114,6 +114,42 @@
             color: grey;
         }
        }
+
+     }
+     .business__country{
+      display: flex;
+      flex-direction: row;
+      padding-top: 15px;
+
+      .country {
+        display: flex;
+        position: absolute;
+        margin-top: 8px;
+        color: #A1A1AA;
+        filter: invert(75%) sepia(9%) saturate(200%) hue-rotate(201deg) brightness(76%) contrast(87%);
+        margin-left: 10px;
+        width: 15px;
+      }
+
+      select {
+        background: #FAFAFA;
+        border: 1px solid #D4D4D8;
+        border-radius: 5px;
+        padding-left: 32px;
+        width: 338px;
+        height: 40px;
+        outline: none;
+        -webkit-appearance: menulist-button;
+        //  color: grey;
+
+        option { 
+            color: black ; 
+        }
+        option:first-child{
+            color: grey;
+        }
+       }
+
      }
      .upload_sect_img {
          display: flex;
