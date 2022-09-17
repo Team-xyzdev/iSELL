@@ -2,9 +2,15 @@
   width: 90%;
   margin: auto;
   height: 100vh;
+  @media only screen and (max-width: 918px) {
+    height: fit-content;
+  }
   .text-1 {
     height: 56px;
-
+    @media only screen and (max-width: 768px) {
+      font-weight: 600;
+      font-size: 29px;
+    }
     font-family: "Plus Jakarta Sans";
     font-style: normal;
     font-weight: 600;
@@ -20,8 +26,18 @@
   .text-2 {
     margin-top: -30px;
     text-align: center;
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 6vh;
+    }
   }
   .hero-0 {
+    @media only screen and (max-width: 768px) {
+      flex-wrap: wrap;
+      height: fit-content;
+    }
+    @media only screen and (max-width: 918px) {
+      height: fit-content;
+    }
     display: flex;
     height: 40vh;
     padding: 50px;
@@ -85,6 +101,14 @@
     button {
       padding: 8px;
       border-radius: 3px;
+
+      @media only screen and (max-width: 768px) {
+        margin-bottom: 6vh;
+      }
+
+      @media only screen and (max-width: 918px) {
+        margin-bottom: 9vh;
+      }
     }
   }
 }
