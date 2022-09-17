@@ -15,30 +15,36 @@ export const createWalletRouter = express.Router();
 createWalletRouter.post('/', async (req : Request, res : Response) => {
   const http_method:string = "post"
   const url_path:string = "/v1/user"
+ 
+  const {
+        owner_email, 
+        owner_name, createdAt,business_country,
+        business_name, business_type } = req.body;
+ 
 
-  const body:Object = {
-    first_name: 'Jon',
-    last_name: 'Doe',
-    ewallet_reference_id: 'John-Doe-02552020',
+  const body= {
+    first_name: owner_name,
+    last_name: owner_name,
+    ewallet_reference_id: `cus-${createdAt}`,
     metadata: {
       merchant_defined: true
     },
     type: 'company',
     contact: {
       phone_number: '+14155551234',
-      email: 'johndoe@rapyd.net',
-      first_name: 'John',
-      last_name: 'Doe',
-      mothers_name: 'Jane Smith',
+      email: owner_email,
+      first_name: owner_name,
+      last_name: owner_name,
+      mothers_name: 'kin',
       contact_type: 'business',
       address: {
-        name: 'John Doe',
+        name: owner_name,
         line_1: '123 Main Street',
         line_2: '',
         line_3: '',
         city: 'Anytown',
         state: 'NY',
-        country: 'US',
+        country: business_country,
         zip: '12345',
         phone_number: '+14155551234',
         metadata: { number: 2 },
@@ -54,18 +60,18 @@ createWalletRouter.post('/', async (req : Request, res : Response) => {
       },
       business_details: {
         entity_type: 'association',
-        name: 'Four Star Professional Services',
+        name: business_name,
         registration_number: '4234567779',
         industry_category: 'company',
-        industry_sub_category: 'home services',
+        industry_sub_category: business_type,
         address: {
-          name: 'John Doe',
+          name: owner_name,
           line_1: '1234 Main Street',
           line_2: 'Suite 1200',
           line_3: '',
           city: 'Anytown',
           state: 'NY',
-          country: 'US',
+          country: business_country,
           zip: '10101',
           phone_number: '14155557779',
           metadata: {
@@ -75,7 +81,8 @@ createWalletRouter.post('/', async (req : Request, res : Response) => {
       }
     }
   };
-  const headers: Object = {
+
+  const headers = {
         'Content-Type': 'application/json',
         salt: salt,
         timestamp: timestamp,
@@ -85,7 +92,9 @@ createWalletRouter.post('/', async (req : Request, res : Response) => {
     }
    
   try {
-      const request:Object = {
+    const data = req.body
+    console.log(data, 'inside')
+      const request:any = {
         baseURL: "https://sandboxapi.rapyd.net",
         headers,
         url: url_path,  
@@ -93,10 +102,10 @@ createWalletRouter.post('/', async (req : Request, res : Response) => {
         data : body
        };
 
-    const response =   await axios(request)
+    const response = await axios(request)
      console.log(response.data)
     res.json({
-          data : response.data
+          wallet : response.data.data.id
         });
       } catch (error) {
         res.json(error);
