@@ -2,9 +2,9 @@
 // 17 U.S.C §§ 101-1511
 
 //import relevant modules and file
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import './dashboard-create.scss';
-import { UilShoppingBag, UilSortAmountDown, UilPricetagAlt, UilDollarAlt } from '@iconscout/react-unicons'
+import { UilShoppingBag, UilSortAmountDown, UilPricetagAlt, UilDollarAlt, UilImage } from '@iconscout/react-unicons'
 
 
 const DashboardCreateProducts = () => {
@@ -13,7 +13,8 @@ const [values, setValues] = useState({
         product: "",
         stock: "default",
         url : "",
-        price : ""
+        price : "",
+        imageLogo : ""
       });
 
   // handle onChange 
@@ -24,6 +25,27 @@ const handleChange = (e: any) => {
       [name]: value,
     });
   };
+
+
+  const imagePicker: React.MutableRefObject<null | any> = useRef(null);
+  const {imageLogo} = values;
+
+
+  // showing images
+const addHeaderImage = async (e: any) => {
+    const reader = new FileReader();
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
+
+    reader.onload = (readerEvent: any) => {
+      setValues({
+        ...values,
+        imageLogo: readerEvent.target.result,
+      });
+    };
+  };
+
     
     return (
        <div className="create__products">
@@ -82,6 +104,29 @@ const handleChange = (e: any) => {
                </select>  
              
              </div>
+
+             <div className="sect_img">
+              <div className="hd_img">
+                {imageLogo ? (
+                  <img src={imageLogo} alt="item" />
+                ) : (
+                  <UilImage className="image__default" />
+                )}
+              </div>
+              <input
+                ref={imagePicker}
+                hidden
+                onChange={addHeaderImage}
+                type="file"
+                accept=".jpg, .jpeg, .png"
+              />
+              <div
+                className="upload_add_img"
+                onClick={() => imagePicker.current.click()}
+              >
+                <p className="upload__p">Upload Item</p>
+              </div>
+            </div>
          
              <button type="submit">
                Add Item
