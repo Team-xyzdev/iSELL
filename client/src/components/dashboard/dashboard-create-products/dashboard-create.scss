@@ -1,0 +1,116 @@
+.create__products {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80vw;
+
+    h2 {
+        padding-top: 20px;
+        font-size: 19px;
+    }
+    .shopping {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 15px;
+      .shop {
+        display: flex;
+        position: absolute;
+        margin-top: 10px;
+        color: #A1A1AA;
+        margin-left: 10px;
+        width: 15px;
+      }
+      input {
+        background: #FAFAFA;
+        border: 1px solid #D4D4D8;
+        border-radius: 5px;
+        padding-left: 35px;
+        width: 300px;
+        height: 40px;
+        outline: none;
+      }
+    }
+    .price__tag {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 15px;
+      .price {
+        display: flex;
+        position: absolute;
+        margin-top: 10px;
+        color: #A1A1AA;
+        margin-left: 10px;
+        width: 15px;
+      }  
+      input {
+        background: #FAFAFA;
+        border: 1px solid #D4D4D8;
+        border-radius: 5px;
+        padding-left: 35px;
+        width: 300px;
+        height: 40px;
+        outline: none;
+        -moz-appearance: textfield !important;
+
+      }
+      .dollar {
+        cursor: pointer;
+        position: relative;
+        color: #A1A1AA;
+        margin-left: -24px;
+        margin-top: 10px;
+        width: 20px;
+      }
+
+    }
+    .stock__amount {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 15px;
+    .amount {
+        display: flex;
+        position: absolute;
+        margin-top: 10px;
+        color: #A1A1AA;
+        margin-left: 10px;
+        width: 15px;
+    }
+    select {
+        background: #FAFAFA;
+        border: 1px solid #D4D4D8;
+        border-radius: 5px;
+        padding-left: 32px;
+        width: 338px;
+        height: 40px;
+        outline: none;
+        -webkit-appearance: menulist-button;
+        //  color: grey;
+
+        option { 
+            color: black ; 
+        }
+        option:first-child{
+            color: grey;
+        }
+       }
+    }
+    button {
+        display: flex;
+        cursor: pointer;
+        background: #18181B;
+        width: 100%;
+        justify-content: center;
+        padding: 7px;
+        border-radius: 10px;
+        font-weight: bold;
+        outline: none;
+        color: #fff;
+        -webkit-appearance: button;
+        border: none;
+        margin-top: 17px;
+        height: 40px;
+        align-items: center;
+        align-content: center;
+    }
+}
