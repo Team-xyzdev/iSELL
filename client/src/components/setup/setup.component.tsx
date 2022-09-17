@@ -98,7 +98,7 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
    const user : DocumentData | any = await getDetailsFromDB();
 
     // console.log(values, 'submit')
-    // await uploadImage();
+    await uploadImage();
     // submit business details 
    const wallet = await createVendorWallet(values, user)
     
@@ -107,11 +107,11 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
      await addSetupDetails(getUserUid, values, wallet);
    
 
-  //   const verified = await checkverification(getUserUid)
-  //  if(verified) {
-  //   return  window.location.pathname = '/'
-  //   }
-  // return  window.location.pathname = '/setup'
+   const verified = await checkverification(getUserUid)
+   if(verified) {
+    return  window.location.pathname = '/dashboard'
+    }
+  return  window.location.pathname = '/setup'
 }
 
 // image input ref

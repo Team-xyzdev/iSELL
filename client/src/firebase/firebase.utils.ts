@@ -144,32 +144,31 @@ export const onAuthStateChangedListener = (callback : any) =>
  // adding set up business details to firestore and update verification
 export const addSetupDetails = async (uid, values, wallet) => {
   console.log(wallet, 'firebase')
-  // const getDocRef = doc(db, 'users', uid);
+  const getDocRef = doc(db, 'users', uid);
 
-  // const userSnapshot =  await getDoc(getDocRef);
-  // const {businessName, 
-  //   description, 
-  //   businessLogoUrl, businessType} = values
+  const userSnapshot =  await getDoc(getDocRef);
+  const {businessName, 
+    description, 
+    businessLogoUrl, businessType} = values
 
     
 
-  // if(!userSnapshot.data()?.verification) {
-  //       console.log(values, 'values')
-  //   try {
-  //     await setDoc(getDocRef, {
-  //     verification : true,
-  //      businessDetails : {
-  //        business_name : businessName,
-  //        business_description : description,
-  //        business_url : businessLogoUrl,
-  //        business_type : businessType,
-         
-  //      }
-  //     }, {merge : true})
-  //   }
-  //   catch(error : any){
-  //    console.log(error);
-  //   }
-  // }
-  // console.log(userSnapshot.data());
+  if(!userSnapshot.data()?.verification) {
+        console.log(values, 'values')
+    try {
+      await setDoc(getDocRef, {
+      verification : true,
+       businessDetails : {
+         business_name : businessName,
+         business_description : description,
+         business_url : businessLogoUrl,
+         business_type : businessType,
+         business_wallet : wallet       
+       }
+      }, {merge : true})
+    }
+    catch(error : any){
+     console.log(error);
+    }
+  }
 }
