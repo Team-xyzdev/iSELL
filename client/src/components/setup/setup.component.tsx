@@ -55,9 +55,6 @@ const Setup = () => {
   );
   console.log(getUserUid);
 
-  const getVendorWallet: string | null = useSelector(
-    (state: RootState) => state.vendorWallet.vendorWallet
-  );
   // signout user
   // const signOut = () => {
 
@@ -108,7 +105,7 @@ const Setup = () => {
     const wallet: any = await createVendorWallet(values, user);
 
     console.log(wallet, "submit");
-    // const wallet = createVendorWallet(values, user);
+  
     await addSetupDetails(getUserUid, values, wallet);
 
     const verified = await checkverification(getUserUid);
