@@ -48,7 +48,10 @@ const Setup = () => {
 const getUserUid: string | null= useSelector(
        (state: RootState) => state.currentUser.currentUser)
       console.log(getUserUid)
-
+      
+const getVendorWallet: string | null = useSelector(
+  (state: RootState) => state.vendorWallet.vendorWallet
+)
 // signout user
 // const signOut = () => {
 
@@ -84,8 +87,9 @@ const {imageLogo, businessType, selectedCountry} = values;
     
   }
 
-  // const getBusinessWallet = async () => {
-  //   return await createVendorWallet(values);
+  // const getBusinessWallet = async (user) => {
+  //   if(!user) return
+   
   // }
   
     // handle form submit
@@ -93,16 +97,16 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
    const user : DocumentData | any = await getDetailsFromDB();
 
-    console.log(values, 'submit')
+    // console.log(values, 'submit')
     // await uploadImage();
     // submit business details 
-    await createVendorWallet(values, user);
-    // setValues({
-    //   ...values,
-    //   business_wallet : wallet,
-    // });
+   const wallet = await createVendorWallet(values, user)
+    
+       console.log(wallet, 'submit')
+    // const wallet = createVendorWallet(values, user);
+     await addSetupDetails(getUserUid, values, wallet);
+   
 
-  //   await addSetupDetails(getUserUid, values);
   //   const verified = await checkverification(getUserUid)
   //  if(verified) {
   //   return  window.location.pathname = '/'

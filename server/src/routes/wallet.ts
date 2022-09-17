@@ -25,7 +25,7 @@ createWalletRouter.post('/', async (req : Request, res : Response) => {
   const body= {
     first_name: owner_name,
     last_name: owner_name,
-    ewallet_reference_id: `cus-${createdAt}`,
+    ewallet_reference_id: `cust-42006`,
     metadata: {
       merchant_defined: true
     },
