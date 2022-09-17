@@ -3,14 +3,23 @@
   display: flex;
   flex-direction: row;
   padding-left: 20px;
+  @media only screen and (max-width: 768px) {
+    flex-wrap: wrap;
+  }
 
   //    justify-content: space-between;
 
   .component__one {
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+    }
     width: 50vw;
     display: flex;
     flex-direction: column;
     .wave__component {
+      @media only screen and (max-width: 285px) {
+        width: 100px;
+      }
       width: 250px;
       padding: 10px;
       border-radius: 10px;
@@ -60,7 +69,6 @@
     }
     h2 {
       line-height: 66px;
-      font-size: 76px;
       margin-top: 10px;
       font-weight: 700;
     }
@@ -90,6 +98,9 @@
     flex-direction: column;
     width: 50vw;
     margin-left: 20px;
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+    }
     .coil {
       width: 150px;
     }
@@ -137,6 +148,9 @@
             border-radius: 5px;
             cursor: pointer;
             padding: 5px;
+            @media only screen and (max-width: 768px) {
+              padding: 0px;
+            }
             // margin: 0 15px 0 15px;
           }
         }
@@ -147,6 +161,37 @@
         top: 520px;
         left: 280px;
         display: flex;
+        @media only screen and (max-width: 768px) {
+          width: 120px;
+          top: 300px;
+          left: 30px;
+        }
+        @media only screen and (max-width: 360px) {
+          width: 120px;
+          top: 300px;
+          left: 10px;
+        }
+        @media only screen and (max-width: 920px) {
+          top: 270px;
+          left: 60px;
+        }
+        @media only screen and (max-width: 1024px) {
+          top: 320px;
+          left: 120px;
+        }
+        @media only screen and (max-width: 415px) {
+          top: 290px;
+          left: 40px;
+        }
+        @media only screen and (max-width: 285px) {
+          width: 80px;
+          top: 200px;
+          left: -10px;
+        }
+        @media only screen and (max-width: 915px) {
+          top: 290px;
+          left: 22px;
+        }
         flex-direction: column;
         padding: 10px;
         width: 150px;
@@ -171,7 +216,12 @@
           }
           button {
             color: #ffffff;
-
+            @media only screen and (max-width: 768px) {
+              padding: 0px;
+              font-size: 12px;
+              padding-left: 3px;
+              padding-right: 3px;
+            }
             border-radius: 5px;
             cursor: pointer;
             padding: 5px;
