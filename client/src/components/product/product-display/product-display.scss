@@ -1,11 +1,10 @@
 .display {
   width: 95%;
-  display: flex;
+  display: grid;
   padding-top: 10px;
   margin-bottom: 10vh;
   margin-left: auto;
   margin-right: auto;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   background-color: white;
 }
