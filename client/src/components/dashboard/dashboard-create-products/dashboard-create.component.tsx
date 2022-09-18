@@ -2,9 +2,11 @@
 // 17 U.S.C §§ 101-1511
 
 //import relevant modules and file
-import React, {useState, useRef} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import './dashboard-create.scss';
 import { UilShoppingBag, UilSortAmountDown, UilPricetagAlt, UilDollarAlt, UilImage } from '@iconscout/react-unicons'
+import { storage } from "../../../firebase/firebase.utils";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 
 const DashboardCreateProducts = () => {
@@ -12,9 +14,9 @@ const DashboardCreateProducts = () => {
 const [values, setValues] = useState({
         product: "",
         stock: "default",
-        url : "",
         price : "",
-        imageLogo : ""
+        imageLogo : "",
+        imageUrl : ""
       });
 
   // handle onChange 
@@ -26,11 +28,40 @@ const handleChange = (e: any) => {
     });
   };
 
+const uploadImage = async () => {
+    try {
+      const file = imagePicker.current.files[0];
+      if (!file) return;
+      const storageRef = ref(storage, `files/${file.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, file);
+
+      uploadTask.on("state_changed", () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setValues({
+            ...values,
+            imageUrl: downloadURL,
+          });
+        });
+      });
+    } catch (eror) {
+      console.log(eror);
+    }
+  };
 
   const imagePicker: React.MutableRefObject<null | any> = useRef(null);
   const {imageLogo} = values;
 
+  const handleSubmit = async (e) => {
+     e.preventDefault()
+    await uploadImage();
+     console.log(values)
+  }
 
+  useEffect(() => {
+    uploadImage();
+    // eslint-disable-next-line
+  }, [imageLogo]);
+  
   // showing images
 const addHeaderImage = async (e: any) => {
     const reader = new FileReader();
@@ -50,7 +81,7 @@ const addHeaderImage = async (e: any) => {
     return (
        <div className="create__products">
            <h2>Add Product</h2>
-           <form >
+           <form  onSubmit={handleSubmit}>
              <div className="shopping"> 
                 <UilShoppingBag className="shop"/>
                 <input
