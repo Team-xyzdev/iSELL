@@ -14,6 +14,7 @@
     flex-direction: row;
 
     p {
+      cursor: pointer;
       padding: 0 10px 0 5px;
     }
     .navbar-btn {
@@ -22,6 +23,7 @@
       color: #ffffff;
       //  padding: 5px;
       margin: 5px;
+      text-transform: capitalize;
       border-radius: 10px;
     }
     .navbar-cart {

@@ -68,7 +68,7 @@
       }
     }
     h2 {
-      line-height: 66px;
+      // line-height: 66px;
       margin-top: 10px;
       font-weight: 700;
     }
@@ -215,6 +215,7 @@
             border-radius: 5px;
           }
           button {
+            background: #18181b;;
             color: #ffffff;
             @media only screen and (max-width: 768px) {
               padding: 0px;
