@@ -187,7 +187,7 @@ export const addSetupDetails = async (uid, values, wallet) => {
 
 // add product to firestore
 export const addProductDetails = async (uid, values) => {
-
+    console.log(values)
   const filteredObj = Object.fromEntries(Object.entries(values).filter(([key]) => !key.includes('imageLogo')));
  
   const getDocRef:any = doc(db, "users", uid);
