@@ -111,8 +111,10 @@ const Setup = () => {
     const verified = await checkverification(getUserUid);
     if (verified) {
       return (window.location.pathname = "/dashboard");
+    } else {
+      return (window.location.pathname = "/setup");
     }
-    return (window.location.pathname = "/setup");
+ 
   };
 
   // image input ref

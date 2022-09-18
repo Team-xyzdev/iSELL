@@ -5,11 +5,17 @@
 import React, {useState, useRef, useEffect} from "react";
 import './dashboard-create.scss';
 import { UilShoppingBag, UilSortAmountDown, UilPricetagAlt, UilDollarAlt, UilImage } from '@iconscout/react-unicons'
-import { storage } from "../../../firebase/firebase.utils";
+import { storage, addProductDetails} from "../../../firebase/firebase.utils";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
 
 
 const DashboardCreateProducts = () => {
+
+ const getUserUid: string | null = useSelector(
+        (state: RootState) => state.currentUser.currentUser
+      );
 
 const [values, setValues] = useState({
         product: "",
@@ -54,6 +60,7 @@ const uploadImage = async () => {
   const handleSubmit = async (e) => {
      e.preventDefault()
     await uploadImage();
+    await addProductDetails(getUserUid, values);
      console.log(values)
   }
 
