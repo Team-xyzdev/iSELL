@@ -10,7 +10,12 @@ import {
 //importing relevant modules + files
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 import LandingPage from "./pages/landing/LandingPage";
 
 import LoginPage from "./pages/login/LoginPage";
@@ -22,9 +27,9 @@ import DashboardPage from "./pages/dashboard/DashboardPage";
 import { setCurrentUser } from "./store/user/user.reducer";
 import Product from "./components/product/product.components";
 import { RootState } from "./store/store";
+import CheckOut from "./pages/check-out/check-out";
 
 function App() {
-
   const getUserUid: any = useSelector(
     (state: RootState) => state.currentUser.currentUser
   );
@@ -55,11 +60,10 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/setup" element={<SetUpPage />} />
         <Route path="/product" element={<Product />} />
-        {
-          getUserUid &&
-          <Route path="/dashboard/*" element={<DashboardPage /> } />
-        }
-       
+        {getUserUid && (
+          <Route path="/dashboard/*" element={<DashboardPage />} />
+        )}
+        <Route path="/checkout" element={<CheckOut />} />
       </Routes>
     </Router>
   );

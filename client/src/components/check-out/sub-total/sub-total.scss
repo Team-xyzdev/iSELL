@@ -1,0 +1,26 @@
+.sub-total {
+  width: 80%;
+  background-color: aquamarine;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  .div-1 {
+    .text-1 {
+      font-size: 20px;
+    }
+    .text-2 {
+      display: flex;
+      .span-1 {
+        flex: 1;
+      }
+    }
+  }
+  button {
+    padding: 5px;
+    border-radius: 2px;
+    border-color: beige;
+    background-color: black;
+    color: white;
+  }
+}
