@@ -8,9 +8,9 @@
     "install-client": "npm install --prefix client",
     "install-server": "npm install --prefix server",
     "install": "npm run install-client && npm run install-server",
-    "start-client" : "npm run dev --prefix client",
-    "start-server" : "npm run dev --prefix server",
-    "start" : "npm run start-server & npm run start-client"
+    "start-client": "npm run dev --prefix client",
+    "start-server": "npm run dev --prefix server",
+    "start": "npm run start-server & npm run start-client"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/Samuellyworld/paylancers/issues"
   },
-  "homepage": "https://github.com/Samuellyworld/paylancers#readme"
+  "homepage": "https://github.com/Samuellyworld/paylancers#readme",
+  "dependencies": {
+    "redux-persist": "^6.0.0"
+  }
 }
