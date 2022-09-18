@@ -105,7 +105,7 @@ const Setup = () => {
     const wallet: any = await createVendorWallet(values, user);
 
     console.log(wallet, "submit");
-  
+
     await addSetupDetails(getUserUid, values, wallet);
 
     const verified = await checkverification(getUserUid);
@@ -114,7 +114,6 @@ const Setup = () => {
     } else {
       return (window.location.pathname = "/setup");
     }
- 
   };
 
   // image input ref
@@ -130,7 +129,7 @@ const Setup = () => {
   const uploadImage = async () => {
     try {
       const file = imagePicker.current.files[0];
-      if (!file) return;
+      // if (!file) return;
       const storageRef = ref(storage, `files/${file.name}`);
       const uploadTask = uploadBytesResumable(storageRef, file);
 

@@ -14,6 +14,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
 
 import {
@@ -39,6 +40,7 @@ export const firebaseConfig: firebaseConfigTypes = {
   storageBucket: process.env.REACT_APP_storageBucket,
   messagingSenderId: process.env.REACT_APP_messagingSenderId,
   appId: process.env.REACT_APP_appId,
+  measurementId: process.env.REACT_APP_measurementId,
 };
 
 // initialize the app
@@ -80,8 +82,8 @@ export const createUserDocumentFromAuth = async (
     const { displayName, email }: any = userAuth;
     const createdAt: Date = new Date();
     const verification: boolean = false;
-    const products:Array<any> = [];
-    const sales:Array<any> = []
+    const products: Array<any> = [];
+    const sales: Array<any> = [];
     const businessDetails: Object = {
       business_name: "",
       business_description: "",
@@ -161,7 +163,7 @@ export const addSetupDetails = async (uid, values, wallet) => {
   const getDocRef = doc(db, "users", uid);
 
   const userSnapshot = await getDoc(getDocRef);
-  const { businessName, description, businessLogoUrl, businessType} = values;
+  const { businessName, description, businessLogoUrl, businessType } = values;
 
   if (!userSnapshot.data()?.verification) {
     console.log(values, "values");
@@ -188,35 +190,33 @@ export const addSetupDetails = async (uid, values, wallet) => {
 
 // add product to firestore
 export const addProductDetails = async (uid, values) => {
-    console.log(values)
-  const filteredObj = Object.fromEntries(Object.entries(values).filter(([key]) => !key.includes('imageLogo')));
- 
-  const getDocRef:any = doc(db, "users", uid);
-  const userSnapshot:any= await getDoc(getDocRef);
+  console.log(values);
+  const filteredObj = Object.fromEntries(
+    Object.entries(values).filter(([key]) => !key.includes("imageLogo"))
+  );
+
+  const getDocRef: any = doc(db, "users", uid);
+  const userSnapshot: any = await getDoc(getDocRef);
 
   if (userSnapshot.data()?.verification) {
     try {
-      await updateDoc(
-        getDocRef,
-         {
-         products: arrayUnion(filteredObj),
-       }
-       )
+      await updateDoc(getDocRef, {
+        products: arrayUnion(filteredObj),
+      });
+    } catch (error) {
+      console.log(error);
     }
-    catch(error){
-         console.log(error)
-    }
-
   }
-}
+};
 
 // get products
 export const getProducts = async (uid) => {
-  if(!uid) return
+  if (!uid) return;
   const getDocRef = doc(db, "users", uid);
-  const userSnapshot= await getDoc(getDocRef);
+  const userSnapshot = await getDoc(getDocRef);
   if (userSnapshot.data()?.verification) {
-    return  userSnapshot.data()?.products
+    return userSnapshot.data()?.products;
   }
-  
-}
+};
+
+// get All products
