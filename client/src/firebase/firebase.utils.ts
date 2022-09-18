@@ -208,3 +208,15 @@ export const addProductDetails = async (uid, values) => {
 
   }
 }
+
+// get products
+export const getProducts = async (uid) => {
+  if(!uid) return
+  const getDocRef = doc(db, "users", uid);
+  const userSnapshot= await getDoc(getDocRef);
+  if (userSnapshot.data()?.verification) {
+    return  userSnapshot.data()?.products
+  }
+
+  
+}
