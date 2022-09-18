@@ -4,13 +4,12 @@
 //importing relevant modules + functions
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from './user/user.reducer';
-import vendorReducer from './vendor-wallet/wallet.reducer'
+
 
 // creating store
 export const store = configureStore({
   reducer: {
       currentUser : userReducer,
-      vendorWallet : vendorReducer
   },
 });
 

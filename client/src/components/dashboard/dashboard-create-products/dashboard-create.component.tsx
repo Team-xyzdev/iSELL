@@ -5,7 +5,7 @@
 import React, {useState, useRef, useEffect} from "react";
 import './dashboard-create.scss';
 import { UilShoppingBag, UilSortAmountDown, UilPricetagAlt, UilDollarAlt, UilImage } from '@iconscout/react-unicons'
-import { storage, addProductDetails} from "../../../firebase/firebase.utils";
+import { storage, addProductDetails, getProducts} from "../../../firebase/firebase.utils";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
@@ -55,13 +55,12 @@ const uploadImage = async () => {
   };
 
   const imagePicker: React.MutableRefObject<null | any> = useRef(null);
-  const {imageLogo} = values;
+  const {imageLogo } = values;
 
   const handleSubmit = async (e) => {
      e.preventDefault()
     await uploadImage();
-    await addProductDetails(getUserUid, values);
-     console.log(values)
+    await addProductDetails(getUserUid, values);  
   }
 
   useEffect(() => {
