@@ -50,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "@types/lodash.memoize": "^4.1.7",
     "typescript": "^4.7.4"
   }
 }

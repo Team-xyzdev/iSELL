@@ -23,7 +23,6 @@ import {
   setDoc,
   DocumentData,
   DocumentReference,
-  FieldValue,
   arrayUnion,
   DocumentSnapshot,
   updateDoc,
@@ -82,6 +81,7 @@ export const createUserDocumentFromAuth = async (
     const createdAt: Date = new Date();
     const verification: boolean = false;
     const products:Array<any> = [];
+    const sales:Array<any> = []
     const businessDetails: Object = {
       business_name: "",
       business_description: "",
@@ -98,6 +98,7 @@ export const createUserDocumentFromAuth = async (
         verification,
         businessDetails,
         products,
+        sales,
         ...additionalInformation,
       });
     } catch (error: any) {
