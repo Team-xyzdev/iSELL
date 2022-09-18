@@ -20,7 +20,6 @@ const Product = () => {
       />
       <ProductDisplay products={state.products} />
       <ProductFooter />
-      <h1 onClick={hii}>HI</h1>
     </>
   );
 };
