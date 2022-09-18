@@ -1,0 +1,27 @@
+.check-out {
+  display: grid;
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  .left-div {
+    grid-column: span 3 / span 3;
+    padding: 10px;
+    .showCart {
+      font-size: 25px;
+    }
+    .div-1 {
+      p {
+        font-weight: 600;
+      }
+    }
+    .cart {
+      margin-top: 30px;
+    }
+  }
+  .right-div {
+    margin-top: 30px;
+    grid-column: span 2 / span 2;
+  }
+}

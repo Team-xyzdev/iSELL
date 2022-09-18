@@ -26,7 +26,19 @@ export const basketSlice = createSlice({
         state.basket.push({ ...action.payload, quantity: 1 });
       }
     },
-    removeItem: (state, action) => {
+    incrementQuantity: (state: any, action: any) => {
+      const item = state.basket.find((item) => item.id === action.payload);
+      item.quantity++;
+    },
+    decrementQuantity: (state: any, action: any) => {
+      const item = state.basket.find((item: any) => item.id === action.payload);
+      if (item.quantity === 1) {
+        item.quantity = 1;
+      } else {
+        item.quantity--;
+      }
+    },
+    removeItem: (state: any, action: any) => {
       const removeItem = state.basket.filter(
         (item: any) => item.id !== action.payload
       );
@@ -35,7 +47,15 @@ export const basketSlice = createSlice({
   },
 });
 
+export const getTotalBasketPrice = (basket) => {
+  let bask: Array<any> = [];
+  basket.forEach((element) => {
+    bask.push(element.price * element.quantity);
+  });
+  return bask?.reduce((amount, item) => item + amount, 0);
+};
 // dispatch
-export const { addToCart, removeItem } = basketSlice.actions;
+export const { addToCart, removeItem, decrementQuantity, incrementQuantity } =
+  basketSlice.actions;
 //reducer
 export default basketSlice.reducer;

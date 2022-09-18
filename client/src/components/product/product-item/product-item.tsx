@@ -8,7 +8,7 @@ interface Items {
   itemType: string;
   imageUrl: string;
   name: string;
-  price: string;
+  price: number;
 }
 const Item = ({ id, itemType, imageUrl, name, price }: Items) => {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const Item = ({ id, itemType, imageUrl, name, price }: Items) => {
       </div>
       <div className="div-2">
         <p className="item-name">{name}</p>
-        <p className="item-price">{price}</p>
+        <p className="item-price">${price}</p>
       </div>
       <button className="buy-btn" onClick={addToCartt}>
         Buy Now

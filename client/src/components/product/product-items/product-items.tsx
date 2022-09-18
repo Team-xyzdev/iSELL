@@ -1,9 +1,6 @@
 import React from "react";
 import "./product-items.scss";
 const ProductItems = () => {
-  // const showBasket = () => {
-  //   console.log(cart.basket);
-  // };
   const image1 = require("../../../assets/profilep.png");
   return (
     <div className="product-item">
