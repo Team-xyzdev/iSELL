@@ -17,24 +17,29 @@ import {
   getProducts,
 } from "../../../firebase/firebase.utils";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
+import { alert, close } from "../../../store/alert/alert.modal.reducer";
 
 const DashboardCreateProducts = () => {
-  const getUserUid: string | null = useSelector(
-    (state: RootState) => state.currentUser.currentUser
-  );
 
-  const [values, setValues] = useState({
-    product: "",
-    stock: "default",
-    price: "",
-    imageLogo: "",
-    imageUrl: "",
-  });
 
-  // handle onChange
-  const handleChange = (e: any) => {
+    const dispatch = useDispatch();
+ const getUserUid: string | null = useSelector(
+        (state: RootState) => state.currentUser.currentUser
+      );
+
+const [values, setValues] = useState({
+        product: "",
+        stock: "default",
+        price : "",
+        imageLogo : "",
+        imageUrl : ""
+      });
+
+  // handle onChange 
+const handleChange = (e: any) => {
+
     const { name, value } = e.target;
     setValues({
       ...values,
@@ -66,10 +71,20 @@ const DashboardCreateProducts = () => {
   const { imageLogo } = values;
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    await uploadImage();
-    await addProductDetails(getUserUid, values);
-  };
+
+     e.preventDefault()
+    try {
+       await uploadImage();
+    await addProductDetails(getUserUid, values);  
+    dispatch(alert("products added + "))
+    setTimeout(() => {
+      dispatch(close(""))
+    }, 2000)
+    }
+     catch(error) {
+
+     }
+  }
 
   useEffect(() => {
     uploadImage();

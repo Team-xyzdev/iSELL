@@ -28,7 +28,11 @@ import { setCurrentUser } from "./store/user/user.reducer";
 import Product from "./components/product/product.components";
 import { RootState } from "./store/store";
 import CheckOut from "./pages/check-out/check-out";
+
 import Stores from "./pages/stores/stores";
+
+import AlertModal from "./statics/AlertModal";
+
 
 function App() {
   const getUserUid: any = useSelector(
@@ -55,6 +59,7 @@ function App() {
 
   return (
     <Router>
+       <AlertModal />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<RegisterPage />} />
@@ -66,6 +71,7 @@ function App() {
           <Route path="/dashboard/*" element={<DashboardPage />} />
         )}
         <Route path="/checkout" element={<CheckOut />} />
+       
       </Routes>
     </Router>
   );
