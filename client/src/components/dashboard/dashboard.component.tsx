@@ -11,16 +11,18 @@ import "./dashboard.scss";
 
 //import sections of the dashboard
 import DashboardNavbar from "./dashboard-navbar/dashboard-navbar.component";
+import { useNavigate } from "react-router-dom";
 import DashboardSidebar from "./dashboard-sidebar/dashboard-sidebar.component";
 import DashboardProducts from "./dashboard-products/dashboard-products.component";
 import DashboardSales from "./dashboard-sales/dashboard-sales.component";
 import DashboardCreateProducts from "./dashboard-create-products/dashboard-create.component";
-import { Route, Routes , Navigate} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { RootState } from "../../store/store";
 import { db } from "../../firebase/firebase.utils";
 // import DashboardCustomers from "./dashboard-customers/dashboard-customers";
 
 const Dashboard = () => {
+  const Navigate = useNavigate()
   const getUserUid: any = useSelector(
     (state: RootState) => state.currentUser.currentUser
   );
@@ -33,8 +35,8 @@ const detailedObject= memoize(async () => {
     setLoading(false);
     if(!getUserUid) return
     const getDocRef = doc(db, "users", getUserUid);
-    if (!getDocRef) return
-    const userSnapshot:any =  await getDoc(getDocRef);
+    if (!getDocRef) return 
+   const userSnapshot:any =  await getDoc(getDocRef);
     if (userSnapshot?.data()?.verification) {
       setDetails(userSnapshot?.data())
       setVerification(userSnapshot.data()?.verification)
@@ -48,8 +50,9 @@ const detailedObject= memoize(async () => {
     // eslint-disable-next-line
   }, [getUserUid])
   return (
+    
     <div className="dashboard">
-      <DashboardNavbar />
+      <DashboardNavbar {...details} />
       <div className="dashboard__main">
         <DashboardSidebar />
         <Routes>
