@@ -1,6 +1,6 @@
 .item {
   height: fit-content;
-  width: 20%;
+  grid-column: span 1 / span 1;
   margin: 10px;
   margin-top: 30px;
   @media only screen and (max-width: 1024px) {

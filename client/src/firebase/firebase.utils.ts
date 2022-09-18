@@ -27,6 +27,8 @@ import {
   arrayUnion,
   DocumentSnapshot,
   updateDoc,
+  getDocs,
+  collection,
 } from "firebase/firestore";
 
 //storage ref
@@ -220,3 +222,10 @@ export const getProducts = async (uid) => {
 };
 
 // get All products
+
+export const getStores = async () => {
+  let stores: Array<Object> = [];
+  const querySnapShot: any = await getDocs(collection(db, "users"));
+  querySnapShot.docs.map((doc) => stores.push(doc.data()));
+  return stores;
+};

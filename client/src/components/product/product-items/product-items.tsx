@@ -1,17 +1,20 @@
 import React from "react";
 import "./product-items.scss";
-const ProductItems = () => {
+
+interface Props {
+  name: string;
+  description: string;
+  imageUrl: string;
+}
+const ProductItems = ({ name, description, imageUrl }) => {
   const image1 = require("../../../assets/profilep.png");
   return (
     <div className="product-item">
       <div className="product">
         <div className="user-header">
-          <img src={image1} alt="profile" />
-          <p className="product-title">Ziggy Wears</p>
-          <p className="product-des">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus
-            faucibus massa dignissim tempus.
-          </p>
+          <img src={imageUrl} alt="profile" />
+          <p className="product-title">{name}</p>
+          <p className="product-des">{description}</p>
         </div>
       </div>
     </div>

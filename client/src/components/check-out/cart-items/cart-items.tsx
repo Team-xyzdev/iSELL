@@ -34,9 +34,6 @@ const CartItems = ({ id, itemType, name, price, quantity, imageUrl }) => {
       </div>
       <div className="div-2">
         <div className="div-21">
-          <p className="text-1">
-            <span className="span-1">{itemType}</span>
-          </p>
           <p className="text-2">{name}</p>
           <div className="div-0">
             <p className="text-3">${price}</p>
