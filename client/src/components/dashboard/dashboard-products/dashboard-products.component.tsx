@@ -3,11 +3,12 @@
 
 //import relevant modules
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './dashboard-products.scss';
 import {UilPlus} from '@iconscout/react-unicons';
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
-import { db, getProducts } from "../../../firebase/firebase.utils";
+import { db } from "../../../firebase/firebase.utils";
 import memoize from 'lodash.memoize';
 import { doc, getDoc } from "firebase/firestore";
 import Spinner from "../../spinner/spinner";
@@ -18,6 +19,7 @@ const uploadImg = require('../../../assets/upload.png');
 
 //JSX Components
 const DashboardProducts = () => {
+  const Navigate = useNavigate();
   const getUserUid: any = useSelector(
     (state: RootState) => state.currentUser.currentUser
   );
@@ -27,7 +29,9 @@ const DashboardProducts = () => {
 
   const getVendorProducts = memoize(async () => {
     setloading(false);
-    if(!getUserUid) return
+    if(!getUserUid) {
+      return  Navigate('/login')
+    }
     const getDocRef = doc(db, "users", getUserUid);
     if (!getDocRef) return
     const userSnapshot=  await getDoc(getDocRef);

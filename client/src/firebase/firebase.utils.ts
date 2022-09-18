@@ -161,7 +161,7 @@ export const addSetupDetails = async (uid, values, wallet) => {
   const getDocRef = doc(db, "users", uid);
 
   const userSnapshot = await getDoc(getDocRef);
-  const { businessName, description, businessLogoUrl, businessType } = values;
+  const { businessName, description, businessLogoUrl, businessType} = values;
 
   if (!userSnapshot.data()?.verification) {
     console.log(values, "values");
@@ -218,6 +218,5 @@ export const getProducts = async (uid) => {
   if (userSnapshot.data()?.verification) {
     return  userSnapshot.data()?.products
   }
-
   
 }
