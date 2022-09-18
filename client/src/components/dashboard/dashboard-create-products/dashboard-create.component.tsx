@@ -7,12 +7,14 @@ import './dashboard-create.scss';
 import { UilShoppingBag, UilSortAmountDown, UilPricetagAlt, UilDollarAlt, UilImage } from '@iconscout/react-unicons'
 import { storage, addProductDetails, getProducts} from "../../../firebase/firebase.utils";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
+import { alert, close } from "../../../store/alert/alert.modal.reducer";
 
 
 const DashboardCreateProducts = () => {
 
+    const dispatch = useDispatch();
  const getUserUid: string | null = useSelector(
         (state: RootState) => state.currentUser.currentUser
       );
@@ -59,8 +61,17 @@ const uploadImage = async () => {
 
   const handleSubmit = async (e) => {
      e.preventDefault()
-    await uploadImage();
+    try {
+       await uploadImage();
     await addProductDetails(getUserUid, values);  
+    dispatch(alert("products added + "))
+    setTimeout(() => {
+      dispatch(close(""))
+    }, 2000)
+    }
+     catch(error) {
+
+     }
   }
 
   useEffect(() => {

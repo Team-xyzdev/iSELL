@@ -3,6 +3,7 @@
 
 //import relevant modules
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   UilPlus,
   UilEstate,
@@ -18,10 +19,12 @@ const DashboardSidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__component1">
+        <Link to='/dashboard/create'> 
         <button className="product__button">
           <UilPlus className="uil__plus" />
           <span> Create A Product</span>
         </button>
+        </Link>
         <div className="sidebarsub__component">
           <div className="home__dashboard">
             <UilEstate className="home__dash" />
