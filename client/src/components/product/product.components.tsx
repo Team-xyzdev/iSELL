@@ -7,7 +7,7 @@ import ProductItems from "./product-items/product-items";
 const Product = () => {
   return (
     <>
-      <Navbar />
+      <Navbar isActive={true} />
       <ProductItems />
       <ProductDisplay />
       <ProductFooter />

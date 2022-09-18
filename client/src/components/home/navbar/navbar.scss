@@ -1,28 +1,44 @@
 .navbar {
-    padding-left: 30px;
+  padding-left: 30px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px #a1a1aa;
+  padding: 0 10px 0px 10px;
+  img {
+    width: 60px;
+    height: 29px;
+    margin-top: 10px;
+  }
+  .sign_in_and_login {
     display: flex;
-    justify-content: space-between;
-    border-bottom: solid 1px  #A1A1AA;
-    padding: 0 10px 0px 10px;
-    img {
-        width: 60px;
-        height: 29px;
-        margin-top: 10px;
-    }
-    .sign_in_and_login{
-        display: flex;
-        flex-direction: row;
+    flex-direction: row;
 
-       p{
-           padding: 0 10px 0 5px;
-       } 
-       button:last-child{
-           cursor: pointer;
-           background-color: #18181B;
-           color: #FFFFFF;
-          //  padding: 5px;
-          margin: 5px;
-           border-radius: 10px;
-       }
+    p {
+      padding: 0 10px 0 5px;
     }
+    .navbar-btn {
+      cursor: pointer;
+      background-color: #18181b;
+      color: #ffffff;
+      //  padding: 5px;
+      margin: 5px;
+      border-radius: 10px;
+    }
+    .navbar-cart {
+      display: flex;
+      border-radius: 100%;
+      padding-left: 10px;
+      padding-right: 10px;
+      .cart {
+        width: 30px;
+        height: 30px;
+      }
+      .count {
+        text-align: center;
+      }
+    }
+    .navbar-nocart {
+      display: none;
+    }
+  }
 }

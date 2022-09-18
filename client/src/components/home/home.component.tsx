@@ -12,7 +12,7 @@ import SubSection from "./sub-section/sub-section.component";
 const Home = () => {
   return (
     <div className="homepage">
-      <Navbar />
+      <Navbar isActive={false} />
       <SplashSection />
       <SubSection />
       <HeroSection />

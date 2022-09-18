@@ -111,6 +111,7 @@ const ProductDisplay = () => {
       {/* dummy array being mapped */}
       {product.map((item, i) => (
         <Item
+          id={i}
           key={i}
           itemType={item.type}
           name={item.productName}
