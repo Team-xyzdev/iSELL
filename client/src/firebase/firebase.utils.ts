@@ -23,7 +23,10 @@ import {
   setDoc,
   DocumentData,
   DocumentReference,
+  FieldValue,
+  arrayUnion,
   DocumentSnapshot,
+  updateDoc,
 } from "firebase/firestore";
 
 //storage ref
@@ -78,6 +81,7 @@ export const createUserDocumentFromAuth = async (
     const { displayName, email }: any = userAuth;
     const createdAt: Date = new Date();
     const verification: boolean = false;
+    const products:Array<any> = [];
     const businessDetails: Object = {
       business_name: "",
       business_description: "",
@@ -93,6 +97,7 @@ export const createUserDocumentFromAuth = async (
         createdAt,
         verification,
         businessDetails,
+        products,
         ...additionalInformation,
       });
     } catch (error: any) {
@@ -179,3 +184,27 @@ export const addSetupDetails = async (uid, values, wallet) => {
     }
   }
 };
+
+// add product to firestore
+export const addProductDetails = async (uid, values) => {
+
+  const filteredObj = Object.fromEntries(Object.entries(values).filter(([key]) => !key.includes('imageLogo')));
+ 
+  const getDocRef:any = doc(db, "users", uid);
+  const userSnapshot:any= await getDoc(getDocRef);
+
+  if (userSnapshot.data()?.verification) {
+    try {
+      await updateDoc(
+        getDocRef,
+         {
+         products: arrayUnion(filteredObj),
+       }
+       )
+    }
+    catch(error){
+         console.log(error)
+    }
+
+  }
+}
