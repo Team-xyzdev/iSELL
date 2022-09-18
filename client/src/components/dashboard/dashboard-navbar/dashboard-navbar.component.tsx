@@ -4,7 +4,7 @@
 //import relevant modules
 import React from "react";
 import './dashboard-navbar.scss';
-import { UilAngleDown} from '@iconscout/react-unicons'
+
 
 // import logo
 const isellLogo : string = require('../../../assets/isell-logo.png');
@@ -20,7 +20,6 @@ const DashboardNavbar = () => {
             <div className="navbar__content">
               <img className="person__logo" src={person} alt="person pfp" />
               <p className="person__p"> Zion Igwe</p>
-              <UilAngleDown className="angle__down"/>
             </div>
         </div>
            

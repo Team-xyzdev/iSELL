@@ -10,6 +10,7 @@ import {
 } from "../../firebase/firebase.utils";
 
 //importing relevant modules
+
 import { useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
 import validateInfo from "../../validation/validation2";
@@ -32,6 +33,7 @@ const isellLogo = require('../../assets/isell-logo.png');
 //JSX login
 const Login = () => {
    const dispatch = useDispatch()
+
   //sign in with google
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
@@ -39,7 +41,8 @@ const Login = () => {
     const verified = await checkverification(user.uid);
     dispatch(setCurrentUser(user.uid))
     if(verified) {
-    return  window.location.pathname = '/'
+    
+    return  window.location.pathname = '/dashboard'
     }
    return  window.location.pathname = '/setup'
   };
@@ -81,7 +84,7 @@ const Login = () => {
     setCurrentUser(user.uid);
 
     if(verified) {
-    return  window.location.pathname = '/'
+    return  window.location.pathname = '/dashboard'
     }
    return  window.location.pathname = '/setup'
 

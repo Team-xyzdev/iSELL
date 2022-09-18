@@ -18,18 +18,20 @@ import storage from "redux-persist/lib/storage";
 import userReducer from "./user/user.reducer";
 import basketReducer from "./basket/basket";
 
+
 const presistConfig = {
   key: "main-root",
   storage,
 };
 
-const presistedReducer = persistReducer(presistConfig, basketReducer);
+const cartReducer = persistReducer(presistConfig, basketReducer);
+const userReduce = persistReducer(presistConfig, userReducer)
 
 //creating store
 export const store = configureStore({
   reducer: {
-    currentUser: userReducer,
-    basket: presistedReducer,
+    currentUser: userReduce,
+    basket: cartReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
