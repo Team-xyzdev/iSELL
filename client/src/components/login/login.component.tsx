@@ -154,7 +154,10 @@ const Login = () => {
                 <input type="checkbox" />
                 <p>Remember me</p>
                </div>
+              <Link to='/reset'>
                <p>Forgot Password?</p>
+              </Link>
+             
              </div>
              <button type="submit">
                Sign In
