@@ -1,0 +1,112 @@
+// Copyright iSELL 💳 2022 
+// 17 U.S.C §§ 101-1511
+
+.login {
+	display: flex;
+	background-color: #ffff;
+	flex-direction: row;
+	justify-content: space-between;
+
+	@media screen and (max-width: 1000px) {
+		text-align: center;
+		justify-content: center;
+	}
+
+	.login__component1 {
+		display: flex;
+		flex-direction: column;
+        padding: 50px;
+
+		@media screen and (max-width: 1000px) {
+		 padding-left: 0px;
+		 padding-right: 0px;
+
+		}
+	  img {
+		  width : 50px;
+		  padding: 20px;
+          cursor: pointer;
+
+	@media screen and (max-width: 1000px) {
+		    padding: 0px;
+			position: absolute;
+			left: 30px;
+		}
+	  }
+	  .log__body {
+		padding-top: 75px; 
+		display: flex;
+		flex-direction: column;
+
+		.email__address {
+			display: flex;
+			flex-direction: row;
+			
+			
+		  .envelope{
+			 display: flex;
+             position: absolute;
+			 margin-top: 10px;
+			 color: #A1A1AA;
+			 margin-left: 10px;
+			 width: 15px;
+			}
+		  input {
+			background: #FAFAFA;
+			border: 1px solid #D4D4D8;
+			border-radius: 5px;
+			padding-left: 35px;
+			width: 300px;
+			height: 40px;
+			outline: none;
+		  }
+			
+		}
+	
+		button {
+			display: flex;
+			cursor: pointer;
+			background: #18181B;
+			width: 100%;
+			justify-content: center;
+			padding: 7px;
+			border-radius: 10px;
+			font-weight: bold;
+			outline: none;
+			color: #fff;
+			-webkit-appearance: button;
+			border: none;
+			margin-top: 17px;
+			height: 40px;
+			align-items: center;
+			align-content: center;
+		}
+     
+	  }
+	}
+	.forgot__component2 {
+		position: relative;
+		border-radius: 10px;
+		display: flex;
+		width: 50vw;
+		height: 100vh;
+		background: url('../../assets/forgot.jpeg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		@media screen and (max-width : 1000px) {
+			display: none;
+		}
+    //  .forgot__layer{
+	//   background: linear-gradient(90deg, #44BCFF -0.55%, #44B0FF 22.86%, #FF44EC 48.36%, #FF44EC 73.33%, #FF675E 99.34%);
+	//   opacity: 0.9;
+	//   filter: blur(70.333px);
+	//   transform: matrix(1, 0, 0, 1, 0, 0); 
+    //   position: absolute;
+	//   height: 208.42px;
+	//   left: 0px;
+	//   top: 490.97px;
+	//   width: 50vw;
+    // }
+
+	}
+}

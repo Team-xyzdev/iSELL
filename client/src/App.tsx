@@ -28,10 +28,9 @@ import { setCurrentUser } from "./store/user/user.reducer";
 import Product from "./components/product/product.components";
 import { RootState } from "./store/store";
 import CheckOut from "./pages/check-out/check-out";
-
 import Stores from "./pages/stores/stores";
-
 import AlertModal from "./statics/AlertModal";
+import ForgotPasswordPage from "./pages/forgot-password/ForgotPasswordPage";
 
 
 function App() {
@@ -71,7 +70,7 @@ function App() {
           <Route path="/dashboard/*" element={<DashboardPage />} />
         )}
         <Route path="/checkout" element={<CheckOut />} />
-       
+        <Route path="/reset" element={<ForgotPasswordPage />} />
       </Routes>
     </Router>
   );
