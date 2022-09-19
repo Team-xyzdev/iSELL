@@ -76,6 +76,15 @@ const Login = () => {
     e.preventDefault();
     setErrors(validateInfo(values));
     setIsSubmitting(true);
+
+    if(!email && !password) {
+      dispatch(error('Fill all inputs'));
+      setTimeout(() => {
+        dispatch(closeModal(""))
+       }, 2000);
+       return
+    }
+
   try {
     const {user} :any["user"] = await signInAuthUserWithEmailAndPassword(
       email,
@@ -86,8 +95,20 @@ const Login = () => {
     setCurrentUser(user.uid);
 
     if(verified) {
+      setValues({
+        ...values,
+      email: "",
+      password: "",
+      loginType : false
+      })
     return  window.location.pathname = '/dashboard'
     }
+    setValues({
+      ...values,
+    email: "",
+    password: "",
+    loginType : false
+    })
    return  window.location.pathname = '/setup'
 
   }

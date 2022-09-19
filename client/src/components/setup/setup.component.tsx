@@ -3,7 +3,7 @@
 
 //importing relevant modules
 import { useState, useRef, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import "./setup.scss";
 import { Link } from "react-router-dom";
@@ -18,7 +18,7 @@ import { createVendorWallet } from "../../rapyd-hooks/create-vendor.wallet";
 import countries from "i18n-iso-countries";
 import enLocale from "i18n-iso-countries/langs/en.json";
 import itLocale from "i18n-iso-countries/langs/it.json";
-
+import { error,closeModal  } from "../../store/error-message/error-message.reducer";
 // import firebase modules
 import {
   storage,
@@ -84,6 +84,8 @@ const Setup = () => {
     });
   };
 
+  const dispatch = useDispatch()
+
   const getDetailsFromDB = async () => {
     if (!getUserUid) return;
     return await getDataFromUID(getUserUid);
@@ -97,6 +99,13 @@ const Setup = () => {
   // handle form submit
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    if(!imageLogo && businessType==="default" && selectedCountry) {
+      dispatch(error('Fill all inputs'));
+      setTimeout(() => {
+        dispatch(closeModal(""))
+       }, 2000);
+       return
+    }
     const user: DocumentData | any = await getDetailsFromDB();
 
     // console.log(values, 'submit')
@@ -110,8 +119,31 @@ const Setup = () => {
 
     const verified = await checkverification(getUserUid);
     if (verified) {
+          setValues({
+            ...values,
+            businessName: "",
+            description: "",
+            businessLogoUrl: "",
+            imageLogo: "",
+            businessType: "default",
+            selectedCountry: "default",
+            business_wallet: "",
+            createdAt: new Date().toISOString().split("T")[0],
+          })
+          
       return (window.location.pathname = "/dashboard");
     } else {
+      setValues({
+        ...values,
+        businessName: "",
+        description: "",
+        businessLogoUrl: "",
+        imageLogo: "",
+        businessType: "default",
+        selectedCountry: "default",
+        business_wallet: "",
+        createdAt: new Date().toISOString().split("T")[0],
+      })
       return (window.location.pathname = "/setup");
     }
   };
