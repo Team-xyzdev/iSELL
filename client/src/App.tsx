@@ -31,6 +31,7 @@ import CheckOut from "./pages/check-out/check-out";
 import Stores from "./pages/stores/stores";
 import AlertModal from "./statics/AlertModal";
 import ForgotPasswordPage from "./pages/forgot-password/ForgotPasswordPage";
+import ErrorMessage from "./statics/ErrorMessage";
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
   return (
     <Router>
        <AlertModal />
+       <ErrorMessage />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<RegisterPage />} />
