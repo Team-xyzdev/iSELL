@@ -1,10 +1,17 @@
 .dashboard {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
 
   .dashboard__main {
-      display: flex;
-      flex-direction: row;;
+    // display: flex;
+    // flex-direction: row;;
+    display: grid;
+    overflow-y: scroll;
+    position: sticky;
+    overflow-x: hidden;
+    top: 0;
+    height: 100vh;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
