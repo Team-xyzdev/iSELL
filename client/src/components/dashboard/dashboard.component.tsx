@@ -11,7 +11,6 @@ import "./dashboard.scss";
 
 //import sections of the dashboard
 import DashboardNavbar from "./dashboard-navbar/dashboard-navbar.component";
-import { useNavigate } from "react-router-dom";
 import DashboardSidebar from "./dashboard-sidebar/dashboard-sidebar.component";
 import DashboardProducts from "./dashboard-products/dashboard-products.component";
 import DashboardSales from "./dashboard-sales/dashboard-sales.component";
@@ -22,7 +21,7 @@ import { db } from "../../firebase/firebase.utils";
 // import DashboardCustomers from "./dashboard-customers/dashboard-customers";
 
 const Dashboard = () => {
-  const Navigate = useNavigate()
+
   const getUserUid: any = useSelector(
     (state: RootState) => state.currentUser.currentUser
   );

@@ -7,12 +7,10 @@ import ProductItems from "./product-items/product-items";
 
 const Product = () => {
   const { state }: any = useLocation();
-  const hii = () => {
-    console.log(state);
-  };
+   
   return (
     <>
-      <Navbar isActive={true} />
+      <Navbar isActive={true} state={state} />
       <ProductItems
         imageUrl={state?.businessDetails.business_url}
         name={state?.businessDetails.business_name}

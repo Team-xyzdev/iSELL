@@ -10,7 +10,7 @@ const StoresComponent = () => {
   const stores = async () => {
     products = await getStores();
     setProductStores(products);
-    console.log(products);
+    console.log(products, 'okay');
   };
 
   const toProductPage = (product: any) => {

@@ -12,25 +12,27 @@ import axios from 'axios';
 export const checkoutRouter = express.Router();
 
 // getting all countries
-checkoutRouter.get('/', async (req : Request, res : Response) => {
+checkoutRouter.post('/', async (req : Request, res : Response) => {
   const http_method = "post"
   const url_path = "/v1/checkout"
-
+  console.log(req.body)
+const {ewallet, amount, items} = req.body
  const body = {
-    amount: 100.00,
+    amount: amount,
     complete_payment_url: "http://example.com/complete",
     country: "SG",
-    currency: "SGD",
+    currency: "USD",
     error_payment_url: "http://example.com/error",
-    merchant_reference_id: "1009-2022",
+    merchant_reference_id: `${amount}-2022`,
     requested_currency: "USD",
     metadata: {
         merchant_defined: true
     },
-    ewallet : "ewallet_5cc925d5a3c8366e751aadd913745546",
+    ewallet : ewallet,
     payment_method_type_categories: [
         "card"
-    ]
+    ],
+    // cart_items : [items]
 }
   const headers = {
         'Content-Type': 'application/json',
@@ -53,10 +55,12 @@ checkoutRouter.get('/', async (req : Request, res : Response) => {
     const response =  await axios(request)
      console.log(response.data)
     res.json({
-          data : response.data
+          checkoutLink : response.data.data
         });
       } catch (error) {
         res.json(error);
       }
 
 })
+
+
