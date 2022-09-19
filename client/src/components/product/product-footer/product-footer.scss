@@ -18,12 +18,35 @@
       height: 30px;
       width: 70px;
     }
+    .isell-text {
+      font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 22px;
+/* or 157% */
+
+
+/* gray/600 */
+
+color: #52525B;
+    }
   }
   .copy-text {
-    height: 7vh;
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    /* identical to box height, or 157% */
+
+    text-align: center;
+
+    /* gray/500 */
+
+    color: #71717A;
   }
 }

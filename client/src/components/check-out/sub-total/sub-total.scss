@@ -3,7 +3,7 @@
   background-color: whitesmoke;
   margin: auto;
   margin-top: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 10px;
   .div-1 {
     .text-1 {
@@ -18,9 +18,12 @@
   }
   button {
     padding: 5px;
-    border-radius: 2px;
+    border-radius: 8px;
     border-color: beige;
+    outline: none;
     background-color: black;
+    cursor: pointer;
     color: white;
+    text-transform: capitalize;
   }
 }

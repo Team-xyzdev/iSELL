@@ -17,7 +17,7 @@ import validateInfo from "../../validation/validation";
 import { Link } from "react-router-dom";
 import { setCurrentUser } from '../../store/user/user.reducer';
 import { UilUser, 
-      UilEnvelope,  UilLock, UilEye
+      UilEnvelope,  UilLock, UilEye, UilEyeSlash
   } from '@iconscout/react-unicons'
 
 //google icon imported with ES5
@@ -34,7 +34,8 @@ const Register = () => {
     displayName: "",
     email: "",
     password: "",
-    confirm_password: ""
+    confirm_password: "",
+    loginType : false
   });
 
   // getting values for each
@@ -145,20 +146,42 @@ const Register = () => {
                  <input 
                   onChange={handleChange}
                   value={values.password}
-                  type='password'
+                  type={values.loginType ? "text" : "password" }
                   name="password"
                   placeholder="Password" />    
-                <UilEye className="show__hide" />
+                   {
+                   values.loginType ? 
+                   <UilEye className="show__hide" onClick={(e) => {  setValues({
+                                                                            ...values,
+                                                                            loginType: !values.loginType,
+                                                                          })}} />
+                                                         : 
+                   <UilEyeSlash  className="show__hide" onClick={(e) => {  setValues({
+                    ...values,
+                    loginType: !values.loginType,
+                  })}} />  
+                }
              </div>
              <div className="password__tag">
                 <UilLock className="password__lock"/>
                 <input 
                 onChange={handleChange}
                 value={values.confirm_password}
-                 type='password'
+                type={values.loginType ? "text" : "password" }
                  name="confirm_password"
                  placeholder="Confirm Password" />    
-                <UilEye className="show__hide" />
+                         {
+                   values.loginType ? 
+                   <UilEye className="show__hide" onClick={(e) => {  setValues({
+                                                                            ...values,
+                                                                            loginType: !values.loginType,
+                                                                          })}} />
+                                                         : 
+                   <UilEyeSlash  className="show__hide" onClick={(e) => {  setValues({
+                    ...values,
+                    loginType: !values.loginType,
+                  })}} />  
+                }
              </div>
              <button type="submit">
                Sign Up

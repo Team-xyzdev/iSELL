@@ -51,6 +51,7 @@ const Login = () => {
   const [values, setValues] = useState({
     email: "",
     password: "",
+    loginType : false
   });
 
   // getting the values 
@@ -130,11 +131,23 @@ const Login = () => {
                 <UilLock className="password__lock"/>
                 <input 
                 onChange={handleChange}
-                 type='password'
+                 type={!values.loginType ? "password" : "text"}
                  value={values.password}
                  name="password"
-                 placeholder="Password" />    
-                <UilEye className="show__hide" />
+                 placeholder="Password" />  
+                 {
+                   values.loginType ? 
+                   <UilEye className="show__hide" onClick={(e) => {  setValues({
+                                                                            ...values,
+                                                                            loginType: !values.loginType,
+                                                                          })}} />
+                                                         : 
+                   <UilEyeSlash  className="show__hide" onClick={(e) => {  setValues({
+                    ...values,
+                    loginType: !values.loginType,
+                  })}} />                                                     
+                 }  
+               
              </div>
              <div className="forgot__password">
                <div className="remember__me">
