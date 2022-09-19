@@ -24,7 +24,7 @@ export const errorSlice= createSlice({
     state.errorMessage.openModal = true
     state.errorMessage.modalContent= action.payload 
    },
-  close : (state :any, action :PayloadAction<string>)  => {
+  closeModal : (state :any, action :PayloadAction<string>)  => {
     state.errorMessage.openModal = false
   }
   }
@@ -33,7 +33,7 @@ export const errorSlice= createSlice({
 })
 
 // dispatch
-export const {error, close} = errorSlice.actions
+export const {error, closeModal} = errorSlice.actions
 
 //reducer
 export default errorSlice.reducer

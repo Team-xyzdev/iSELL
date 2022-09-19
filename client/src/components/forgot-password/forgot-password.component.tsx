@@ -7,19 +7,40 @@ import './forgot.scss';
 import {UilEnvelope} from '@iconscout/react-unicons'
 import { Link } from "react-router-dom";
 import { resetPassword } from "../../firebase/firebase.utils";
+import { error, closeModal} from "../../store/error-message/error-message.reducer";
+import { alert , close} from "../../store/alert/alert.modal.reducer";
+import { useDispatch } from "react-redux";
 
 const ForgotPassword = () => {
+    const dispatch = useDispatch()
  const [email, setEmail] = useState("");
     const isellLogo= require('../../assets/isell-logo.png');
-  const handleSubmit = async (e) => {
+    
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    !email &&  dispatch(error("Enter Email Address"))          
+    setTimeout(() => {
+        dispatch(closeModal(""))
+       }, 2000)
     try {
-      e.prevenDefault();
        await  resetPassword(email)
-       setEmail("")  
+    
     }
-      catch(err) {
+      catch(err :any) {
+        if(err.code === 'auth/network-request-failed') {
+         dispatch(error("A network error, try again later"))
+         setTimeout(() => {
+          dispatch(closeModal(""))
+         }, 2000)
+        } else {
+          dispatch(error(`user not found`))
+          setTimeout(() => {
+            dispatch(closeModal(""))
+           }, 2000)
+        }
           console.log(err)
       }
+         setEmail("")  
   }
 
     return (

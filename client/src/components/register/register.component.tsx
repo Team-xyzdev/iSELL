@@ -19,6 +19,7 @@ import { setCurrentUser } from '../../store/user/user.reducer';
 import { UilUser, 
       UilEnvelope,  UilLock, UilEye, UilEyeSlash
   } from '@iconscout/react-unicons'
+import { error, closeModal } from '../../store/error-message/error-message.reducer';
 
 //google icon imported with ES5
 const googleLogo = require('../../assets/google.png');
@@ -72,7 +73,10 @@ const Register = () => {
     e.preventDefault();
 
     if (password !== confirm_password) {
-      alert('passwords do not match');
+      dispatch(error("passwords doesn't match"))
+      setTimeout(() => {
+        dispatch(closeModal(""))
+       }, 2000)
       return;
     }
 
@@ -94,12 +98,30 @@ const Register = () => {
    return  window.location.pathname = '/setup'
  }
 
-   catch(error : any) {
-    if (error.code === 'auth/email-already-in-use') {
-      alert('Cannot create user, email already in use');
-    } else {
-      console.log('user creation encountered an error', error);
+   catch(err : any) {
+    if (err.code === 'auth/email-already-in-use') {
+      dispatch(error("email already in use'"))
+      setTimeout(() => {
+        dispatch(closeModal(""))
+       }, 2000)
+
     }
+    if(err.code === 'auth/network-request-failed') {
+    dispatch(error("Network error, Try again later"))
+    setTimeout(() => {
+      dispatch(closeModal(""))
+     }, 2000)
+    }
+    if(err.code === 'auth/invalid-email'){
+      dispatch(error("Email is badly formatted"))
+    setTimeout(() => {
+      dispatch(closeModal(""))
+     }, 2000)
+    }
+    
+  
+      console.log('user creation encountered an error', err);
+  
    }
 
     setErrors(validateInfo(values));
@@ -130,7 +152,8 @@ const Register = () => {
                  type='text'
                  value={values.displayName}
                  name='displayName'
-                 onChange={handleChange} />
+                 onChange={handleChange}
+                 required />
                </div>
                <div className="email__address"> 
                 <UilEnvelope className="envelope"/>
@@ -139,16 +162,20 @@ const Register = () => {
                   name="email"
                   type='text' 
                   value={values.email}
-                  placeholder="Email address"/>
+                  placeholder="Email address"
+                  required />
                 </div>
                 <div className="password__tag">
                  <UilLock className="password__lock"/>
                  <input 
                   onChange={handleChange}
+                  title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number, (min.8 characters)" 
+                  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
                   value={values.password}
                   type={values.loginType ? "text" : "password" }
                   name="password"
-                  placeholder="Password" />    
+                  placeholder="Password" 
+                  required/>    
                    {
                    values.loginType ? 
                    <UilEye className="show__hide" onClick={(e) => {  setValues({
@@ -166,10 +193,12 @@ const Register = () => {
                 <UilLock className="password__lock"/>
                 <input 
                 onChange={handleChange}
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
                 value={values.confirm_password}
                 type={values.loginType ? "text" : "password" }
                  name="confirm_password"
-                 placeholder="Confirm Password" />    
+                 placeholder="Confirm Password"
+                 required />    
                          {
                    values.loginType ? 
                    <UilEye className="show__hide" onClick={(e) => {  setValues({

@@ -20,22 +20,25 @@ App {
   overflow-x: hidden;
 }
 h1, h2 {
-  font-family: TT Firs Neue ,'Courier New';
+  font-family: TT Firs Neue ,'sans-serif';
 }
 
 p {
-  font-family: TT Firs, 'Courier New';
+  font-family: TT Firs, 'sans-serif';
 }
 button {
-  font-family: TT Firs, 'Courier New';
+  font-family: TT Firs, 'sans-serif';
   text-transform: uppercase;
 }
 
 input {
-  font-family: TT Firs, 'Courier New';
+  font-family: TT Firs, 'sans-serif';
 }
+// input:invalid {
+//   border: solid 1px green !important;
+// }
 select, option {
-  font-family: TT Firs, 'Courier New';
+  font-family: TT Firs, 'sans-serif';
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

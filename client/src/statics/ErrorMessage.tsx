@@ -33,12 +33,15 @@ const ErrorMessage = () => {
       alignItems: "center",
       textAlign: "center",
       flexDirection: "row",
-      background: "red",
+      background: "brown",
       color: "white",
       textTransform: "capitalize",
     }}
     >
-     <p>{modalContent} X</p>
+     <p style={{
+         display: "flex",
+         fontSize: "14px"
+     }}>{modalContent}</p>
     </div>
   )
 }

@@ -18,6 +18,7 @@ import { Link } from "react-router-dom";
 import { setCurrentUser } from "../../store/user/user.reducer";
 import { UilEnvelope,
     UilLock , UilEye, UilEyeSlash } from '@iconscout/react-unicons'
+import { error ,closeModal} from "../../store/error-message/error-message.reducer";
 
 //importing styles
 import "./login.scss";
@@ -90,16 +91,34 @@ const Login = () => {
    return  window.location.pathname = '/setup'
 
   }
-  catch(error : any) {
-    switch (error.code) {
+  catch(err : any) {
+    switch (err.code) {
       case 'auth/wrong-password':
-        alert('incorrect password for email');
+        dispatch(error('incorrect password for email'));
+        setTimeout(() => {
+          dispatch(closeModal(""))
+         }, 2000);
         break;
       case 'auth/user-not-found':
-        alert('no user associated with this email');
+        dispatch(error('no user associated with this email'));
+        setTimeout(() => {
+          dispatch(closeModal(""))
+         }, 2000);
         break;
+      case "auth/network-request-failed" :
+        dispatch(error('network error, try again later'));
+        setTimeout(() => {
+          dispatch(closeModal(""))
+         }, 2000);
+         break;
+      case "auth/too-many-requests" :
+          dispatch(error('too many requests, try again later'));
+          setTimeout(() => {
+            dispatch(closeModal(""))
+           }, 2000);
+           break;
       default:
-        console.log(error);
+        console.log(err);
     }
   }
   };

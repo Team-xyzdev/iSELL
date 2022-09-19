@@ -32,7 +32,7 @@ const {ewallet, amount, items} = req.body
     payment_method_type_categories: [
         "card"
     ],
-    expiration: 600
+    // expiration: 600
     // cart_items : [items]
 }
   const headers = {
