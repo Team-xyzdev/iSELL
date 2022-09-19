@@ -1,50 +1,63 @@
 .dashboard__navbar {
+  // display: flex;
+  // justify-content: space-between;
+  // flex-direction: row;
+  box-shadow: 0px 1px 0px rgba(18, 32, 59, 0.09);
+  border-bottom: 1px solid #e4e4e7;
+
+  display: grid;
+  overflow-y: scroll;
+  position: sticky;
+  top: 0;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  z-index: 10;
+
+  .dashboard__sidebar {
+    display: block;
+    overflow: hidden;
+    padding-left: 20px;
+    grid-column: span 1 / span 1;
+    position: sticky;
+    // display: flex;
+    // flex-direction: column;
+    border-right: 1px solid #e4e4e7;
+    padding-right: 130px;
+
+    .dashboard__logo {
+      padding: 20px 0px 20px 0px;
+      width: 50px;
+      height: 20px;
+      //    padding-right: 20px;
+    }
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .navbar__content {
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
-    padding: 0px 20px 0px 20px;
-    box-shadow: 0px 1px 0px rgba(18, 32, 59, 0.09);
-    border-bottom: 1px solid #E4E4E7;
-   
-    .dashboard__sidebar {
-        display: flex;
-        flex-direction: column;
-        border-right: 1px solid #E4E4E7;
-        padding-right: 130px;
-      
+    margin-bottom: 4px;
+    padding-top: 20px;
+    padding-right: 20px;
+    justify-self: flex-end;
+    grid-column: span 4 / span 4;
+    position: sticky;
 
-        .dashboard__logo{
-            padding: 20px 0px 20px 0px;
-            width: 50px;
-            height: 20px;
-         //    padding-right: 20px;
-        
-         }
-         .sidebar {
-             display: flex;
-             flex-direction: column;
-         }
+    .person__logo {
+      height: 30px;
+      width: 30px;
+      border-radius: 100%;
+      padding: 0 10px 0 10px;
     }
-   
-    .navbar__content {
-        display: flex; 
-        flex-direction: row;
-        margin-bottom: 4px;
-        padding-top: 20px;
-
-      .person__logo{
-          height: 30px;
-          width: 30px;
-          border-radius: 100%;
-          padding: 0 10px 0 10px;
-      }  
-      .person__p {
-          margin-top: 5px;
-          font-size: 13px;
-        padding: 0 10px 0 10px;
-      }
-      .angle__down {
-          margin: 5px 0px 0px 0px;
-      }
+    .person__p {
+      margin-top: 5px;
+      font-size: 13px;
+      padding: 0 10px 0 10px;
     }
+    .angle__down {
+      margin: 5px 0px 0px 0px;
+    }
+  }
 }
