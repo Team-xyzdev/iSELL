@@ -45,8 +45,6 @@ Run-On-Local-Machine
 ```
 * create `.env` file in the client and server directory
 
-
-
   ### Client
 
 * open `client` in your text editor
@@ -126,7 +124,8 @@ $ yarn add
 ```
 Links
 ============
-* [live link](https://i-sell.netlify.app/)
+* [netlify-link](https://i-sell.netlify.app/)
+* [iSELL-PRD](https://drive.google.com/file/d/1rS-kyjRK7UmENlO-NxZ8qRngGw4zNoqP/view?usp=sharing)
 * [Devpost](https://devpost.com/software/isell)
 * [Figma](https://www.figma.com/file/ZbSmB7scxfoeWxkgybsfpL/iSell?node-id=263%3A492)
 
