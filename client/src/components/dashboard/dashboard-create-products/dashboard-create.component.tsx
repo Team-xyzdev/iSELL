@@ -76,7 +76,7 @@ const handleChange = (e: any) => {
     try {
        await uploadImage();
     await addProductDetails(getUserUid, values);  
-    dispatch(alert("products added + "))
+    dispatch(alert("products added ✅ "))
     setTimeout(() => {
       dispatch(close(""))
     }, 2000)
