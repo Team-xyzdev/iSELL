@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { BASKET_ACTION_TYPES } from "../basket/basket-types";
+import { BASKET_ACTION_TYPES } from "./basket-types";
 
 // user types
 interface currentBasketType {
