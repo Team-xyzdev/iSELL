@@ -4,11 +4,14 @@ import "./check-out.scss";
 import SubTotal from "./sub-total/sub-total";
 import { useSelector } from "react-redux";
 import { getTotalBasketPrice } from "../../store/basket/basket";
+import { useLocation } from "react-router-dom";
 
 const CheckOutComponent = () => {
   // basketTotal
   const cart = useSelector((state: any) => state.basket);
-  const basketItems = cart.basket;
+  const basketItems:any = cart.basket;
+  const {state}:any = useLocation()
+  console.log(state);
 
   return (
     <div className="check-out">
@@ -33,6 +36,8 @@ const CheckOutComponent = () => {
       </div>
       <div className="right-div">
         <SubTotal
+          items={basketItems}
+          ewallet={state?.businessDetails?.business_wallet}
           quantity={basketItems?.length}
           shipping={8}
           totalPrice={getTotalBasketPrice(basketItems)}

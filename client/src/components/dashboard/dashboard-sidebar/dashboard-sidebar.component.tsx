@@ -27,8 +27,12 @@ const DashboardSidebar = () => {
         </Link>
         <div className="sidebarsub__component">
           <div className="home__dashboard">
-            <UilEstate className="home__dash" />
-            <p className="dashboard__paragraph">Dashboard</p>
+            
+             <UilEstate className="home__dash" />
+             <Link to='/dashboard'>
+             <p className="dashboard__paragraph">Dashboard</p>
+            </Link>
+           
           </div>
           <div className="analytics__dashboard">
             <p className="analytics">Analytics</p>
@@ -47,8 +51,12 @@ const DashboardSidebar = () => {
           <div className="shop__dashboard">
             <p>Shop</p>
             <div>
-              <UilFolder className="products" />
+             
+              <UilFolder className="products" /> 
+              <Link to='/dashboard'>
               <p>Products</p>
+              </Link>
+          
             </div>
           </div>
         </div>

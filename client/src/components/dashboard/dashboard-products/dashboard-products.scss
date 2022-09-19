@@ -46,11 +46,11 @@
      .products {
          display: grid;
          grid-template-columns: 1fr 1fr 1fr 1fr;
-         grid-gap : 10px;
-      
+         grid-gap : 10px; 
          padding: 80px 10px 0px 10px;
          width: 80vw;
 
+    
         .product {
             margin: 10px;
             background: whitesmoke; 
@@ -90,6 +90,9 @@
         }
  
         }  
+        .product:last-child {
+            width: 17vw;
+        }
         .product__details {
               width: 20vw;
              margin-top: 10px 10px 5px 10px;
