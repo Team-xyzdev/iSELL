@@ -2,10 +2,8 @@
 // 17 U.S.C §§ 101-1511
 
 // importing relevant modules
-import axios from "axios"
 import {config } from './config';
-// import { setVendorWallet } from "../store/vendor-wallet/wallet.reducer";
-// import { useDispatch } from "react-redux";
+
 
 export const createVendorWallet = async (values, user) => {
     // const dispatch = useDispatch();
