@@ -126,9 +126,9 @@ $ yarn add
 ```
 Links
 ============
-[live link](https://i-sell.netlify.app/)
-[Devpost](https://devpost.com/software/isell)
-[Figma](https://www.figma.com/file/ZbSmB7scxfoeWxkgybsfpL/iSell?node-id=263%3A492)
+* [live link](https://i-sell.netlify.app/)
+* [Devpost](https://devpost.com/software/isell)
+* [Figma](https://www.figma.com/file/ZbSmB7scxfoeWxkgybsfpL/iSell?node-id=263%3A492)
 
 
 License
