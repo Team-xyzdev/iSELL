@@ -21,8 +21,11 @@
     // display: flex;
     // flex-direction: column;
     border-right: 1px solid #e4e4e7;
-    padding-right: 130px;
 
+    padding-right: 130px;
+   @media screen and (max-width: 768px) {
+     border: none;
+   }
     .dashboard__logo {
       padding: 20px 0px 20px 0px;
       width: 50px;
@@ -44,6 +47,46 @@
     justify-self: flex-end;
     grid-column: span 4 / span 4;
     position: sticky;
+
+    .menu-bars {
+      // position: fixed;
+      // top: 1rem;
+      // right: 2rem;
+      // z-index: 10;
+      // display: inline;
+    margin-top: 2px;
+      /* margin-left: 20px; */
+    background: whitesmoke;
+    border: solid 1px grey;
+    border-radius : 5px;
+      margin-right: 6px;
+      cursor: pointer;
+    }
+  
+  .bar1,
+    .bar2,
+    .bar3 {
+      width: 21px;
+      height: 2px;
+      background-color: black;
+      margin: 5px 5px 5px 6px;
+      transition: 0.4s;
+    }
+    
+    /* Rotate first bar */
+    .change .bar1 {
+      transform: rotate(-45deg)  translate(-6px, 5px);
+    }
+    
+    /* Fade out the second bar */
+    .change .bar2 {
+      opacity: 0;
+    }
+    
+    /* Rotate last bar */
+    .change .bar3 {
+      transform: rotate(45deg) translate(-5px, -4px);
+    }
 
     .person__logo {
       height: 30px;

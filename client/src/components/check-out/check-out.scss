@@ -1,4 +1,7 @@
 .check-out {
+  button:active, button:hover {
+    transform: translateY(2px);
+  }
   display: grid;
   @media only screen and (max-width: 768px) {
     display: flex;
@@ -6,10 +9,11 @@
   }
   grid-template-columns: repeat(5, minmax(0, 1fr));
   .left-div {
+    margin-top: 30px;
     grid-column: span 3 / span 3;
     padding: 10px;
     .showCart {
-      font-size: 25px;
+      font-size: 19px;
     }
     .div-1 {
       p {

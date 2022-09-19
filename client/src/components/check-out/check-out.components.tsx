@@ -19,7 +19,7 @@ const CheckOutComponent = () => {
       basketItems.length>0 ?
    <div className="check-out">
       <div className="left-div">
-        <p className="showCart">Showing Cart Items</p>
+        <h2 className="showCart">Checkout</h2>
         <div className="div-1">
           <p>Proceed and Checkout</p>
         </div>
