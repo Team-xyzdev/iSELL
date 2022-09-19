@@ -13,7 +13,7 @@ const SubTotal = ({ quantity, shipping, totalPrice, ewallet , items}:SubTypes) =
    console.log(ewallet)
 
    const checkoutPage = async () => {
-     const CheckOut = await createCheckoutPage( ewallet, totalPrice , items)
+     const CheckOut = await createCheckoutPage( ewallet, totalPrice + shipping , items)
       if(CheckOut) return window.location.href = CheckOut
      console.log(CheckOut, 'checkout')
    }

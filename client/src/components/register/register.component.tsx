@@ -93,8 +93,24 @@ const Register = () => {
    const verified = await checkverification(user.uid);
 
    if(verified) {
+     setValues({
+      ...values,
+      displayName: "",
+      email: "",
+      password: "",
+      confirm_password: "",
+      loginType : false
+     })
     return  window.location.pathname = '/'
    }
+   setValues({
+    ...values,
+    displayName: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+    loginType : false
+   })
    return  window.location.pathname = '/setup'
  }
 

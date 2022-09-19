@@ -14,12 +14,12 @@ import {
 import {
   storage,
   addProductDetails,
-  getProducts,
 } from "../../../firebase/firebase.utils";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { alert, close } from "../../../store/alert/alert.modal.reducer";
+import { error,closeModal } from "../../../store/error-message/error-message.reducer";
 
 const DashboardCreateProducts = () => {
 
@@ -71,8 +71,17 @@ const handleChange = (e: any) => {
   const { imageLogo } = values;
 
   const handleSubmit = async (e) => {
-
+  
      e.preventDefault()
+     if (!values.imageLogo && !values.imageUrl && !values.price && !values.product) {
+        dispatch(error("please fill all inputs"))          
+        setTimeout(() => {
+            dispatch(closeModal(""))
+           }, 2000)
+           return
+     }
+
+     
     try {
        await uploadImage();
     await addProductDetails(getUserUid, values);  
@@ -190,7 +199,7 @@ const handleChange = (e: any) => {
             <p className="upload__p">Upload Item</p>
           </div>
         </div>
-
+        
         <button type="submit">Add Item</button>
       </form>
     </div>

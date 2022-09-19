@@ -1,5 +1,8 @@
 # iSELL
-iSELL is a merchant payment web application leveraging rapyd APIs
+![image](https://i.postimg.cc/YSwPCwSL/isell-logo.png)
+
+iSELL is a merchant payment web application leveraging rapyd APIs for wallet creation and checkout
+
 
 # RUN ON LOCAL DEVELOPMENT
 

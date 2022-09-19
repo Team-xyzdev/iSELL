@@ -19,10 +19,12 @@ checkoutRouter.post('/', async (req : Request, res : Response) => {
 const {ewallet, amount, items} = req.body
  const body = {
     amount: amount,
-    complete_payment_url: "http://example.com/complete",
+    complete_payment_url: "https://chukwuemekakingsley.github.io/Success-Page/",
+    complete_checkout_url: "https://chukwuemekakingsley.github.io/Success-Page/",
+    cancel_checkout_url: "https://chukwuemekakingsley.github.io/Success-Page/",
     country: "SG",
     currency: "USD",
-    error_payment_url: "http://example.com/error",
+    error_payment_url: "https://chukwuemekakingsley.github.io/ErrorPage/",
     merchant_reference_id: `${amount}-2022`,
     requested_currency: "USD",
     metadata: {
