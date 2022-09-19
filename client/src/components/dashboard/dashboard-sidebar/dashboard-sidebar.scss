@@ -47,7 +47,7 @@
     .sidebarsub__component {
       display: flex;
       flex-direction: column;
-      padding: 10px 5px 10px 5px;
+      padding: 20px 9px 10px 16px;
       width: 200px;
       .home__dashboard {
         display: flex;
@@ -161,6 +161,7 @@
     }
   }
   .sidebar__component2 {
+    margin-left: 15px;
     margin-top: 180px;
     display: flex;
     width: 39%;

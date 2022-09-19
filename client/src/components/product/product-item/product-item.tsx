@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import "./product-item.scss";
 import { addToCart } from "../../../store/basket/basket";
-
+import {alert, close} from '../../../store/alert/alert.modal.reducer'
 interface Items {
   id: any;
   itemType: string;
@@ -22,12 +22,16 @@ const Item = ({ id, itemType, imageUrl, name, price }: Items) => {
         rating: itemType,
       })
     );
+    dispatch(alert("Items Added +"))
+    setTimeout(() => {
+      dispatch(close(""))
+    }, 2000)
     console.log("added");
   };
   return (
     <div className="item">
       <div className="div-1">
-        <p className="text-1">{itemType}</p>
+        {/* <p className="text-1">{itemType}</p> */}
         <img src={imageUrl} alt="product" className="image" />
       </div>
       <div className="div-2">

@@ -8,6 +8,7 @@
   @media only screen and (max-width: 768px) {
   }
   .div-1 {
+    border-radius: 7px;
     background: #f4f4f4;
     padding-top: 1px;
     padding-left: 7px;
@@ -21,8 +22,10 @@
       font-size: 12px;
     }
     .image {
-      width: 60%;
-      height: 150px;
+      width: 80%;
+      height: 141px;
+      margin-left: 29px;
+      border-radius: 10px;
       @media only screen and (max-width: 768px) {
         width: 70%;
         height: 100px;
@@ -57,6 +60,8 @@
     }
   }
   .buy-btn {
+    text-transform: capitalize;
+    cursor: pointer;
     background: #18181b;
     border-radius: 5px;
     color: white;

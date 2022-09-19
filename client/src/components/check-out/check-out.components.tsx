@@ -8,17 +8,20 @@ import { useLocation } from "react-router-dom";
 
 const CheckOutComponent = () => {
   // basketTotal
-  const cart = useSelector((state: any) => state.basket);
+  const cart :any = useSelector((state: any) => state.basket);
   const basketItems:any = cart.basket;
   const {state}:any = useLocation()
   console.log(state);
 
   return (
-    <div className="check-out">
+    <div>
+    {
+      basketItems.length>0 ?
+   <div className="check-out">
       <div className="left-div">
         <p className="showCart">Showing Cart Items</p>
         <div className="div-1">
-          <p>Hello, Xcity</p>
+          <p>Proceed and Checkout</p>
         </div>
         <div className="cart">
           {basketItems.map((item) => (
@@ -43,6 +46,10 @@ const CheckOutComponent = () => {
           totalPrice={getTotalBasketPrice(basketItems)}
         />
       </div>
+    </div>  :
+     window.location.pathname="/stores"
+     }
+   
     </div>
   );
 };

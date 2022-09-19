@@ -21,6 +21,7 @@
       cursor: pointer;
       background-color: #18181b;
       color: #ffffff;
+      padding: 10px;
       //  padding: 5px;
       margin: 5px;
       text-transform: capitalize;
@@ -36,6 +37,9 @@
         height: 30px;
       }
       .count {
+        font-size: 13px;
+        margin-top: 19px;
+        margin-left: -25px;
         text-align: center;
       }
     }
