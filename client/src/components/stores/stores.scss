@@ -9,13 +9,23 @@
   }
   .products {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
-
-    padding: 80px 10px 0px 10px;
+    // grid-template-columns: 1fr 1fr 1fr 1fr;
+    // grid-gap: 10px;
+    grid-template-columns: repeat(9, minmax(0, 1fr));
     width: 80vw;
+    padding: 80px 10px 0px 10px;
+    @media only screen and (max-width: 768px) {
+      width: 96vw;
+      padding: 40px 0px 0px 0px;
+      // padding-top: 40px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
 
     .store-p {
+      grid-column: span 3 / span 3;
+      @media only screen and (max-width: 768px) {
+        grid-column: span 2 / span 2;
+      }
       h2 {
         padding: 0px;
         font-size: 13px;
@@ -35,6 +45,9 @@
         // align-content: center;
         // text-align: center;
         width: 20vw;
+        @media only screen and (max-width: 768px) {
+          width: fit-content;
+        }
         height: 250px;
         img {
           display: flex;
